@@ -8,6 +8,7 @@ class AppButton extends StatelessWidget {
   final Color textColor;
   final bool isLoading;
   final String? label;
+  final double? size;
   final EdgeInsets padding;
 
   const AppButton({
@@ -17,19 +18,19 @@ class AppButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.isLoading = false,
     this.padding = const EdgeInsets.symmetric(vertical: 16),
-    @required this.label,
+    @required this.label, this.size,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
       onPressed: isLoading ? null : onPressed,
-      color: color,
+      color: color ?? null,
       textColor: textColor,
       padding: padding,
       child: Text(
         label!,
-        style: TextStyle(fontSize: 24),
+        style: TextStyle(fontSize: size ?? 16),
       ),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),

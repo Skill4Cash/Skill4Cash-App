@@ -23,3 +23,6 @@ const kSmallHorizontalSpacing = SizedBox(width: 16);
 const kMediumHorizontalSpacing = SizedBox(width: 24);
 
 const kLargeHorizontalSpacing = SizedBox(width: 32);
+
+//
+const kPad = 20.0;

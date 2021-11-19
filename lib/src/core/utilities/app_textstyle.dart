@@ -44,7 +44,7 @@ TextStyle labelText(BuildContext context) => TextStyle(
       fontWeight: FontWeight.w400,
     );
 
-TextStyle PlanlistText(BuildContext context) => TextStyle(
+TextStyle planlistText(BuildContext context) => TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w600,
       color: kTextColor,
