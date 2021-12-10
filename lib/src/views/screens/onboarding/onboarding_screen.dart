@@ -1,10 +1,13 @@
 import 'dart:async';
+
 import 'package:Skill4Cash/src/core/utilities/app_spacing.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:Skill4Cash/src/views/screens/onboarding/components/slide_one.dart';
+import 'package:Skill4Cash/src/views/screens/settings_customer/settings_screen.dart';
 import 'package:Skill4Cash/src/views/widgets/app_button.dart';
 import 'package:flutter/material.dart';
+
 import './components/slide_location.dart';
 import './components/slide_signIn.dart';
 
@@ -97,8 +100,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           children: List.generate(
                             1,
                             (index) => GestureDetector(
-                              
-                              child: buildIndicator(index, context)),
+                                child: buildIndicator(index, context)),
                           ),
                         ),
                       ),
@@ -109,22 +111,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  Container buildReadyButton() {
-    return Container(
-        alignment: Alignment.center,
-        height: kPad * 4,
-        width: kPad * 4,
-        // width: currentIndex == index ? 25 : 10,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: kPrimaryColor,
-        ),
-        child: Text(
-          "Ready",
-          style: heading2(context).copyWith(
-            color: kWhiteColor,
+  buildReadyButton() {
+    return GestureDetector(
+      onTap: () => Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => SettingScreen())),
+      child: Container(
+          alignment: Alignment.center,
+          height: kPad * 4,
+          width: kPad * 4,
+          // width: currentIndex == index ? 25 : 10,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: kPrimaryColor,
           ),
-        ));
+          child: Text(
+            "Ready",
+            style: heading2(context).copyWith(
+              color: kWhiteColor,
+            ),
+          )),
+    );
   }
 
   Container buildAuthButtons() {
