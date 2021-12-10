@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
 class Background extends StatelessWidget {
-  final Widget child;
-  const Background({
-    Key key,
-    @required this.child,
-  }) : super(key: key);
+  final Widget? child;
+  const Background({Key? key, @required this.child, this.size})
+      : super(key: key);
 
-  final Size size;
+  final Size? size;
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size? size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -29,12 +27,10 @@ class Background extends StatelessWidget {
             Positioned(
                 top: 0,
                 left: 1,
-                child:
-                Image.asset(
+                child: Image.asset(
                   "assets/images/ellipse_2.png",
                   width: size.width * 0.35,
-                )
-            )
+                ))
           ],
         ),
       ),
