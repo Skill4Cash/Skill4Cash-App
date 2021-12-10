@@ -2,11 +2,9 @@ import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/views/screens/login_customer/components/background.dart';
 import 'package:flutter/material.dart';
 
-
-
 class Body extends StatelessWidget {
   const Body({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -18,16 +16,16 @@ class Body extends StatelessWidget {
         children: <Widget>[
           Text(
             "Welcome",
-            style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Gilory-ExtraBold'),
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontFamily: 'Gilory-ExtraBold'),
           ),
           TextFieldContainer(
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Email",
-                border: InputBorder.none,
-              ),
-            )
-          ),
+              child: TextField(
+            decoration: InputDecoration(
+              hintText: "Email",
+              border: InputBorder.none,
+            ),
+          )),
           RoundedInputField(
             hintText: "Email",
             onChanged: (value) {},
@@ -39,40 +37,36 @@ class Body extends StatelessWidget {
 }
 
 class RoundedInputField extends StatelessWidget {
-  final String hintText;
-  final IconData icon;
-  final ValueChanged<String> onChanged;
-  const RoundedInputField ({
-    Key key,
-    this.hintText,
-    this.onChanged
-  }) : super(key: key);
+  final String? hintText;
+  final IconData? icon;
+  final ValueChanged<String>? onChanged;
+
+  const RoundedInputField({Key? key, this.hintText, this.onChanged, this.icon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
-      child: TextField(
-        onChanged: onChanged,
-        decoration: InputDecoration(
-          hintText: hintText,
-          border: InputBorder.none,
-        ),
-      )
-    )
+        child: TextField(
+      onChanged: onChanged,
+      decoration: InputDecoration(
+        hintText: hintText,
+        border: InputBorder.none,
+      ),
+    ));
   }
-
 }
 
 class TextFieldContainer extends StatelessWidget {
-  final Widget child;
+  final Widget? child;
   const TextFieldContainer({
-    Key key,
+    Key? key,
     this.child,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size
+    Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -84,16 +78,4 @@ class TextFieldContainer extends StatelessWidget {
       child: child,
     );
   }
-
-
 }
-
-
-
-
-
-
-
-
-
-
