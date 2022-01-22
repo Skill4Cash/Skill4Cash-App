@@ -1,10 +1,11 @@
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/core/utilities/app_spacing.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
-import 'package:Skill4Cash/src/views/screens/settings_customer/authentication_screen.dart';
 import 'package:Skill4Cash/src/views/widgets/app_button.dart';
 import 'package:Skill4Cash/src/views/widgets/app_textfield.dart';
 import 'package:flutter/material.dart';
+
+import 'authentication_screen.dart';
 
 class ChangeEmailAddress extends StatelessWidget {
   @override

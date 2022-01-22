@@ -1,6 +1,5 @@
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
 /// App TextStyles
 

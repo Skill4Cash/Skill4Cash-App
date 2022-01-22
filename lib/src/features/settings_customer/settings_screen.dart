@@ -1,13 +1,13 @@
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/core/utilities/app_spacing.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
-import 'package:Skill4Cash/src/views/screens/settings_customer/change_email_address_screen.dart';
-import 'package:Skill4Cash/src/views/screens/settings_customer/change_phone_number_screen.dart';
-import 'package:Skill4Cash/src/views/screens/settings_customer/hisory_screen.dart';
 import 'package:Skill4Cash/src/views/widgets/profile_double_tile.dart';
 import 'package:Skill4Cash/src/views/widgets/profile_single_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
+import 'change_email_address_screen.dart';
+import 'change_phone_number_screen.dart';
+import 'hisory_screen.dart';
 
 class SettingScreen extends StatelessWidget {
   @override

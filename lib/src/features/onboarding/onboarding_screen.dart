@@ -1,19 +1,19 @@
 import 'dart:async';
 
-import 'package:Skill4Cash/src/core/utilities/app_spacing.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
-import 'package:Skill4Cash/src/views/screens/onboarding/components/slide_one.dart';
-import 'package:Skill4Cash/src/views/screens/settings_customer/settings_screen.dart';
+import 'package:Skill4Cash/src/features/home/views/home_screen.dart';
 import 'package:Skill4Cash/src/views/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
-import './components/slide_location.dart';
-import './components/slide_signIn.dart';
+import 'components/slide_location.dart';
+import 'components/slide_one.dart';
+import 'components/slide_signIn.dart';
 
 class OnboardingScreen extends StatefulWidget {
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
+  static const routeName = "/onboardingScreen";
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
@@ -32,7 +32,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     ),
     BuildSlides(
       image: "slide_4.png",
-      desc: "All assessible from the comfort of your phone.",
+      desc: "All accessible from the comfort of your phone.",
     ),
     BuildSlideWithForm(),
     BuildSlideWithSignIn(),
@@ -113,8 +113,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   buildReadyButton() {
     return GestureDetector(
-      onTap: () => Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => SettingScreen())),
+      onTap: () =>
+          Navigator.pushReplacementNamed(context, HomeScreen.routeName),
       child: Container(
           alignment: Alignment.center,
           height: kPad * 4,

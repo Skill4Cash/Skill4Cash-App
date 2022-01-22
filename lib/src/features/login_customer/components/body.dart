@@ -1,5 +1,4 @@
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
-import 'package:Skill4Cash/src/views/screens/login_customer/components/background.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatelessWidget {
@@ -9,9 +8,8 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Background(
-      child: Column(
+    return Scaffold(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
