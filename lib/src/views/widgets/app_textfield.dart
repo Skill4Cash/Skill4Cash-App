@@ -1,3 +1,4 @@
+import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -75,9 +76,9 @@ class AppTextField extends StatelessWidget {
           obscureText: obscureText ?? false,
           decoration: InputDecoration(
             filled: true,
-            fillColor: kWhiteColor,
+            fillColor: Colors.transparent,
             hintText: hintText,
-            hintStyle: TextStyle(color: Colors.grey),
+            hintStyle: labelText(context).copyWith(color: Colors.black38, fontSize: 14),
             suffixIcon: suffixIcon,
             contentPadding: EdgeInsets.all(16.0),
             border: OutlineInputBorder(),

@@ -3,13 +3,13 @@ import 'dart:async';
 import 'package:Skill4Cash/src/core/utilities/app_spacing.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
-import 'package:Skill4Cash/src/views/screens/onboarding/components/slide_one.dart';
-import 'package:Skill4Cash/src/views/screens/settings_customer/settings_screen.dart';
+import 'package:Skill4Cash/src/views/cutomer/settings_customer/settings_screen.dart';
 import 'package:Skill4Cash/src/views/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
 import './components/slide_location.dart';
 import './components/slide_signIn.dart';
+import 'components/slide_one.dart';
 
 class OnboardingScreen extends StatefulWidget {
   @override

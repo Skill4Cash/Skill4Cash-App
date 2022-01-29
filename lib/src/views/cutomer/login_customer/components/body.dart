@@ -1,6 +1,7 @@
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
-import 'package:Skill4Cash/src/views/screens/login_customer/components/background.dart';
 import 'package:flutter/material.dart';
+
+import 'background.dart';
 
 class Body extends StatelessWidget {
   const Body({

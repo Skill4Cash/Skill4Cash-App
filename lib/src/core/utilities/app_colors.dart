@@ -18,3 +18,5 @@ const kHintColor = Color(0xFF6F6565);
 var backgroundColor = Color(0xFBFDFE);
 
 const kTextFieldFillColor = Color(0x80E5E5E5);
+
+const kInactiveColor = Color(0xFF999999);

@@ -1,5 +1,6 @@
-import 'package:Skill4Cash/src/views/screens/login_customer/components/body.dart';
 import 'package:flutter/material.dart';
+
+import 'components/body.dart';
 
 class LoginScreenCustomer extends StatelessWidget {
   @override
