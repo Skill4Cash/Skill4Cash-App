@@ -15,6 +15,8 @@ class AppTextField extends StatelessWidget {
   final String? label;
   final int? maxLines;
   final Widget? suffixIcon;
+
+  final Widget? prefixIcon;
   final void Function(String)? onChanged;
   final Color? borderColor;
   final Color? textColor;
@@ -24,30 +26,31 @@ class AppTextField extends StatelessWidget {
   final Function(String?)? onSaved;
   final String? intial;
 
-  const AppTextField(
-      {Key? key,
-      this.label,
-      this.hintText,
-      this.controller,
-      this.suffixIcon,
-      this.onChanged,
-      this.maxLines,
-      this.obscureText,
-      this.validator,
-      this.keyboardType,
-      this.textInputAction,
-      this.borderColor,
-      this.textColor = Colors.black87,
-      this.filled,
-      this.input,
-      this.maxlength,
-      this.border,
-      this.title,
-      this.height,
-      this.enabled,
-      this.onSaved,
-      this.intial})
-      : super(key: key);
+  const AppTextField({
+    Key? key,
+    this.label,
+    this.hintText,
+    this.controller,
+    this.suffixIcon,
+    this.onChanged,
+    this.maxLines,
+    this.obscureText,
+    this.validator,
+    this.keyboardType,
+    this.textInputAction,
+    this.borderColor,
+    this.textColor = Colors.black87,
+    this.filled,
+    this.input,
+    this.maxlength,
+    this.border,
+    this.title,
+    this.height,
+    this.enabled,
+    this.onSaved,
+    this.intial,
+    this.prefixIcon,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +59,10 @@ class AppTextField extends StatelessWidget {
       children: [
         label != null ? Text(label!.toUpperCase()) : SizedBox(),
         label != null ? SizedBox(height: 6) : SizedBox(),
-        Text(
-          title!,
-          // style: kLabelText,
-        ),
+        // Text(
+        //   title!,
+        //   // style: kLabelText,
+        // ),
         kExtraSmallVerticalSpacing,
         TextFormField(
           initialValue: intial,
@@ -79,6 +82,7 @@ class AppTextField extends StatelessWidget {
             hintText: hintText,
             hintStyle: TextStyle(color: Colors.grey),
             suffixIcon: suffixIcon,
+            prefixIcon: prefixIcon,
             contentPadding: EdgeInsets.all(16.0),
             border: OutlineInputBorder(),
             errorBorder: OutlineInputBorder(
