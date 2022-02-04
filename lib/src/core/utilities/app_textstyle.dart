@@ -1,6 +1,5 @@
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
 /// App TextStyles
 
@@ -19,7 +18,7 @@ TextStyle heading2(BuildContext context) => TextStyle(
 TextStyle bodyNormalText(BuildContext context) => TextStyle(
       color: kTextColor,
       fontSize: 14,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
     );
 
 TextStyle bodySmallText(BuildContext context) => TextStyle(
