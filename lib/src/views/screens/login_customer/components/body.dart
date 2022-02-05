@@ -18,7 +18,9 @@ class Body extends StatelessWidget {
         children: <Widget>[
           Text(
             "Welcome",
-            style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Gilory-ExtraBold'),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Gilory-ExtraBold', fontSize: 25),
           ),
           TextFieldContainer(
             child: TextField(
@@ -29,7 +31,7 @@ class Body extends StatelessWidget {
             )
           ),
           RoundedInputField(
-            hintText: "Email",
+            hintText: "Password",
             onChanged: (value) {},
           )
         ],
@@ -58,7 +60,7 @@ class RoundedInputField extends StatelessWidget {
           border: InputBorder.none,
         ),
       )
-    )
+    );
   }
 
 }
