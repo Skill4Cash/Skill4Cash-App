@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Skill4Cash',
-      initialRoute: ServiceProviderRoutes.verifyDashboardRoute,//splash screen has been added
+      initialRoute: CustomerRoutes.customerHomeRoute,//splash screen has been added, this line can replaced later
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouteGenerator.getRoute,
       theme: ThemeData(
