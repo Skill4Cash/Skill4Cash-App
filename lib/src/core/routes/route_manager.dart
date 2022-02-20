@@ -2,6 +2,7 @@ import 'package:Skill4Cash/src/features/customers/dashboard/views/all_services_s
 import 'package:Skill4Cash/src/features/customers/dashboard/views/dashboard_screen.dart';
 import 'package:Skill4Cash/src/features/customers/dashboard/views/service_providers_arround_screen.dart';
 import 'package:Skill4Cash/src/features/customers/home/views/home_screen.dart';
+import 'package:Skill4Cash/src/features/customers/messages/chat_screen.dart';
 import 'package:Skill4Cash/src/features/customers/onboarding/onboarding_screen.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_email.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_phone.dart';
@@ -11,6 +12,7 @@ import 'package:Skill4Cash/src/features/service_provider/verify_account/index.da
 import 'package:Skill4Cash/src/features/service_provider/verify_account/service_information.dart';
 import 'package:Skill4Cash/src/features/service_provider/verify_account/verify_account.dart';
 import 'package:Skill4Cash/src/features/splash/splash.dart';
+import 'package:Skill4Cash/src/features/customers/messages/index.dart';
 import 'package:flutter/material.dart';
 
 class CustomerRoutes{
@@ -20,6 +22,8 @@ class CustomerRoutes{
   static const String dashboardScreenRoute = "/dashboardScreen";
   static const String serviceProvidersAroundScreenRoute = "/serviceProvidersAroundScreen";
   static const String customerHomeRoute = "/customerHomeScreen";
+  static const String messagesRoute  = "/messageScreen";
+  static const String chatRoute  = "/chatScreen";
 }
 
 class ServiceProviderRoutes{
@@ -50,6 +54,10 @@ class RouteGenerator{
         return MaterialPageRoute(builder: (_) => const ServiceProvidersAroundScreen());
       case CustomerRoutes.customerHomeRoute :
         return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case CustomerRoutes.messagesRoute :
+        return MaterialPageRoute(builder: (_) => const Messages());
+      case CustomerRoutes.chatRoute :
+        return MaterialPageRoute(builder: (_) => const ChatScreen());
 
       //SERVICE PROVIDER ROUTER
       case ServiceProviderRoutes.settingScreenRoute :

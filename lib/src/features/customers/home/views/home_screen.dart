@@ -3,6 +3,7 @@
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/features/customers/dashboard/views/dashboard_screen.dart';
 import 'package:Skill4Cash/src/features/customers/home/model/nav_bar.dart';
+import 'package:Skill4Cash/src/features/customers/messages/index.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _children = [
     DashboardScreen(),
-    Center(child: Text("2")),
+    Messages(),
     Center(child: Text("3")),
   ];
 
