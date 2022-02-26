@@ -1,14 +1,13 @@
+import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
-import 'package:Skill4Cash/src/features/customerAuth/views/customer_signup.dart';
-import 'package:Skill4Cash/src/features/serviceProviderAuth/views/service_login.dart';
-import 'package:Skill4Cash/src/views/widgets/app_button.dart';
-import 'package:Skill4Cash/src/views/widgets/app_textfield.dart';
 import 'package:flutter/material.dart';
+
+import '../../widgets/app_button.dart';
+import '../../widgets/app_textfield.dart';
 
 class CustomerLogin extends StatelessWidget {
   const CustomerLogin({Key? key}) : super(key: key);
-  static const routeName = "/customerAuth";
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +65,7 @@ class CustomerLogin extends StatelessWidget {
                   Text("Don't have an account?"),
                   TextButton(
                     onPressed: () => Navigator.of(context)
-                        .pushNamed(CustomerSignUp.routeName),
+                        .pushNamed(CustomerRoutes.customerSignUpRoute),
                     child: Text(
                       " Sign Up",
                       style: bodyNormalText(context)
@@ -100,8 +99,8 @@ class CustomerLogin extends StatelessWidget {
                 children: [
                   Text("Tap here to switch to "),
                   TextButton(
-                    onPressed: () =>
-                        Navigator.of(context).pushNamed(ServiceLogin.routeName),
+                    onPressed: () => Navigator.of(context)
+                        .pushNamed(ServiceProviderRoutes.serviceLoginRoute),
                     child: Text(
                       " Service provider Sign In",
                       style: bodyNormalText(context)

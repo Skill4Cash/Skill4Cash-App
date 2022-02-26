@@ -1,3 +1,4 @@
+import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/features/customerAuth/views/customer_login.dart';
 import 'package:Skill4Cash/src/features/customerAuth/views/customer_signup.dart';
@@ -8,6 +9,8 @@ import 'package:Skill4Cash/src/features/home/views/home_screen.dart';
 import 'package:Skill4Cash/src/features/onboarding/onboarding_screen.dart';
 import 'package:Skill4Cash/src/features/serviceProviderAuth/views/service_login.dart';
 import 'package:Skill4Cash/src/features/serviceProviderAuth/views/service_signup.dart';
+=======
+>>>>>>> 42ab2e144fbbe8eba268b9748f9585acb6f10f14
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,9 +23,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Skill4Cash',
-      // initialRoute: "/onboardingScreen",//splash screen should be created and changed to this route
-      home: OnboardingScreen(),
+      initialRoute: CustomerRoutes.customerHomeRoute,//splash screen has been added, this line can replaced later
       debugShowCheckedModeBanner: false,
+<<<<<<< HEAD
       onGenerateRoute: (routeSettings) => MaterialPageRoute(
         settings: routeSettings,
         builder: (context) {
@@ -50,6 +53,9 @@ class MyApp extends StatelessWidget {
           throw FlutterError("Unknown Route: ${routeSettings.name}");
         },
       ),
+=======
+      onGenerateRoute: RouteGenerator.getRoute,
+>>>>>>> 42ab2e144fbbe8eba268b9748f9585acb6f10f14
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.light(
