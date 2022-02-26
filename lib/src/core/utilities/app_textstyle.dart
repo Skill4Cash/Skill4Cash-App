@@ -5,13 +5,15 @@ import 'package:flutter/material.dart';
 
 TextStyle heading1(BuildContext context) => TextStyle(
       color: kTextColor,
-      fontSize: 18,
+      fontSize: 26, //18
+
       fontWeight: FontWeight.bold,
     );
 
 TextStyle heading2(BuildContext context) => TextStyle(
       color: kTextColor,
-      fontSize: 16,
+      fontSize: 22,
+      //16
       fontWeight: FontWeight.w500,
     );
 

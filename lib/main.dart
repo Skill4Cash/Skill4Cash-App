@@ -1,9 +1,13 @@
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
+import 'package:Skill4Cash/src/features/customerAuth/views/customer_login.dart';
+import 'package:Skill4Cash/src/features/customerAuth/views/customer_signup.dart';
 import 'package:Skill4Cash/src/features/dashboard/views/all_services_screen.dart';
 import 'package:Skill4Cash/src/features/dashboard/views/dashboard_screen.dart';
 import 'package:Skill4Cash/src/features/dashboard/views/service_providers_arround_screen.dart';
 import 'package:Skill4Cash/src/features/home/views/home_screen.dart';
 import 'package:Skill4Cash/src/features/onboarding/onboarding_screen.dart';
+import 'package:Skill4Cash/src/features/serviceProviderAuth/views/service_login.dart';
+import 'package:Skill4Cash/src/features/serviceProviderAuth/views/service_signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -33,6 +37,14 @@ class MyApp extends StatelessWidget {
               return AllServicesScreen();
             case ServiceProvidersAroundScreen.routeName:
               return ServiceProvidersAroundScreen();
+            case CustomerLogin.routeName:
+              return CustomerLogin();
+            case ServiceSignUp.routeName:
+              return ServiceSignUp();
+            case ServiceLogin.routeName:
+              return ServiceLogin();
+            case CustomerSignUp.routeName:
+              return CustomerSignUp();
           }
 
           throw FlutterError("Unknown Route: ${routeSettings.name}");
