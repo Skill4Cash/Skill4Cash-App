@@ -9,6 +9,7 @@ import 'package:Skill4Cash/src/features/service_provider/settings/edit_email.dar
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_phone.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/index.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/verify_account.dart';
+import 'package:Skill4Cash/src/features/service_provider/sp_page_view.dart';
 import 'package:Skill4Cash/src/features/service_provider/verify_account/index.dart';
 import 'package:Skill4Cash/src/features/service_provider/verify_account/service_information.dart';
 import 'package:Skill4Cash/src/features/service_provider/verify_account/verify_account.dart';
@@ -36,6 +37,7 @@ class CustomerRoutes {
 
 class ServiceProviderRoutes {
   static const String settingScreenRoute = "/settingScreen";
+  static const String spPageViewRoute = "/spPageViewScreen";
   static const String editEmailRoute = "/editEmailScreen";
   static const String editPhoneRoute = "/editPhoneScreen";
   static const String verifyAccountRoute = "/verifyAccountScreen";
@@ -69,6 +71,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ChatScreen());
 
       //SERVICE PROVIDER ROUTER
+      case ServiceProviderRoutes.spPageViewRoute:
+        return MaterialPageRoute(builder: (_) => const SpPageView());
       case ServiceProviderRoutes.settingScreenRoute:
         return MaterialPageRoute(builder: (_) => const SettingScreenSp());
       case ServiceProviderRoutes.editEmailRoute:

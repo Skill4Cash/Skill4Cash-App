@@ -86,7 +86,9 @@ class CustomerSignUp extends StatelessWidget {
                         child: AppButton(
                           color: kPrimaryColor,
                           label: "SIGN IN",
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, CustomerRoutes.customerHomeRoute);
+                          },
                         ),
                       ),
                     ],

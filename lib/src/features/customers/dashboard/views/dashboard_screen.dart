@@ -5,8 +5,6 @@ import 'package:Skill4Cash/src/features/widgets/app_button.dart';
 import 'package:Skill4Cash/src/features/widgets/app_textfield.dart';
 import 'package:Skill4Cash/src/features/widgets/service_pill.dart';
 import 'package:flutter/material.dart';
-import 'all_services_screen.dart';
-import 'service_providers_arround_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
