@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
-import 'package:Skill4Cash/src/features/customerAuth/views/customer_login.dart';
 import 'package:Skill4Cash/src/features/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
@@ -144,8 +143,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 border: Border.all(color: kPrimaryColor),
                 borderRadius: BorderRadius.circular(8)),
             child: FlatButton(
-              onPressed: () =>
-                  Navigator.of(context).pushNamed(CustomerLogin.routeName),
+              onPressed: () => Navigator.of(context).pushNamed("/login"),
               child: Text("sign in".toUpperCase(),
                   style: labelText(context).copyWith(
                     fontSize: 12,
