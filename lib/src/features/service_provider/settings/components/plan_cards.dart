@@ -10,37 +10,51 @@ class BuildCards extends StatelessWidget {
   final String planAmount;
   final String planDesc;
   const BuildCards({
-    Key? key, required this.planName, required this.planAmount, required this.planDesc,
+    Key? key,
+    required this.planName,
+    required this.planAmount,
+    required this.planDesc,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shadowColor: Colors.black12,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Container(
-        height: 300,
-        width: 300,
+        decoration: BoxDecoration(
+          color: kWhiteColor,
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black12,
+                blurRadius: 20.0,
+                offset: Offset(1.0, 1.0))
+          ],
+        ),
+        // height: 30,
+        // width: 30,
         // padding: EdgeInsets.symmetric(
         //     vertical: kPad * 3, horizontal: kPad * 3),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(SvgAssets.planLogo),
             kLargeVerticalSpacing,
             kLargeVerticalSpacing,
             Text(
               planName,
-              style: bodySmallText(context),
+              style: bodyNormalText(context),
             ),
-            kTinyVerticalSpacing,
+            kSmallVerticalSpacing,
             Text(
-              "#$planAmount",
+              "#$planAmount.00",
               style: bodyNormalText(context)
                   .copyWith(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             kSmallVerticalSpacing,
             Text(
               planDesc,
-              style: bodySmallText(context),
+              style: bodyNormalText(context)
+                  .copyWith(fontWeight: FontWeight.normal),
               textAlign: TextAlign.center,
             ),
           ],

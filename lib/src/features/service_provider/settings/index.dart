@@ -133,10 +133,15 @@ class ProfileContent extends StatelessWidget {
             secondrightIcon: Icons.arrow_forward_ios,
           ),
           kLargeVerticalSpacing,
-          SingleTile(
-            leftIcon: Icons.history,
-            textDesc: "Logout",
-            rightIcon: Icons.arrow_forward_ios,
+          InkWell(
+            onTap: (){
+              Navigator.of(context).pushNamed(CustomerRoutes.customerLoginRoute);
+            },
+            child: SingleTile(
+              leftIcon: Icons.history,
+              textDesc: "Logout",
+              rightIcon: Icons.arrow_forward_ios,
+            ),
           ),
           kLargeVerticalSpacing,
         ],

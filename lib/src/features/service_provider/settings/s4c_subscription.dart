@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/utilities/app_textstyle.dart';
 import '../../../core/utilities/constants.dart';
+import '../../widgets/app_button.dart';
 import 'components/plan_cards.dart';
 
 class S4CSubPlanScreen extends StatefulWidget {
@@ -51,6 +53,7 @@ class _S4CSubPlanScreenState extends State<S4CSubPlanScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: _buildAppBar(context),
       body: Container(
@@ -58,13 +61,10 @@ class _S4CSubPlanScreenState extends State<S4CSubPlanScreen> {
         width: double.infinity,
         child: Column(
           children: [
-            SizedBox(
-              height: 100,
-            ),
+            SizedBox(height: size.height * 0.2),
             Expanded(
-              flex: 1,
               child: PageView.builder(
-                  physics: ClampingScrollPhysics(),
+                  physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   controller: _controller,
                   onPageChanged: (value) {
@@ -89,6 +89,23 @@ class _S4CSubPlanScreenState extends State<S4CSubPlanScreen> {
                 ),
               ),
             ),
+            kLargeVerticalSpacing,
+            kLargeVerticalSpacing,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: kPad),
+              child: Container(
+                width: double.infinity,
+                child: AppButton(
+                  label: "Select Plan",
+                  color: kPrimaryColor,
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(ServiceProviderRoutes.s4cSubPayRoute);
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: size.height * 0.1),
+
             // BuildCards()
           ],
         ),
@@ -120,7 +137,7 @@ class _S4CSubPlanScreenState extends State<S4CSubPlanScreen> {
   Container buildDot(int index, BuildContext context) {
     return Container(
       padding: EdgeInsets.all(5),
-      margin: EdgeInsets.only(right: 5),
+      margin: EdgeInsets.only(right: 15),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: currentIndex == index ? kPrimaryColor : kTextFieldFillColor,
