@@ -92,6 +92,7 @@ class ProfileContent extends StatelessWidget {
             textDesc: "Service Information",
             subText: "",
             rightIcon: Icons.arrow_forward_ios,
+            routeTwo: ServiceProviderRoutes.s4cSubRoute,
             secondleftIcon: Icons.message,
             secondtextDesc: "S4C subscripiton plan",
             secondsubText: "Active",

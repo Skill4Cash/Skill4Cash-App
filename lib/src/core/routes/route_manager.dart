@@ -8,6 +8,7 @@ import 'package:Skill4Cash/src/features/customers/onboarding/onboarding_screen.d
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_email.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_phone.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/index.dart';
+import 'package:Skill4Cash/src/features/service_provider/settings/s4c_subscription.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/verify_account.dart';
 import 'package:Skill4Cash/src/features/service_provider/sp_page_view.dart';
 import 'package:Skill4Cash/src/features/service_provider/verify_account/index.dart';
@@ -46,6 +47,7 @@ class ServiceProviderRoutes {
   static const String serviceInfoRoute = "/serviceInfoScreen";
   static const serviceLoginRoute = "/serviceLogin";
   static const serviceSignUpRoute = "/serviceSignUp";
+  static const s4cSubRoute = "/s4cSubPlan";
 }
 
 class RouteGenerator {
@@ -88,6 +90,8 @@ class RouteGenerator {
       case ServiceProviderRoutes.serviceInfoRoute:
         return MaterialPageRoute(
             builder: (_) => const ServiceInformationScreen());
+      case ServiceProviderRoutes.s4cSubRoute:
+        return MaterialPageRoute(builder: (_) => const S4CSubPlanScreen());
 
       case CustomerRoutes.customerLoginRoute:
         return MaterialPageRoute(builder: (_) => CustomerLogin());
