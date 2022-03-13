@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
-import 'package:Skill4Cash/src/features/customers/home/views/home_screen.dart';
 import 'package:Skill4Cash/src/features/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +13,6 @@ import 'components/slide_signIn.dart';
 class OnboardingScreen extends StatefulWidget {
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
-  
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
@@ -54,7 +52,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   void initState() {
-    _pageAnimationTimer = Timer.periodic(const Duration(seconds: 5), (timer) {
+    _pageAnimationTimer = Timer.periodic(const Duration(seconds: 10), (timer) {
       _animateSlides();
     });
     // TODO: implement initState
@@ -101,6 +99,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           children: List.generate(
                             1,
                             (index) => GestureDetector(
+                                onTap: () {
+                                  _controller.nextPage(
+                                      duration: Duration(milliseconds: 100),
+                                      curve: Curves.bounceIn);
+                                },
                                 child: buildIndicator(index, context)),
                           ),
                         ),
@@ -114,8 +117,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   buildReadyButton() {
     return GestureDetector(
-      onTap: () =>
-          Navigator.pushReplacementNamed(context, CustomerRoutes.customerHomeRoute),
+      onTap: () => Navigator.pushReplacementNamed(
+          context, CustomerRoutes.customerLoginRoute),
       child: Container(
           alignment: Alignment.center,
           height: kPad * 4,
@@ -145,7 +148,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 border: Border.all(color: kPrimaryColor),
                 borderRadius: BorderRadius.circular(8)),
             child: FlatButton(
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).pushNamed("/login"),
               child: Text("sign in".toUpperCase(),
                   style: labelText(context).copyWith(
                     fontSize: 12,

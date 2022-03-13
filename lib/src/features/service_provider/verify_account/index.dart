@@ -28,88 +28,86 @@ class VerifyDashboardSP extends StatelessWidget {
               ),
               kLargeVerticalSpacing,
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: kPad),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.45,
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      decoration: BoxDecoration(
-                          color: kWhiteColor,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black12,
-                                blurRadius: 20.0,
-                                offset: Offset(1.0, 1.0))
-                          ],
-                          borderRadius: BorderRadius.circular(5)),
-                      child: ListTile(
-                        title: Text(
-                          "Schedules",
-                          style: bodyNormalText(context),
-                        ),
-                        subtitle: Text(
-                          "0",
-                          style: heading1(context).copyWith(fontSize: 30),
-                        ),
-                        trailing: Container(
-                            margin: EdgeInsets.only(right: kPad),
-                            padding: EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: kPrimaryColor.withOpacity(0.1),
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.black12,
-                                    blurRadius: 20.0,
-                                    offset: Offset(1.0, 1.0))
-                              ],
-                            ),
-                            child: SvgPicture.asset("assets/images/todo.svg")),
-                      ),
-                    ),
-                     Container(
-                      width: MediaQuery.of(context).size.width * 0.45,
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      // padding: EdgeInsets.all(kPad),
-                      decoration: BoxDecoration(
-                          color: kWhiteColor,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black12,
-                                blurRadius: 20.0,
-                                offset: Offset(1.0, 1.0))
-                          ],
-                          borderRadius: BorderRadius.circular(5)),
-                      child: ListTile(
-                        title: Text(
-                          "Schedules",
-                          style: bodyNormalText(context),
-                        ),
-                        subtitle: Text(
-                          "0",
-                          style: heading1(context).copyWith(fontSize: 30),
-                        ),
-                        trailing: Container(
-                            margin: EdgeInsets.only(right: kPad),
-                            padding: EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: kPrimaryColor.withOpacity(0.1),
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.black12,
-                                    blurRadius: 20.0,
-                                    offset: Offset(1.0, 1.0))
-                              ],
-                            ),
-                            child: SvgPicture.asset("assets/images/todo.svg")),
-                      ),
-                    ),
+                    Expanded(child: Boxes(name: "Schedules", count: "0")),
+                    kSmallHorizontalSpacing,
+                    Expanded(child: Boxes(name: "Messages", count: "0")),
                   ],
                 ),
-              )
+              ),
+              kSmallVerticalSpacing,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: kPad),
+                child: Row(
+                  children: [
+                    Expanded(child: Boxes(name: "Schedules", count: "0")),
+                    kSmallHorizontalSpacing,
+                    Container(
+                        width: MediaQuery.of(context).size.width * 0.45,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 25, horizontal: 8),
+                        decoration: BoxDecoration(
+                            color: darkPrimaryColor,
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 20.0,
+                                  offset: Offset(1.0, 1.0))
+                            ],
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Service category",
+                                    style: bodyNormalText(context)
+                                        .copyWith(color: kWhiteColor),
+                                  ),
+                                  Text(
+                                    "Fashion",
+                                    style: heading1(context).copyWith(
+                                        fontSize: 20, color: kWhiteColor),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                                // margin: EdgeInsets.only(right: kPad),
+                                padding: EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: kWhiteColor,
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.black12,
+                                        blurRadius: 20.0,
+                                        offset: Offset(1.0, 1.0))
+                                  ],
+                                ),
+                                child:
+                                    SvgPicture.asset("assets/images/todo.svg")),
+                          ],
+                        )),
+                  ],
+                ),
+              ),
+              kSmallVerticalSpacing,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: kPad),
+                child: Row(
+                  children: [
+                    Expanded(child: Text("Ratings and Reviews", style: bodyNormalText(context),)),
+                    TextButton(onPressed: (){}, child: Text("Seel all", style: bodySmallText(context).copyWith(color: kPrimaryColor),))
+                  ],
+                ),
+              ),
+              kLargeVerticalSpacing,
+              Center(child: Image(image: AssetImage("assets/images/amico.png"))),
             ])
           ]),
         ));
@@ -227,7 +225,7 @@ class VerifyDashboardSP extends StatelessWidget {
       children: [
         Text(
           "Hi, Tailor Swift services",
-          style: heading2(context).copyWith(fontWeight: FontWeight.w400),
+          style: bodyNormalText(context).copyWith(fontWeight: FontWeight.w400),
         ),
         Text(
           "Top of the day to you like that",
@@ -235,5 +233,64 @@ class VerifyDashboardSP extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class Boxes extends StatelessWidget {
+  final String name;
+  final String count;
+  const Boxes({
+    Key? key,
+    required this.name,
+    required this.count,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: MediaQuery.of(context).size.width * 0.45,
+        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+        decoration: BoxDecoration(
+            color: kWhiteColor,
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 20.0,
+                  offset: Offset(1.0, 1.0))
+            ],
+            borderRadius: BorderRadius.circular(5)),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: bodyNormalText(context),
+                  ),
+                  Text(
+                    count,
+                    style: heading1(context).copyWith(fontSize: 30),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+                // margin: EdgeInsets.only(right: kPad),
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: kPrimaryColor.withOpacity(0.1),
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 20.0,
+                        offset: Offset(1.0, 1.0))
+                  ],
+                ),
+                child: SvgPicture.asset("assets/images/todo.svg")),
+          ],
+        ));
   }
 }

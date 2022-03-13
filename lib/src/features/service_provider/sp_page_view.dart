@@ -4,21 +4,23 @@ import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/features/customers/dashboard/views/dashboard_screen.dart';
 import 'package:Skill4Cash/src/features/customers/home/model/nav_bar.dart';
 import 'package:Skill4Cash/src/features/customers/messages/index.dart';
-import 'package:Skill4Cash/src/features/customers/settings_customer/settings_screen.dart';
+import 'package:Skill4Cash/src/features/service_provider/settings/index.dart';
+import 'package:Skill4Cash/src/features/service_provider/verify_account/index.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class SpPageView extends StatefulWidget {
+
+  const SpPageView({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SpPageView> createState() => _SpPageViewState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SpPageViewState extends State<SpPageView> {
   final List<Widget> _children = [
-    DashboardScreen(),
+    VerifyDashboardSP(),
     Messages(),
-    SettingScreen(),
+    SettingScreenSp()
   ];
 
   int _currentPage = 0;

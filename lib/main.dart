@@ -1,5 +1,6 @@
 import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
+import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Skill4Cash',
-      initialRoute: ServiceProviderRoutes.verifyDashboardRoute,//splash screen has been added
+      initialRoute: CustomerRoutes
+          .splashRoute, //splash screen has been added, this line can replaced later
+
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouteGenerator.getRoute,
       theme: ThemeData(
