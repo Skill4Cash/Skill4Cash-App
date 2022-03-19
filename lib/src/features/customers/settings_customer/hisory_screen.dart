@@ -30,7 +30,7 @@ class HistoryScreen extends StatelessWidget {
             kSmallVerticalSpacing,
             Text(
               "Clear history data...",
-              style: bodySmallText(context).copyWith(
+              style: bodyNormalText(context).copyWith(
                 color: kPrimaryColor,
               ),
             ),
@@ -43,11 +43,11 @@ class HistoryScreen extends StatelessWidget {
                   children: [
                     Text(
                       "Yesterday - Nov 3, 2021",
-                      style: bodySmallText(context),
+                      style: bodyNormalText(context),
                     ),
                     Text(
                       "Wonderous Creations Clothiers",
-                      style: bodySmallText(context).copyWith(
+                      style: bodyNormalText(context).copyWith(
                         fontWeight: FontWeight.w700,
                       ),
                     ),

@@ -5,6 +5,7 @@ import 'package:Skill4Cash/src/features/customers/home/views/home_screen.dart';
 import 'package:Skill4Cash/src/features/customers/messages/chat_screen.dart';
 import 'package:Skill4Cash/src/features/customers/messages/index.dart';
 import 'package:Skill4Cash/src/features/customers/onboarding/onboarding_screen.dart';
+import 'package:Skill4Cash/src/features/customers/settings_customer/privacy_policy_screen.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_email.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_phone.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/index.dart';
@@ -20,6 +21,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/customerAuth/views/customer_login.dart';
 import '../../features/customerAuth/views/customer_signup.dart';
+import '../../features/customers/settings_customer/terms_and_condition_screen.dart';
 import '../../features/serviceProviderAuth/views/service_login.dart';
 import '../../features/serviceProviderAuth/views/service_signup.dart';
 
@@ -35,6 +37,8 @@ class CustomerRoutes {
   static const String chatRoute = "/chatScreen";
   static const customerLoginRoute = "/customerLogin";
   static const customerSignUpRoute = "/customerSignUp";
+  static const privacyPolicyRoute = "/privacyPolicy=";
+  static const termsAndConditionRoute = "/termsAndCondition";
 }
 
 class ServiceProviderRoutes {
@@ -73,6 +77,11 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const Messages());
       case CustomerRoutes.chatRoute:
         return MaterialPageRoute(builder: (_) => const ChatScreen());
+      case CustomerRoutes.privacyPolicyRoute:
+        return MaterialPageRoute(builder: (_) => const PrivacyPolicyScreen());
+      case CustomerRoutes.termsAndConditionRoute:
+        return MaterialPageRoute(
+            builder: (_) => const TermsAndConditionScreen());
 
       //SERVICE PROVIDER ROUTER
       case ServiceProviderRoutes.spPageViewRoute:
@@ -96,8 +105,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const S4CSubPlanScreen());
       case ServiceProviderRoutes.s4cSubPayRoute:
         return MaterialPageRoute(builder: (_) => const S4CSubPayScreen());
-
-
 
       case CustomerRoutes.customerLoginRoute:
         return MaterialPageRoute(builder: (_) => CustomerLogin());

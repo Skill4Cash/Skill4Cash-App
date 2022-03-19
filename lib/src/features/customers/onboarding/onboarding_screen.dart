@@ -148,7 +148,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 border: Border.all(color: kPrimaryColor),
                 borderRadius: BorderRadius.circular(8)),
             child: FlatButton(
-              onPressed: () => Navigator.of(context).pushNamed("/login"),
+              onPressed: () =>
+                  Navigator.of(context).pushNamed("/customerLogin"),
               child: Text("sign in".toUpperCase(),
                   style: labelText(context).copyWith(
                     fontSize: 12,
@@ -165,7 +166,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               label: "sign up".toUpperCase(),
               color: kPrimaryColor,
               size: 12,
-              onPressed: () {},
+              onPressed: () =>
+                  Navigator.of(context).pushNamed("/customerSignUp"),
             ),
           ),
         ],
