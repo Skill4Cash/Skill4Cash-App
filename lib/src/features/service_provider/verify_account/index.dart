@@ -1,3 +1,4 @@
+import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,10 @@ class VerifyDashboardSP extends StatelessWidget {
               kMediumVerticalSpacing,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: _buildBox(context),
+                child: TextButton(
+                    onPressed: () => Navigator.pushNamed(
+                        context, ServiceProviderRoutes.verifyAccountSPRoute),
+                    child: _buildBox(context)),
               ),
               kLargeVerticalSpacing,
               Padding(
@@ -101,13 +105,24 @@ class VerifyDashboardSP extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: kPad),
                 child: Row(
                   children: [
-                    Expanded(child: Text("Ratings and Reviews", style: bodyNormalText(context),)),
-                    TextButton(onPressed: (){}, child: Text("Seel all", style: bodySmallText(context).copyWith(color: kPrimaryColor),))
+                    Expanded(
+                        child: Text(
+                      "Ratings and Reviews",
+                      style: bodyNormalText(context),
+                    )),
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Seel all",
+                          style: bodySmallText(context)
+                              .copyWith(color: kPrimaryColor),
+                        ))
                   ],
                 ),
               ),
               kLargeVerticalSpacing,
-              Center(child: Image(image: AssetImage("assets/images/amico.png"))),
+              Center(
+                  child: Image(image: AssetImage("assets/images/amico.png"))),
             ])
           ]),
         ));
