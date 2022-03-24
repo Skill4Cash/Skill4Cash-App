@@ -26,29 +26,27 @@ class MessageIndex extends StatelessWidget {
         leading: Stack(
             // ignore: prefer_const_literals_to_create_immutables
             children: [
-               CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/sp_1.jpg"),
-                        radius: 25,
-                      ),
-                      Positioned(
-                          bottom: 0,
-                          right: 0,
-                          child: Container(
-                            padding: EdgeInsets.all(6),
-                            decoration: BoxDecoration(
-                              color: kPrimaryColor,
-                              shape: BoxShape.circle,
-                              border: Border.all(color: kWhiteColor, width: 1.0)
-                            ),
-                            
-                          )),
+              CircleAvatar(
+                backgroundImage: AssetImage("assets/images/sp_1.jpg"),
+                radius: 25,
+              ),
+              Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Container(
+                    padding: EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                        color: kPrimaryColor,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: kWhiteColor, width: 1.0)),
+                  )),
             ]),
         title: Text(
           name,
-          style: bodySmallText(context).copyWith(fontWeight: FontWeight.bold),
+          style: bodyNormalText(context).copyWith(fontWeight: FontWeight.bold),
         ),
         subtitle: Text(message,
-            style: bodyTinyText(context).copyWith(color: kInactiveColor),
+            style: bodySmallText(context).copyWith(color: kInactiveColor),
             overflow: TextOverflow.ellipsis),
         trailing: Text(
           "08.12",

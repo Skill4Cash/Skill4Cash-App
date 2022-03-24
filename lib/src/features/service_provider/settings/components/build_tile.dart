@@ -1,7 +1,6 @@
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class BuildTile extends StatelessWidget {
   final IconData? leftIcon;
@@ -23,7 +22,9 @@ class BuildTile extends StatelessWidget {
     this.secondleftIcon,
     this.secondtextDesc,
     this.secondsubText,
-    this.secondrightIcon,  this.routeOne,  this.routeTwo,
+    this.secondrightIcon,
+    this.routeOne,
+    this.routeTwo,
   }) : super(key: key);
 
   @override
@@ -58,7 +59,7 @@ class BuildTile extends StatelessWidget {
                       kSmallHorizontalSpacing,
                       Text(
                         textDesc!,
-                        style: bodySmallText(context),
+                        style: bodyNormalText(context),
                       ),
                     ],
                   ),
@@ -66,7 +67,7 @@ class BuildTile extends StatelessWidget {
                     children: [
                       Text(
                         subText!,
-                        style: bodySmallText(context)
+                        style: bodyNormalText(context)
                             .copyWith(color: kInactiveColor),
                       ),
                       kSmallHorizontalSpacing,
@@ -98,7 +99,7 @@ class BuildTile extends StatelessWidget {
                       kSmallHorizontalSpacing,
                       Text(
                         secondtextDesc!,
-                        style: bodySmallText(context),
+                        style: bodyNormalText(context),
                       ),
                     ],
                   ),
@@ -106,7 +107,7 @@ class BuildTile extends StatelessWidget {
                     children: [
                       Text(
                         secondsubText!,
-                        style: bodySmallText(context)
+                        style: bodyNormalText(context)
                             .copyWith(color: kInactiveColor),
                       ),
                       kSmallHorizontalSpacing,

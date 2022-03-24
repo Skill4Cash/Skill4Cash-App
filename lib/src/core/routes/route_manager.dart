@@ -6,6 +6,10 @@ import 'package:Skill4Cash/src/features/customers/messages/chat_screen.dart';
 import 'package:Skill4Cash/src/features/customers/messages/index.dart';
 import 'package:Skill4Cash/src/features/customers/onboarding/onboarding_screen.dart';
 import 'package:Skill4Cash/src/features/customers/settings_customer/privacy_policy_screen.dart';
+import 'package:Skill4Cash/src/features/service_provider/dashboard/index.dart';
+import 'package:Skill4Cash/src/features/service_provider/dashboard/keyword.dart';
+import 'package:Skill4Cash/src/features/service_provider/dashboard/ratings.dart';
+import 'package:Skill4Cash/src/features/service_provider/dashboard/schedules.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_email.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_phone.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/index.dart';
@@ -54,6 +58,10 @@ class ServiceProviderRoutes {
   static const serviceSignUpRoute = "/serviceSignUp";
   static const s4cSubRoute = "/s4cSubPlan";
   static const s4cSubPayRoute = "/s4cSubPay";
+  static const spDashboardRoute = "/spDashboardScreen";
+  static const spKeywordRoute = "/spKeywordScreen";
+  static const spRatingRoute = "/spRatingScreen";
+  static const spScheduleRoute = "/spScheduleScreen";
 }
 
 class RouteGenerator {
@@ -105,6 +113,14 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const S4CSubPlanScreen());
       case ServiceProviderRoutes.s4cSubPayRoute:
         return MaterialPageRoute(builder: (_) => const S4CSubPayScreen());
+      case ServiceProviderRoutes.spDashboardRoute:
+        return MaterialPageRoute(builder: (_) => const SpDashboard());
+      case ServiceProviderRoutes.spKeywordRoute:
+        return MaterialPageRoute(builder: (_) => const KeywordScreen());
+      case ServiceProviderRoutes.spRatingRoute:
+        return MaterialPageRoute(builder: (_) => const RatingScreen());
+      case ServiceProviderRoutes.spScheduleRoute:
+        return MaterialPageRoute(builder: (_) => const ScheduleScreen());
 
       case CustomerRoutes.customerLoginRoute:
         return MaterialPageRoute(builder: (_) => CustomerLogin());
