@@ -27,12 +27,11 @@ class ProfileSingleTile extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 24),
       decoration: BoxDecoration(
-        boxShadow: <BoxShadow>[
+        boxShadow: [
           BoxShadow(
-            spreadRadius: 2,
-            offset: Offset.zero,
+            color: Color(0xFFEEEEEE),
+            spreadRadius: 6,
             blurRadius: 10,
-            color: Color(0xFFcecece),
           ),
         ],
         borderRadius: BorderRadius.circular(8),
@@ -46,7 +45,7 @@ class ProfileSingleTile extends StatelessWidget {
           GestureDetector(
             onTap: onTap,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               child: Row(
                 children: [
                   Icon(icon, color: kPrimaryColor),
@@ -55,7 +54,7 @@ class ProfileSingleTile extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.333,
                     child: Text(
                       text!,
-                      style: bodySmallText(context),
+                      style: bodyNormalText(context),
                     ),
                   ),
                   Text(desc!),

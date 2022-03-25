@@ -7,7 +7,10 @@ class SingleTile extends StatelessWidget {
   final String? textDesc;
   final IconData? rightIcon;
   const SingleTile({
-    Key? key, this.leftIcon, this.textDesc, this.rightIcon,
+    Key? key,
+    this.leftIcon,
+    this.textDesc,
+    this.rightIcon,
   }) : super(key: key);
 
   @override
@@ -19,15 +22,14 @@ class SingleTile extends StatelessWidget {
           child: Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-            color: kWhiteColor,
-            boxShadow: [
-               BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 20.0,
-                  offset: Offset(1.0, 1.0))
-            ],
-            borderRadius: BorderRadius.circular(8)
-        ),
+                  color: kWhiteColor,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 20.0,
+                        offset: Offset(1.0, 1.0))
+                  ],
+                  borderRadius: BorderRadius.circular(8)),
               child: Column(children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -35,22 +37,20 @@ class SingleTile extends StatelessWidget {
                     Row(
                       children: [
                         Icon(
-                         leftIcon,
+                          leftIcon,
                           color: kPrimaryColor,
                           size: 18,
                         ),
                         kSmallHorizontalSpacing,
                         Text(
                           textDesc!,
-                          style: bodySmallText(context),
+                          style: bodyNormalText(context),
                         ),
                       ],
                     ),
                     Row(
                       children: [
-                        Icon(rightIcon,
-                            size: 16,
-                            color: kInactiveColor),
+                        Icon(rightIcon, size: 16, color: kInactiveColor),
                       ],
                     )
                   ],
@@ -59,4 +59,3 @@ class SingleTile extends StatelessWidget {
         ));
   }
 }
-
