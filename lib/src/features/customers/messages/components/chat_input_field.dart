@@ -1,6 +1,8 @@
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../../widgets/app_dropdown.dart';
+
 class ChatInputField extends StatefulWidget {
   const ChatInputField({
     Key? key,
@@ -46,7 +48,14 @@ class _ChatInputFieldState extends State<ChatInputField> {
                         decoration: InputDecoration(
                           hintText: "Message",
                           suffixIcon: IconButton(icon: Icon(Icons.more_vert, color: Colors.black,), onPressed: (){
-
+                            // AppDropDown(
+                            //   options: [
+                            //     "Schedule a meet",
+                            //     "Attach Pictures",
+                            //     "Attach Document",
+                            //   ],
+                            //   currentItem: "",
+                            // );
                           },),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(40),

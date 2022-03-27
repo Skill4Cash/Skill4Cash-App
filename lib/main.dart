@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Skill4Cash',
       initialRoute: CustomerRoutes
-          .splashRoute, //splash screen has been added, this line can replaced later
+          .splashRoute, 
 
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouteGenerator.getRoute,

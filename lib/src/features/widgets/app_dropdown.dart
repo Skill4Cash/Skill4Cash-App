@@ -14,7 +14,6 @@ class AppDropDown extends StatelessWidget {
     return DropdownButtonFormField<String>(
       decoration: InputDecoration(
         filled: true,
-
         fillColor: Colors.transparent,
         // hintText: hintText,
         hintStyle:

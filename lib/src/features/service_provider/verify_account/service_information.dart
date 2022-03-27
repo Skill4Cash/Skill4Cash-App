@@ -1,3 +1,4 @@
+import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:Skill4Cash/src/features/widgets/app_dropdown.dart';
 import 'package:Skill4Cash/src/features/widgets/app_textfield.dart';
@@ -175,7 +176,9 @@ class ServiceInformationScreen extends StatelessWidget {
                     child: AppButton(
                   color: kPrimaryColor,
                   label: "Done",
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, ServiceProviderRoutes.spDashboardRoute);
+                  },
                 )),
               ],
             )
