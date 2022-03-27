@@ -51,8 +51,8 @@ class AllServicesScreen extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+        // elevation: 0,
+        backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
           "All Services",
@@ -66,20 +66,9 @@ class AllServicesScreen extends StatelessWidget {
             size: 16,
           ),
         ),
-      ),
-      body: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0xFFEEEEEE),
-                  spreadRadius: 10,
-                  blurRadius: 10,
-                ),
-              ],
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        bottom: PreferredSize(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
             child: AppTextField(
               prefixIcon: Icon(Icons.search),
               suffixIcon: GestureDetector(
@@ -217,29 +206,178 @@ class AllServicesScreen extends StatelessWidget {
               hintText: "Search for a service",
             ),
           ),
+          preferredSize: Size(double.infinity, 80),
+        ),
+      ),
+      body: Column(
+        children: [
+          // Container(
+          //   decoration: BoxDecoration(
+          //     boxShadow: [
+          //       BoxShadow(
+          //         color: Color(0xFFEEEEEE),
+          //         spreadRadius: 10,
+          //         blurRadius: 10,
+          //       ),
+          //     ],
+          //   ),
+          //   padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          //   child: AppTextField(
+          //     prefixIcon: Icon(Icons.search),
+          //     suffixIcon: GestureDetector(
+          //       onTap: () => showModalBottomSheet(
+          //           shape: RoundedRectangleBorder(
+          //             side: BorderSide(
+          //               color: Colors.grey,
+          //             ),
+          //             borderRadius: BorderRadius.only(
+          //               topRight: Radius.circular(50),
+          //               topLeft: Radius.circular(50),
+          //             ),
+          //           ),
+          //           context: context,
+          //           builder: (context) => Container(
+          //                 padding: EdgeInsets.symmetric(horizontal: 24),
+          //                 child: SingleChildScrollView(
+          //                   physics: const BouncingScrollPhysics(),
+          //                   child: Column(
+          //                     crossAxisAlignment: CrossAxisAlignment.start,
+          //                     children: [
+          //                       kMediumVerticalSpacing,
+          //                       Text(
+          //                         "Sorted By",
+          //                         style: bodyNormalText(context),
+          //                       ),
+          //                       kSmallVerticalSpacing,
+          //                       Text(
+          //                         "location",
+          //                         style: bodyNormalText(context),
+          //                       ),
+          //                       kSmallVerticalSpacing,
+          //                       Row(
+          //                         crossAxisAlignment: CrossAxisAlignment.center,
+          //                         children: [
+          //                           Icon(
+          //                             Icons.location_on_outlined,
+          //                             color: kPrimaryColor,
+          //                             size: 13,
+          //                           ),
+          //                           Text(
+          //                             "Ikeja, Lagos",
+          //                             style: bodyNormalText(context),
+          //                           ),
+          //                         ],
+          //                       ),
+          //                       kMediumVerticalSpacing,
+          //                       Text(
+          //                         "Categories",
+          //                         style: bodyNormalText(context),
+          //                       ),
+          //                       GridView.builder(
+          //                           // controller: booksScrollController,
+          //                           shrinkWrap: true,
+          //                           keyboardDismissBehavior:
+          //                               ScrollViewKeyboardDismissBehavior
+          //                                   .onDrag,
+          //                           physics:
+          //                               const NeverScrollableScrollPhysics(),
+          //                           padding: const EdgeInsets.all(8),
+          //                           gridDelegate:
+          //                               SliverGridDelegateWithFixedCrossAxisCount(
+          //                             crossAxisCount: 4,
+          //                             childAspectRatio: 7 / 3,
+          //                             // mainAxisSpacing: 4,
+          //                             // crossAxisSpacing: 5,
+          //                           ),
+          //                           itemCount: 15,
+          //                           itemBuilder: (context, index) => FilterChip(
+          //                               backgroundColor: Colors.transparent,
+          //                               shape: RoundedRectangleBorder(
+          //                                   side: BorderSide(
+          //                                     color: Colors.grey,
+          //                                   ),
+          //                                   borderRadius: BorderRadius.all(
+          //                                       Radius.circular(8))),
+          //                               selectedColor: Colors.orange,
+          //                               label: Text("Education"),
+          //                               onSelected: (bool? bo) {})),
+          //                       kMediumVerticalSpacing,
+          //                       Text(
+          //                         "Categories",
+          //                         style: bodyNormalText(context),
+          //                       ),
+          //                       GridView.builder(
+          //                           // controller: booksScrollController,
+          //                           shrinkWrap: true,
+          //                           keyboardDismissBehavior:
+          //                               ScrollViewKeyboardDismissBehavior
+          //                                   .onDrag,
+          //                           physics:
+          //                               const NeverScrollableScrollPhysics(),
+          //                           padding: const EdgeInsets.all(8),
+          //                           gridDelegate:
+          //                               SliverGridDelegateWithFixedCrossAxisCount(
+          //                             crossAxisCount: 4,
+          //                             childAspectRatio: 7 / 3,
+          //                             // mainAxisSpacing: 4,
+          //                             // crossAxisSpacing: 5,
+          //                           ),
+          //                           itemCount: 15,
+          //                           itemBuilder: (context, index) => FilterChip(
+          //                               backgroundColor: Colors.transparent,
+          //                               shape: RoundedRectangleBorder(
+          //                                   side: BorderSide(
+          //                                     color: Colors.grey,
+          //                                   ),
+          //                                   borderRadius: BorderRadius.all(
+          //                                       Radius.circular(8))),
+          //                               selectedColor: Colors.orange,
+          //                               label: Text("Education"),
+          //                               onSelected: (bool? bo) {})),
+          //                       Row(
+          //                         children: [
+          //                           Expanded(
+          //                               child: AppButton(
+          //                             label: "Apply",
+          //                             onPressed: () {},
+          //                           )),
+          //                         ],
+          //                       ),
+          //                     ],
+          //                   ),
+          //                 ),
+          //               )),
+          //       child: Container(
+          //         color: kPrimaryColor,
+          //         child: Icon(
+          //           Icons.filter_list_rounded,
+          //           color: kWhiteColor,
+          //         ),
+          //       ),
+          //     ),
+          //     label: "",
+          //     hintText: "Search for a service",
+          //   ),
+          // ),
           kSmallVerticalSpacing,
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: GridView.builder(
-                // controller: booksScrollController,
-                shrinkWrap: true,
-                keyboardDismissBehavior:
-                    ScrollViewKeyboardDismissBehavior.onDrag,
-                physics: const BouncingScrollPhysics(),
-                // padding: const EdgeInsets.only(
-                //     right: 24, top: 24, bottom: 24, left: 16),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  childAspectRatio: 2 / 3,
-                  mainAxisSpacing: 4,
-                  crossAxisSpacing: 5,
-                ),
-                itemCount: servicePill.length,
-                itemBuilder: (context, index) => ServicePill(
-                    title: servicePill[index].title,
-                    icon: servicePill[index].icon),
+            child: GridView.builder(
+              // controller: booksScrollController,
+              shrinkWrap: true,
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+              physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.only(
+                  right: 24, top: 24, bottom: 24, left: 16),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                childAspectRatio: 2 / 3,
+                mainAxisSpacing: 4,
+                crossAxisSpacing: 5,
               ),
+              itemCount: servicePill.length,
+              itemBuilder: (context, index) => ServicePill(
+                  title: servicePill[index].title,
+                  icon: servicePill[index].icon),
             ),
           ),
         ],
