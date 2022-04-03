@@ -64,9 +64,12 @@ class _S4CSubPlanScreenState extends State<S4CSubPlanScreen> {
             SizedBox(height: size.height * 0.2),
             Expanded(
               child: PageView.builder(
+                  // padEnds: false,
                   physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
-                  controller: _controller,
+                  controller: PageController(
+                    viewportFraction: 0.8
+                  ),
                   onPageChanged: (value) {
                     setState(() {
                       currentIndex = value;

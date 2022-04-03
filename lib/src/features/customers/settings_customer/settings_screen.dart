@@ -1,3 +1,4 @@
+import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/core/utilities/app_spacing.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
@@ -97,8 +98,10 @@ class SettingScreen extends StatelessWidget {
                       Icons.arrow_forward_ios,
                       size: 16,
                     ),
-                    onTap1: () {},
-                    onTap2: () {},
+                    onTap1: () => Navigator.of(context)
+                        .pushNamed(CustomerRoutes.privacyPolicyRoute),
+                    onTap2: () => Navigator.of(context)
+                        .pushNamed(CustomerRoutes.termsAndConditionRoute),
                   ),
                   kExtraSmallVerticalSpacing,
                   ProfileSingleTile(

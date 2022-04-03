@@ -2,16 +2,23 @@ import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:Skill4Cash/src/features/widgets/app_button.dart';
+import 'package:Skill4Cash/src/features/widgets/app_dialog.dart';
 import 'package:Skill4Cash/src/features/widgets/app_textfield.dart';
 import 'package:Skill4Cash/src/features/widgets/service_pill.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     // bool select = false;
+    List<UserLocation> _userLocation = [
+      UserLocation(location: "Lagos", subLocation: ["Ikeja", "Epe"]),
+      UserLocation(location: "Abia", subLocation: ["Ikeja", "Epe"]),
+      UserLocation(location: "Adamawa", subLocation: ["Ikeja", "Epe"]),
+      UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
+    ];
     List<ServicePill> servicePill = [
       ServicePill(title: "Electrical", icon: Icons.flash_on_outlined),
       ServicePill(title: "Vehicle", icon: Icons.directions_car),
@@ -59,23 +66,128 @@ class DashboardScreen extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        backgroundColor: Colors.white,
+        // elevation: 0,
         centerTitle: true,
-        title: Row(
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.location_on_outlined,
-              color: kPrimaryColor,
-              size: 13,
-            ),
-            Text(
-              "Ikeja, Lagos",
-              style: bodyNormalText(context),
-            ),
-          ],
+        title: TextButton(
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (context) => AppDialog(
+                        child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 24, vertical: 24),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Select an Option",
+                            style: heading2(context),
+                          ),
+                          Expanded(
+                            child: Container(
+                              child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: _userLocation.length,
+                                  physics: BouncingScrollPhysics(),
+                                  scrollDirection: Axis.vertical,
+                                  itemBuilder:
+                                      (context, index) => GestureDetector(
+                                            onTap: () {
+                                              showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (context) => AppDialog(
+                                                              child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        24,
+                                                                    vertical:
+                                                                        24),
+                                                            child: Column(
+                                                              children: [
+                                                                GestureDetector(
+                                                                  onTap: () =>
+                                                                      Navigator.pop(
+                                                                          context),
+                                                                  child: Row(
+                                                                    children: [
+                                                                      Icon(
+                                                                        Icons
+                                                                            .arrow_back_ios,
+                                                                        size:
+                                                                            13,
+                                                                      ),
+                                                                      kTinyHorizontalSpacing,
+                                                                      Text(
+                                                                        _userLocation[index]
+                                                                            .location,
+                                                                        style: heading2(
+                                                                            context),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Expanded(
+                                                                  child:
+                                                                      Container(
+                                                                    child: ListView.builder(
+                                                                        physics: BouncingScrollPhysics(),
+                                                                        scrollDirection: Axis.vertical,
+                                                                        shrinkWrap: true,
+                                                                        itemCount: _userLocation[index].subLocation.length,
+                                                                        itemBuilder: (context, index1) => Padding(
+                                                                              padding: const EdgeInsets.all(12),
+                                                                              child: Text(
+                                                                                _userLocation[index].subLocation[index1],
+                                                                                style: bodyNormalText(context),
+                                                                              ),
+                                                                            )),
+                                                                  ),
+                                                                ),
+                                                                AppButton(
+                                                                  label:
+                                                                      "Apply",
+                                                                  color:
+                                                                      kPrimaryColor,
+                                                                  onPressed:
+                                                                      () {},
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          )));
+                                            },
+                                            child: userLocation(context,
+                                                text: _userLocation[index]
+                                                    .location),
+                                          )),
+                            ),
+                          )
+                        ],
+                      ),
+                    )));
+          },
+          child: Row(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.location_on_outlined,
+                color: kPrimaryColor,
+                size: 13,
+              ),
+              Text(
+                "Ikeja, Lagos",
+                style: heading2(context),
+              ),
+              Icon(
+                Icons.keyboard_arrow_down_outlined,
+                color: kPrimaryColor,
+                size: 13,
+              ),
+            ],
+          ),
         ),
         leading: Padding(
           padding: const EdgeInsets.only(left: 24.0),
@@ -83,166 +195,153 @@ class DashboardScreen extends StatelessWidget {
             radius: 20,
           ),
         ),
+        bottom: PreferredSize(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
+            child: AppTextField(
+              prefixIcon: Icon(Icons.search),
+              suffixIcon: GestureDetector(
+                onTap: () => showModalBottomSheet(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        color: Colors.grey,
+                      ),
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(50),
+                        topLeft: Radius.circular(50),
+                      ),
+                    ),
+                    context: context,
+                    builder: (context) => Container(
+                          padding: EdgeInsets.symmetric(horizontal: 24),
+                          child: SingleChildScrollView(
+                            physics: const BouncingScrollPhysics(),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                kMediumVerticalSpacing,
+                                Text(
+                                  "Sorted By",
+                                  style: bodyNormalText(context),
+                                ),
+                                kSmallVerticalSpacing,
+                                Text(
+                                  "location",
+                                  style: bodyNormalText(context),
+                                ),
+                                kSmallVerticalSpacing,
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.location_on_outlined,
+                                      color: kPrimaryColor,
+                                      size: 13,
+                                    ),
+                                    Text(
+                                      "Ikeja, Lagos",
+                                      style: bodyNormalText(context),
+                                    ),
+                                  ],
+                                ),
+                                kMediumVerticalSpacing,
+                                Text(
+                                  "Categories",
+                                  style: bodyNormalText(context),
+                                ),
+                                GridView.builder(
+                                    // controller: booksScrollController,
+                                    shrinkWrap: true,
+                                    keyboardDismissBehavior:
+                                        ScrollViewKeyboardDismissBehavior
+                                            .onDrag,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    padding: const EdgeInsets.all(8),
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 4,
+                                      childAspectRatio: 7 / 3,
+                                      // mainAxisSpacing: 4,
+                                      // crossAxisSpacing: 5,
+                                    ),
+                                    itemCount: 15,
+                                    itemBuilder: (context, index) => FilterChip(
+                                        backgroundColor: Colors.transparent,
+                                        shape: RoundedRectangleBorder(
+                                            side: BorderSide(
+                                              color: Colors.grey,
+                                            ),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(8))),
+                                        selectedColor: Colors.orange,
+                                        label: Text("Education"),
+                                        onSelected: (bool? bo) {})),
+                                kMediumVerticalSpacing,
+                                Text(
+                                  "Categories",
+                                  style: bodyNormalText(context),
+                                ),
+                                GridView.builder(
+                                    // controller: booksScrollController,
+                                    shrinkWrap: true,
+                                    keyboardDismissBehavior:
+                                        ScrollViewKeyboardDismissBehavior
+                                            .onDrag,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    padding: const EdgeInsets.all(8),
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 4,
+                                      childAspectRatio: 7 / 3,
+                                      // mainAxisSpacing: 4,
+                                      // crossAxisSpacing: 5,
+                                    ),
+                                    itemCount: 15,
+                                    itemBuilder: (context, index) => FilterChip(
+                                        backgroundColor: Colors.transparent,
+                                        shape: RoundedRectangleBorder(
+                                            side: BorderSide(
+                                              color: Colors.grey,
+                                            ),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(8))),
+                                        selectedColor: Colors.orange,
+                                        label: Text("Education"),
+                                        onSelected: (bool? bo) {})),
+                                Row(
+                                  children: [
+                                    Expanded(
+                                        child: AppButton(
+                                      label: "Apply",
+                                      onPressed: () {},
+                                    )),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        )),
+                child: Container(
+                  color: kPrimaryColor,
+                  child: Icon(
+                    Icons.filter_list_rounded,
+                    color: kWhiteColor,
+                  ),
+                ),
+              ),
+              label: "",
+              hintText: "Search for a service",
+            ),
+          ),
+          preferredSize: Size(double.infinity, 80),
+        ),
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0xFFEEEEEE),
-                    spreadRadius: 10,
-                    blurRadius: 10,
-                  ),
-                ],
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: AppTextField(
-                prefixIcon: Icon(Icons.search),
-                suffixIcon: GestureDetector(
-                  onTap: () => showModalBottomSheet(
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(
-                          color: Colors.grey,
-                        ),
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(50),
-                          topLeft: Radius.circular(50),
-                        ),
-                      ),
-                      context: context,
-                      builder: (context) => Container(
-                            padding: EdgeInsets.symmetric(horizontal: 24),
-                            child: SingleChildScrollView(
-                              physics: const BouncingScrollPhysics(),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  kMediumVerticalSpacing,
-                                  Text(
-                                    "Sorted By",
-                                    style: bodyNormalText(context),
-                                  ),
-                                  kSmallVerticalSpacing,
-                                  Text(
-                                    "location",
-                                    style: bodyNormalText(context),
-                                  ),
-                                  kSmallVerticalSpacing,
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.location_on_outlined,
-                                        color: kPrimaryColor,
-                                        size: 13,
-                                      ),
-                                      Text(
-                                        "Ikeja, Lagos",
-                                        style: bodyNormalText(context),
-                                      ),
-                                    ],
-                                  ),
-                                  kMediumVerticalSpacing,
-                                  Text(
-                                    "Categories",
-                                    style: bodyNormalText(context),
-                                  ),
-                                  GridView.builder(
-                                      // controller: booksScrollController,
-                                      shrinkWrap: true,
-                                      keyboardDismissBehavior:
-                                          ScrollViewKeyboardDismissBehavior
-                                              .onDrag,
-                                      physics:
-                                          const NeverScrollableScrollPhysics(),
-                                      padding: const EdgeInsets.all(8),
-                                      gridDelegate:
-                                          SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 4,
-                                        childAspectRatio: 7 / 3,
-                                        // mainAxisSpacing: 4,
-                                        // crossAxisSpacing: 5,
-                                      ),
-                                      itemCount: 15,
-                                      itemBuilder: (context, index) =>
-                                          FilterChip(
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              shape: RoundedRectangleBorder(
-                                                  side: BorderSide(
-                                                    color: Colors.grey,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(8))),
-                                              selectedColor: Colors.orange,
-                                              label: Text("Education"),
-                                              onSelected: (bool? bo) {})),
-                                  kMediumVerticalSpacing,
-                                  Text(
-                                    "Categories",
-                                    style: bodyNormalText(context),
-                                  ),
-                                  GridView.builder(
-                                      // controller: booksScrollController,
-                                      shrinkWrap: true,
-                                      keyboardDismissBehavior:
-                                          ScrollViewKeyboardDismissBehavior
-                                              .onDrag,
-                                      physics:
-                                          const NeverScrollableScrollPhysics(),
-                                      padding: const EdgeInsets.all(8),
-                                      gridDelegate:
-                                          SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 4,
-                                        childAspectRatio: 7 / 3,
-                                        // mainAxisSpacing: 4,
-                                        // crossAxisSpacing: 5,
-                                      ),
-                                      itemCount: 15,
-                                      itemBuilder: (context, index) =>
-                                          FilterChip(
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              shape: RoundedRectangleBorder(
-                                                  side: BorderSide(
-                                                    color: Colors.grey,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(8))),
-                                              selectedColor: Colors.orange,
-                                              label: Text("Education"),
-                                              onSelected: (bool? bo) {})),
-                                  Row(
-                                    children: [
-                                      Expanded(
-                                          child: AppButton(
-                                        label: "Apply",
-                                        onPressed: () {},
-                                      )),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )),
-                  child: Container(
-                    color: kPrimaryColor,
-                    child: Icon(
-                      Icons.filter_list_rounded,
-                      color: kWhiteColor,
-                    ),
-                  ),
-                ),
-                label: "",
-                hintText: "Search for a service",
-              ),
-            ),
             kSmallVerticalSpacing,
             GestureDetector(
               onTap: () => showDialog(
@@ -368,8 +467,8 @@ class DashboardScreen extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () => Navigator.of(context)
-                        .pushNamed(CustomerRoutes.serviceProvidersAroundScreenRoute),
+                    onTap: () => Navigator.of(context).pushNamed(
+                        CustomerRoutes.serviceProvidersAroundScreenRoute),
                     child: Text(
                       "See all",
                       style: bodyNormalText(context)
@@ -392,6 +491,26 @@ class DashboardScreen extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget userLocation(
+    BuildContext context, {
+    required String text,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.all(12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(text, style: bodyNormalText(context)),
+          Icon(
+            Icons.arrow_forward_ios,
+            color: kPrimaryColor,
+            size: 13,
+          ),
+        ],
       ),
     );
   }
@@ -503,4 +622,13 @@ class AroundMe extends StatelessWidget {
       ),
     );
   }
+}
+
+class UserLocation {
+  final String location;
+  final List<String> subLocation;
+  const UserLocation({
+    required this.location,
+    required this.subLocation,
+  });
 }

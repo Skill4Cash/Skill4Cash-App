@@ -31,12 +31,11 @@ class ProfileDoubleTile extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 24),
       decoration: BoxDecoration(
-        boxShadow: <BoxShadow>[
+        boxShadow: [
           BoxShadow(
-            spreadRadius: 2,
-            offset: Offset.zero,
+            color: Color(0xFFEEEEEE),
+            spreadRadius: 6,
             blurRadius: 10,
-            color: Color(0xFFcecece),
           ),
         ],
         borderRadius: BorderRadius.circular(8),
@@ -51,21 +50,18 @@ class ProfileDoubleTile extends StatelessWidget {
             onTap: onTap1,
             child: Padding(
               padding:
-                  const EdgeInsets.only(top: 8, left: 8, bottom: 0, right: 8),
+                  const EdgeInsets.only(top: 16, left: 8, bottom: 16, right: 8),
               child: Row(
                 children: [
                   Icon(icon, color: kPrimaryColor),
                   kExtraSmallHorizontalSpacing,
                   Container(
                     width: MediaQuery.of(context).size.width * 0.333,
-                    child: Text(
-                      text1!,
-                      style: bodySmallText(context),
-                    ),
+                    child: Text(text1!, style: bodyNormalText(context)),
                   ),
                   Text(
                     desc1!,
-                    style: bodySmallText(context)
+                    style: bodyNormalText(context)
                         .copyWith(fontWeight: FontWeight.w200),
                   ),
                   Spacer(),
@@ -87,14 +83,11 @@ class ProfileDoubleTile extends StatelessWidget {
                   kExtraSmallHorizontalSpacing,
                   Container(
                     width: MediaQuery.of(context).size.width * 0.333,
-                    child: Text(
-                      text2!,
-                      style: bodySmallText(context),
-                    ),
+                    child: Text(text2!, style: bodyNormalText(context)),
                   ),
                   Text(
                     desc2!,
-                    style: bodySmallText(context)
+                    style: bodyNormalText(context)
                         .copyWith(fontWeight: FontWeight.w200),
                   ),
                   Spacer(),
