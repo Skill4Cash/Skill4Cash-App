@@ -1,10 +1,7 @@
-import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../core/routes/route_manager.dart';
 
 class VerifyDashboardSP extends StatelessWidget {
   const VerifyDashboardSP({Key? key}) : super(key: key);
@@ -27,10 +24,7 @@ class VerifyDashboardSP extends StatelessWidget {
               kMediumVerticalSpacing,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: TextButton(
-                    onPressed: () => Navigator.pushNamed(
-                        context, ServiceProviderRoutes.verifyAccountSPRoute),
-                    child: _buildBox(context)),
+                child: _buildBox(context),
               ),
               kLargeVerticalSpacing,
               Padding(
@@ -107,24 +101,13 @@ class VerifyDashboardSP extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: kPad),
                 child: Row(
                   children: [
-                    Expanded(
-                        child: Text(
-                      "Ratings and Reviews",
-                      style: bodyNormalText(context),
-                    )),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Seel all",
-                          style: bodySmallText(context)
-                              .copyWith(color: kPrimaryColor),
-                        ))
+                    Expanded(child: Text("Ratings and Reviews", style: bodyNormalText(context),)),
+                    TextButton(onPressed: (){}, child: Text("Seel all", style: bodySmallText(context).copyWith(color: kPrimaryColor),))
                   ],
                 ),
               ),
               kLargeVerticalSpacing,
-              Center(
-                  child: Image(image: AssetImage("assets/images/amico.png"))),
+              Center(child: Image(image: AssetImage("assets/images/amico.png"))),
             ])
           ]),
         ));
@@ -133,60 +116,55 @@ class VerifyDashboardSP extends StatelessWidget {
   Widget _buildBox(BuildContext context) {
     return Stack(
       children: [
-        InkWell(
-          onTap: (){
-            Navigator.pushNamed(context, ServiceProviderRoutes.verifyAccountSPRoute);
-          },
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 35),
-            decoration: BoxDecoration(
-              color: darkPrimaryColor,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Container(
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: kWhiteColor,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.lock,
-                          color: kPrimaryColor,
-                        )),
-                    kSmallHorizontalSpacing,
-                    Expanded(
-                      flex: 1,
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Verify your account",
-                              style:
-                                  heading2(context).copyWith(color: kWhiteColor),
-                            ),
-                            kTinyVerticalSpacing,
-                            Text(
-                              "To enjoy the full Skill4Cash experience",
-                              style: bodyNormalText(context).copyWith(
-                                  color: kWhiteColor,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            kTinyVerticalSpacing,
-                            Text(
-                              "*Required documents: National ID and Business/Artisan Certificate",
-                              style: bodyTinyText(context)
-                                  .copyWith(color: kPrimaryColor),
-                            )
-                          ]),
-                    )
-                  ],
-                )
-              ],
-            ),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 35),
+          decoration: BoxDecoration(
+            color: darkPrimaryColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: kWhiteColor,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.lock,
+                        color: kPrimaryColor,
+                      )),
+                  kSmallHorizontalSpacing,
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Verify your account",
+                            style:
+                                heading2(context).copyWith(color: kWhiteColor),
+                          ),
+                          kTinyVerticalSpacing,
+                          Text(
+                            "To enjoy the full Skill4Cash experience",
+                            style: bodyNormalText(context).copyWith(
+                                color: kWhiteColor,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          kTinyVerticalSpacing,
+                          Text(
+                            "*Required documents: National ID and Business/Artisan Certificate",
+                            style: bodyTinyText(context)
+                                .copyWith(color: kPrimaryColor),
+                          )
+                        ]),
+                  )
+                ],
+              )
+            ],
           ),
         ),
         Positioned(

@@ -39,19 +39,9 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: kWhiteColor,
       body: Center(
-        child: Container(
-          height: 30,
-          // width: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(splashImage),
-              fit: BoxFit.contain
-            )
-          )
-        )
-        // child: Image(
-        //   image: AssetImage(splashImage),
-        // ),
+        child: Image(
+          image: AssetImage(splashImage),
+        ),
       ),
     );
   }
