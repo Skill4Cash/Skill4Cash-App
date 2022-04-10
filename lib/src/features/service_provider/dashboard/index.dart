@@ -31,7 +31,11 @@ class SpDashboard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: kPad),
                 child: Row(
                   children: [
-                    Expanded(child: Boxes(name: "Schedules", count: "12")),
+                    Expanded(child: InkWell(
+                      onTap: (){
+                        Navigator.pushNamed(context, ServiceProviderRoutes.spScheduleRoute);
+                      },
+                      child: Boxes(name: "Schedules", count: "12"))),
                     kSmallHorizontalSpacing,
                     Expanded(child: Boxes(name: "Messages", count: "4")),
                     kSmallHorizontalSpacing,
@@ -165,10 +169,10 @@ class Boxes extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.3,
         padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         decoration: BoxDecoration(
-            color: kWhiteColor,
+            color: darkPrimaryColor,
             boxShadow: [
               BoxShadow(
-                  color: Colors.black12,
+                  color: kWhiteColor,
                   blurRadius: 20.0,
                   offset: Offset(1.0, 1.0))
             ],
@@ -184,7 +188,8 @@ class Boxes extends StatelessWidget {
                     // margin: EdgeInsets.only(right: kPad),
                     padding: EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: kPrimaryColor.withOpacity(0.1),
+                      // color: kPrimaryColor.withOpacity(0.1),
+                      color: kWhiteColor,
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
@@ -202,12 +207,12 @@ class Boxes extends StatelessWidget {
                 Text(
                   count,
                   style: heading2(context)
-                      .copyWith(fontSize: 30, fontWeight: FontWeight.bold),
+                      .copyWith(color: kWhiteColor, fontSize: 30, fontWeight: FontWeight.bold),
                 ),
                 kTinyVerticalSpacing,
                 Text(
                   name,
-                  style: bodySmallText(context),
+                  style: bodySmallText(context).copyWith(color: kWhiteColor),
                 )
               ],
             )
