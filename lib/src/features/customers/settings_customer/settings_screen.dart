@@ -17,7 +17,7 @@ class SettingScreen extends StatelessWidget {
         backgroundColor: kWhiteColor,
         automaticallyImplyLeading: false,
         title: Text(
-          "History",
+          "Settings",
           style: heading1(context),
         ),
       ),
