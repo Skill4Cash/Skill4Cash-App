@@ -1,4 +1,3 @@
-import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/core/utilities/app_spacing.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:flutter/material.dart';
@@ -6,8 +5,8 @@ import 'package:flutter/material.dart';
 class ProfileSingleTile extends StatelessWidget {
   final String? text;
 
-  final IconData? icon;
-
+  final Icon? icon;
+  final Color? textColor;
   final Icon? suffixicon;
   final VoidCallback? onTap;
 
@@ -20,6 +19,7 @@ class ProfileSingleTile extends StatelessWidget {
     this.onTap,
     this.suffixicon,
     this.desc,
+    this.textColor,
   }) : super(key: key);
 
   @override
@@ -48,13 +48,14 @@ class ProfileSingleTile extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               child: Row(
                 children: [
-                  Icon(icon, color: kPrimaryColor),
+                  icon!,
                   kExtraSmallHorizontalSpacing,
                   Container(
                     width: MediaQuery.of(context).size.width * 0.333,
                     child: Text(
                       text!,
-                      style: bodyNormalText(context),
+                      style: bodyNormalText(context)
+                          .copyWith(color: textColor ?? null),
                     ),
                   ),
                   Text(desc!),

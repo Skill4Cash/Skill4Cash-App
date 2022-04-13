@@ -53,7 +53,11 @@ class ProfileDoubleTile extends StatelessWidget {
                   const EdgeInsets.only(top: 16, left: 8, bottom: 16, right: 8),
               child: Row(
                 children: [
-                  Icon(icon, color: kPrimaryColor),
+                  Icon(
+                    icon,
+                    color: kPrimaryColor,
+                    // size: 16,
+                  ),
                   kExtraSmallHorizontalSpacing,
                   Container(
                     width: MediaQuery.of(context).size.width * 0.333,

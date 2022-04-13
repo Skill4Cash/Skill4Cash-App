@@ -81,16 +81,16 @@ class CustomerSignUp extends StatelessWidget {
                       hintText: "Confirm password",
                       suffixIcon: Icon(Icons.visibility),
                     ),
-                    kSmallVerticalSpacing,
+                    kLargeVerticalSpacing,
                     Row(
                       children: [
                         Expanded(
                           child: AppButton(
                             color: kPrimaryColor,
-                            label: "SIGN IN",
+                            label: "SIGN UP",
                             onPressed: () {
                               Navigator.pushNamed(
-                                  context, CustomerRoutes.customerHomeRoute);
+                                  context, CustomerRoutes.verifyEmail);
                             },
                           ),
                         ),

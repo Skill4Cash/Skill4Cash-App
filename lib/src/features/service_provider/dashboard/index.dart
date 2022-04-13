@@ -35,11 +35,13 @@ class SpDashboard extends StatelessWidget {
                     kSmallHorizontalSpacing,
                     Expanded(child: Boxes(name: "Messages", count: "4")),
                     kSmallHorizontalSpacing,
-                    Expanded(child: InkWell(
-                      onTap: (){
-                        Navigator.pushNamed(context, ServiceProviderRoutes.spKeywordRoute);
-                      },
-                      child: Boxes(name: "Keywword Hits", count: "8"))),
+                    Expanded(
+                        child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(context,
+                                  ServiceProviderRoutes.spKeywordRoute);
+                            },
+                            child: Boxes(name: "Keywword Hits", count: "8"))),
                   ],
                 ),
               ),
@@ -56,7 +58,8 @@ class SpDashboard extends StatelessWidget {
                     )),
                     TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, ServiceProviderRoutes.spRatingRoute);
+                          Navigator.pushNamed(
+                              context, ServiceProviderRoutes.spRatingRoute);
                         },
                         child: Text(
                           "See all",
@@ -68,13 +71,17 @@ class SpDashboard extends StatelessWidget {
               ),
               // kSmallVerticalSpacing,
               ListView.builder(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: 3,
-                itemBuilder: (_, index){
-                return BuildRating(image: ratingData[index].image, name: ratingData[index].text, comment: ratingData[index].comment,
-                shadowColor: kPrimaryColor.withOpacity(0.1),);
-              })
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: 3,
+                  itemBuilder: (_, index) {
+                    return BuildRating(
+                      image: ratingData[index].image,
+                      name: ratingData[index].text,
+                      comment: ratingData[index].comment,
+                      shadowColor: kPrimaryColor.withOpacity(0.1),
+                    );
+                  })
             ])
           ]),
         ));
@@ -132,10 +139,15 @@ class SpDashboard extends StatelessWidget {
           children: [
             Text(
               "Hi, Tailor Swift services",
-              style: bodyNormalText(context).copyWith(fontWeight: FontWeight.w400),
+              style:
+                  bodyNormalText(context).copyWith(fontWeight: FontWeight.w400),
             ),
             kTinyHorizontalSpacing,
-            Icon(Icons.verified, color: kPrimaryColor, size: 18,)
+            Icon(
+              Icons.verified,
+              color: kPrimaryColor,
+              size: 18,
+            )
           ],
         ),
         kTinyVerticalSpacing,
@@ -147,8 +159,6 @@ class SpDashboard extends StatelessWidget {
     );
   }
 }
-
-
 
 class Boxes extends StatelessWidget {
   final String name;

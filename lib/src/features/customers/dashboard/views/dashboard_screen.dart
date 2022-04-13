@@ -66,8 +66,9 @@ class DashboardScreen extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: kWhiteColor,
         // elevation: 0,
+
         centerTitle: true,
         title: TextButton(
           onPressed: () {
@@ -175,7 +176,7 @@ class DashboardScreen extends StatelessWidget {
               Icon(
                 Icons.location_on_outlined,
                 color: kPrimaryColor,
-                size: 13,
+                size: heading2(context).height,
               ),
               Text(
                 "Ikeja, Lagos",
@@ -184,15 +185,16 @@ class DashboardScreen extends StatelessWidget {
               Icon(
                 Icons.keyboard_arrow_down_outlined,
                 color: kPrimaryColor,
-                size: 13,
+                size: heading2(context).height,
               ),
             ],
           ),
         ),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 24.0),
+        leading: Container(
+          margin: EdgeInsets.only(left: kPad),
+          padding: EdgeInsets.only(top: 8),
           child: CircleAvatar(
-            radius: 20,
+            backgroundImage: AssetImage(profileImg),
           ),
         ),
         bottom: PreferredSize(

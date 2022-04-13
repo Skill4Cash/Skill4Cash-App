@@ -1,3 +1,5 @@
+import 'package:Skill4Cash/src/features/customerAuth/views/verify_account.dart';
+import 'package:Skill4Cash/src/features/customerAuth/views/verify_email.dart';
 import 'package:Skill4Cash/src/features/customers/dashboard/views/all_services_screen.dart';
 import 'package:Skill4Cash/src/features/customers/dashboard/views/dashboard_screen.dart';
 import 'package:Skill4Cash/src/features/customers/dashboard/views/service_providers_arround_screen.dart';
@@ -43,6 +45,8 @@ class CustomerRoutes {
   static const customerSignUpRoute = "/customerSignUp";
   static const privacyPolicyRoute = "/privacyPolicy=";
   static const termsAndConditionRoute = "/termsAndCondition";
+  static const verifyEmail = "/verifyEmail";
+  static const openEmail = "/openEmail";
 }
 
 class ServiceProviderRoutes {
@@ -90,6 +94,10 @@ class RouteGenerator {
       case CustomerRoutes.termsAndConditionRoute:
         return MaterialPageRoute(
             builder: (_) => const TermsAndConditionScreen());
+      case CustomerRoutes.verifyEmail:
+        return MaterialPageRoute(builder: (_) => const VerifyAccount());
+      case CustomerRoutes.openEmail:
+        return MaterialPageRoute(builder: (_) => const VerifyEmail());
 
       //SERVICE PROVIDER ROUTER
       case ServiceProviderRoutes.spPageViewRoute:
