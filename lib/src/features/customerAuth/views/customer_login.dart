@@ -17,7 +17,9 @@ class CustomerLogin extends StatelessWidget {
         child: Expanded(
           child: Form(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+              padding: EdgeInsets.symmetric(
+                horizontal: 24,
+              ),
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Column(
@@ -71,16 +73,20 @@ class CustomerLogin extends StatelessWidget {
                       ],
                     ),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Don't have an account?"),
-                        TextButton(
-                          onPressed: () => Navigator.of(context)
-                              .pushNamed(CustomerRoutes.customerSignUpRoute),
-                          child: Text(
-                            " Sign Up",
-                            style: bodyNormalText(context)
-                                .copyWith(color: kPrimaryColor),
+                        Expanded(child: Text("Don't have an account?")),
+                        Spacer(),
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => Navigator.of(context)
+                                .pushNamed(CustomerRoutes.customerSignUpRoute),
+                            child: Text(
+                              "Sign Up",
+                              style: bodyNormalText(context)
+                                  .copyWith(color: kPrimaryColor),
+                            ),
                           ),
                         )
                       ],
@@ -90,8 +96,7 @@ class CustomerLogin extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 24, vertical: 18),
+                            padding: EdgeInsets.symmetric(vertical: 18),
                             decoration:
                                 BoxDecoration(color: kWhiteColor, boxShadow: [
                               BoxShadow(
@@ -109,14 +114,17 @@ class CustomerLogin extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Tap here to switch to "),
-                        TextButton(
-                          onPressed: () => Navigator.of(context).pushNamed(
-                              ServiceProviderRoutes.serviceLoginRoute),
-                          child: Text(
-                            " Service provider Sign In",
-                            style: bodyNormalText(context)
-                                .copyWith(color: kPrimaryColor),
+                        Expanded(child: Text("Tap here to switch to")),
+                        Spacer(),
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => Navigator.of(context).pushNamed(
+                                ServiceProviderRoutes.serviceLoginRoute),
+                            child: Text(
+                              "Service provider Sign In",
+                              style: bodyNormalText(context)
+                                  .copyWith(color: kPrimaryColor),
+                            ),
                           ),
                         )
                       ],

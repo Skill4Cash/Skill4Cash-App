@@ -1,6 +1,6 @@
 import 'dart:async';
+
 import 'package:Skill4Cash/src/core/routes/route_manager.dart';
-import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -39,20 +39,16 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: kWhiteColor,
       body: Center(
-        child: Container(
-          height: 30,
-          // width: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(splashImage),
-              fit: BoxFit.contain
-            )
-          )
-        )
-        // child: Image(
-        //   image: AssetImage(splashImage),
-        // ),
-      ),
+          child: Container(
+              height: 30,
+              // width: double.infinity,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(splashImage), fit: BoxFit.contain)))
+          // child: Image(
+          //   image: AssetImage(splashImage),
+          // ),
+          ),
     );
   }
 }

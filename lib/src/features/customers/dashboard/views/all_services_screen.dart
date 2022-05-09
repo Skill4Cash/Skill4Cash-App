@@ -63,12 +63,15 @@ class AllServicesScreen extends StatelessWidget {
           child: Icon(
             Icons.arrow_back_ios,
             color: kTextColor,
-            size: 16,
+            size: heading2(context).height,
           ),
         ),
         bottom: PreferredSize(
           child: Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
+            padding: const EdgeInsets.only(
+              left: 24,
+              right: 24,
+            ),
             child: AppTextField(
               prefixIcon: Icon(Icons.search),
               suffixIcon: GestureDetector(
@@ -206,7 +209,8 @@ class AllServicesScreen extends StatelessWidget {
               hintText: "Search for a service",
             ),
           ),
-          preferredSize: Size(double.infinity, 80),
+          preferredSize: Size(
+              double.infinity, MediaQuery.of(context).textScaleFactor * 60),
         ),
       ),
       body: Column(
@@ -370,7 +374,9 @@ class AllServicesScreen extends StatelessWidget {
                   right: 24, top: 24, bottom: 24, left: 16),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
-                childAspectRatio: 2 / 3,
+                childAspectRatio: MediaQuery.of(context).textScaleFactor < 1.6
+                    ? 2 / 3
+                    : 4 / 8,
                 mainAxisSpacing: 4,
                 crossAxisSpacing: 5,
               ),

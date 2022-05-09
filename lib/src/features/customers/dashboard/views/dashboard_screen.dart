@@ -199,7 +199,10 @@ class DashboardScreen extends StatelessWidget {
         ),
         bottom: PreferredSize(
           child: Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
+            padding: const EdgeInsets.only(
+              left: 24,
+              right: 24,
+            ),
             child: AppTextField(
               prefixIcon: Icon(Icons.search),
               suffixIcon: GestureDetector(
@@ -337,7 +340,8 @@ class DashboardScreen extends StatelessWidget {
               hintText: "Search for a service",
             ),
           ),
-          preferredSize: Size(double.infinity, 80),
+          preferredSize: Size(
+              double.infinity, MediaQuery.of(context).textScaleFactor * 60),
         ),
       ),
       body: SingleChildScrollView(
@@ -374,7 +378,7 @@ class DashboardScreen extends StatelessWidget {
                               kMediumVerticalSpacing,
                               Text(
                                 "Lorem ipsum dolor sit amet, consectetur adipiscin aaag elit. Vestibulum sollicitudin magna",
-                                style: bodyTinyText(context),
+                                style: bodyNormalText(context),
                                 textAlign: TextAlign.center,
                               ),
                               kLargeVerticalSpacing,
@@ -402,11 +406,12 @@ class DashboardScreen extends StatelessWidget {
                     Icon(
                       Icons.error_outline,
                       color: Colors.red,
-                      size: 13,
                     ),
                     Text(
                       "Skill4Cash Disclaimer",
-                      style: TextStyle(color: Colors.red),
+                      style: TextStyle(
+                        color: Colors.red,
+                      ),
                     ),
                   ],
                 ),
@@ -416,13 +421,18 @@ class DashboardScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Featured Service",
-                    style: heading2(context).copyWith(
-                      fontWeight: FontWeight.w700,
+                  Expanded(
+                    flex: 2,
+                    child: Text(
+                      "Featured Service",
+                      style: heading2(context).copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
+                  Spacer(),
                   GestureDetector(
                     onTap: () => Navigator.of(context)
                         .pushNamed(CustomerRoutes.allServicesRoute),
@@ -435,6 +445,7 @@ class DashboardScreen extends StatelessWidget {
                 ],
               ),
             ),
+            kSmallVerticalSpacing,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: GridView.builder(
@@ -443,11 +454,13 @@ class DashboardScreen extends StatelessWidget {
                 keyboardDismissBehavior:
                     ScrollViewKeyboardDismissBehavior.onDrag,
                 physics: const BouncingScrollPhysics(),
-                padding: const EdgeInsets.only(
-                    right: 24, top: 24, bottom: 24, left: 16),
+                // padding: const EdgeInsets.only(
+                //     right: 24, top: 24, bottom: 24, left: 16),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
-                  childAspectRatio: 2 / 3,
+                  childAspectRatio: MediaQuery.of(context).textScaleFactor < 1.6
+                      ? 2 / 3
+                      : 4 / 8,
                   mainAxisSpacing: 4,
                   crossAxisSpacing: 5,
                 ),
@@ -461,13 +474,18 @@ class DashboardScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Service providers around me",
-                    style: heading2(context).copyWith(
-                      fontWeight: FontWeight.w700,
+                  Expanded(
+                    flex: 2,
+                    child: Text(
+                      "Service providers around me",
+                      style: heading2(context).copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
+                  Spacer(),
                   GestureDetector(
                     onTap: () => Navigator.of(context).pushNamed(
                         CustomerRoutes.serviceProvidersAroundScreenRoute),
@@ -481,7 +499,7 @@ class DashboardScreen extends StatelessWidget {
               ),
             ),
             Container(
-              height: 300,
+              height: MediaQuery.of(context).textScaleFactor < 1.6 ? 300 : 350,
               child: ListView.builder(
                   itemCount: aroundMe.length,
                   scrollDirection: Axis.horizontal,
@@ -533,6 +551,8 @@ class AroundMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      clipBehavior: Clip.antiAlias,
+
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: kWhiteColor,
@@ -546,14 +566,16 @@ class AroundMe extends StatelessWidget {
         ],
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
       ),
-      width: 150,
-      height: 50,
+      width: MediaQuery.of(context).textScaleFactor < 1.6 ? 150 : 200,
+      // height: MediaQuery.of(context).textScaleFactor > 1.6 ? 200 : 300,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             padding: const EdgeInsets.all(16),
-            constraints: const BoxConstraints.expand(width: 150, height: 150),
+            constraints: const BoxConstraints.expand(
+                width: double.infinity, height: 150),
             decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.2),
               image: DecorationImage(
@@ -568,15 +590,17 @@ class AroundMe extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-                width: 120,
-                child: Text(
-                  title,
-                  style: bodyTinyText(context)
-                      .copyWith(fontWeight: FontWeight.w600),
-                )),
+              width: double.infinity,
+              child: Text(
+                title,
+                maxLines: 3,
+                style: bodyNormalText(context)
+                    .copyWith(fontWeight: FontWeight.w600),
+              ),
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
               subtitle,
               style: bodyTinyText(context)
@@ -584,7 +608,7 @@ class AroundMe extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Row(
               children: [
                 Icon(

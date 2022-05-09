@@ -43,6 +43,7 @@ class ProfileDoubleTile extends StatelessWidget {
         color: Theme.of(context).cardColor,
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           kExtraSmallHorizontalSpacing,
@@ -63,12 +64,16 @@ class ProfileDoubleTile extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.333,
                     child: Text(text1!, style: bodyNormalText(context)),
                   ),
-                  Text(
-                    desc1!,
-                    style: bodyNormalText(context)
-                        .copyWith(fontWeight: FontWeight.w200),
+                  Expanded(
+                    child: Text(
+                      desc1!,
+                      softWrap: true,
+                      maxLines: 3,
+                      style: bodyNormalText(context)
+                          .copyWith(fontWeight: FontWeight.w200),
+                    ),
                   ),
-                  Spacer(),
+                  // Spacer(),
                   suffixicon!
                 ],
               ),
@@ -89,12 +94,16 @@ class ProfileDoubleTile extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.333,
                     child: Text(text2!, style: bodyNormalText(context)),
                   ),
-                  Text(
-                    desc2!,
-                    style: bodyNormalText(context)
-                        .copyWith(fontWeight: FontWeight.w200),
+                  Expanded(
+                    child: Text(
+                      desc2!,
+                      softWrap: true,
+                      maxLines: 3,
+                      style: bodyNormalText(context)
+                          .copyWith(fontWeight: FontWeight.w200),
+                    ),
                   ),
-                  Spacer(),
+                  // Spacer(),
                   suffixicon!
                 ],
               ),

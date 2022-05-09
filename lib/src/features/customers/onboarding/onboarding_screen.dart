@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 
 import 'components/slide_location.dart';
 import 'components/slide_one.dart';
-import 'components/slide_signIn.dart';
 
 class OnboardingScreen extends StatefulWidget {
   @override
@@ -34,7 +33,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       desc: "All accessible from the comfort of your phone.",
     ),
     BuildSlideWithForm(),
-    BuildSlideWithSignIn(),
+    // BuildSlideWithSignIn(),
   ];
   int currentIndex = 0;
   late PageController _controller;

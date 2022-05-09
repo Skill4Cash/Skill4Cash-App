@@ -4,6 +4,7 @@ import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/images.dart';
 import 'package:Skill4Cash/src/features/widgets/app_button.dart';
 import 'package:Skill4Cash/src/features/widgets/app_textfield.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ServiceProvidersAroundScreen extends StatelessWidget {
@@ -25,11 +26,12 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
           child: Icon(
             Icons.arrow_back_ios,
             color: kTextColor,
-            size: 16,
+            size: heading2(context).height,
           ),
         ),
         bottom: PreferredSize(
-          preferredSize: Size(double.infinity, 80),
+          preferredSize: Size(
+              double.infinity, MediaQuery.of(context).textScaleFactor * 50),
           child: Container(
             // decoration: BoxDecoration(
             //   boxShadow: [
@@ -40,8 +42,10 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
             //     ),
             //   ],
             // ),
-            padding:
-                const EdgeInsets.only(left: 24.0, right: 24.0, bottom: 24.0),
+            padding: const EdgeInsets.only(
+              left: 24.0,
+              right: 24.0,
+            ),
             child: AppTextField(
               prefixIcon: Icon(Icons.search),
               suffixIcon: GestureDetector(
@@ -193,7 +197,7 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
                 Icon(
                   Icons.location_on_outlined,
                   color: kPrimaryColor,
-                  size: 13,
+                  size: bodyNormalText(context).height,
                 ),
                 Text(
                   "Ikeja, Lagos",
@@ -204,85 +208,86 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: 10,
-              itemBuilder: (conext, index) => Container(
-                margin: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                decoration: BoxDecoration(
-                    color: kWhiteColor,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0xFFEEEEEE),
-                        spreadRadius: 6,
-                        blurRadius: 10,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 60,
-                      height: 60,
+                physics: const BouncingScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: 10,
+                itemBuilder: (conext, index) => Container(
+                      margin:
+                          EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                       decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage(image)),
+                          color: kWhiteColor,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xFFEEEEEE),
+                              spreadRadius: 6,
+                              blurRadius: 10,
+                            ),
+                          ],
                           borderRadius: BorderRadius.all(Radius.circular(10))),
-                    ),
-                    kSmallHorizontalSpacing,
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
+                      child: ListTile(
+                        leading: Container(
+                          width: 80,
+                          height: 80,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(image: AssetImage(image)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                        ),
+                        title: Text(
                           "Wonderous Creations Clothiers",
+                          maxLines: 2,
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
                           style: bodyNormalText(context),
                         ),
-                        kExtraSmallVerticalSpacing,
-                        Text(
-                          "Fashion",
-                          style: bodySmallText(context),
-                        ),
-                        kExtraSmallVerticalSpacing,
-                        Row(
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(
-                              Icons.star,
-                              size: 13,
-                              color: kPrimaryColor,
+                            Text(
+                              "Fashion",
+                              style: bodySmallText(context),
                             ),
-                            Icon(
-                              Icons.star,
-                              size: 13,
-                              color: kPrimaryColor,
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  size: 13,
+                                  color: kPrimaryColor,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 13,
+                                  color: kPrimaryColor,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 13,
+                                  color: kPrimaryColor,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 13,
+                                  color: kPrimaryColor,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 13,
+                                  color: kPrimaryColor,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 13,
+                                  color: kPrimaryColor,
+                                )
+                              ],
                             ),
-                            Icon(
-                              Icons.star,
-                              size: 13,
-                              color: kPrimaryColor,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 13,
-                              color: kPrimaryColor,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 13,
-                              color: kPrimaryColor,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 13,
-                              color: kPrimaryColor,
-                            )
                           ],
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
+                        ),
+                      ),
+                    )),
           )
         ],
       ),
