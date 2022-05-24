@@ -41,7 +41,7 @@ class SpDashboard extends StatelessWidget {
                               Navigator.pushNamed(context,
                                   ServiceProviderRoutes.spKeywordRoute);
                             },
-                            child: Boxes(name: "Keywword Hits", count: "8"))),
+                            child: Boxes(name: "Keyword Hits", count: "8"))),
                   ],
                 ),
               ),
