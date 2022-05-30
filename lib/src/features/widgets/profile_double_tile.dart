@@ -73,7 +73,6 @@ class ProfileDoubleTile extends StatelessWidget {
                           .copyWith(fontWeight: FontWeight.w200),
                     ),
                   ),
-                  // Spacer(),
                   suffixicon!
                 ],
               ),
