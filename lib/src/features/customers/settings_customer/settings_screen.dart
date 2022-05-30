@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 import 'change_email_address_screen.dart';
 import 'change_phone_number_screen.dart';
-import 'hisory_screen.dart';
+import 'history_screen.dart';
 
 class SettingScreen extends StatelessWidget {
   @override

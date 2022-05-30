@@ -38,7 +38,7 @@ List demeChatMessages = [
     isSender: true,
   ),
   ChatMessage(
-    text: "Ok, where do you stay, so i will need to caslculate expenses vovered along th eline because all this matters",
+    text: "Ok, where do you stay, so i will need to calculate expenses covered along th eline because all this matters",
     messageType: ChatMessageType.text,
     isSender: false,
   ),
