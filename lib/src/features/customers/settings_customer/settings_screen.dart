@@ -2,6 +2,7 @@ import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/core/utilities/app_spacing.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
+import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:Skill4Cash/src/features/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class SettingScreen extends StatelessWidget {
         backgroundColor: kWhiteColor,
         automaticallyImplyLeading: false,
         title: Text(
-          "History",
+          "Settings",
           style: heading1(context),
         ),
       ),
@@ -29,15 +30,45 @@ class SettingScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  radius: 50.0,
-                ),
+                Stack(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage(profileImg),
+                        radius: MediaQuery.of(context).size.width / 6,
+                      ),
+                      Positioned(
+                          bottom: 6,
+                          right: 8,
+                          child: Container(
+                            padding: EdgeInsets.all(6),
+                            decoration: BoxDecoration(
+                              color: kPrimaryColor,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.camera_alt_outlined,
+                              color: kWhiteColor,
+                            ),
+                          )),
+                    ]),
                 SizedBox(
                   height: 10.0,
                 ),
-                Text("Sammy David",
-                    style: bodyNormalText(context)
-                        .copyWith(fontWeight: FontWeight.w600)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Sammy David",
+                      style: heading2(context),
+                    ),
+                    kExtraSmallHorizontalSpacing,
+                    Icon(
+                      Icons.edit_rounded,
+                      color: kPrimaryColor,
+                    ),
+                  ],
+                ),
               ],
             ),
             kLargeVerticalSpacing,
@@ -76,7 +107,11 @@ class SettingScreen extends StatelessWidget {
                   kExtraSmallVerticalSpacing,
                   ProfileSingleTile(
                     text: "History",
-                    icon: Icons.history,
+                    icon: Icon(
+                      Icons.history,
+                      // size: 16,
+                      color: kPrimaryColor,
+                    ),
                     suffixicon: Icon(
                       Icons.arrow_forward_ios,
                       size: 16,
@@ -97,6 +132,7 @@ class SettingScreen extends StatelessWidget {
                     suffixicon: Icon(
                       Icons.arrow_forward_ios,
                       size: 16,
+                      color: Colors.red,
                     ),
                     onTap1: () => Navigator.of(context)
                         .pushNamed(CustomerRoutes.privacyPolicyRoute),
@@ -106,10 +142,15 @@ class SettingScreen extends StatelessWidget {
                   kExtraSmallVerticalSpacing,
                   ProfileSingleTile(
                     text: "Logout",
-                    icon: Icons.logout,
+                    icon: Icon(
+                      Icons.logout,
+                      // size: 16,
+                      color: Colors.red,
+                    ),
                     suffixicon: Icon(
                       Icons.arrow_forward_ios,
                       size: 16,
+                      color: Colors.red,
                     ),
                     desc: "",
                     onTap: () {},

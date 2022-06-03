@@ -31,19 +31,17 @@ class SpDashboard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: kPad),
                 child: Row(
                   children: [
-                    Expanded(child: InkWell(
-                      onTap: (){
-                        Navigator.pushNamed(context, ServiceProviderRoutes.spScheduleRoute);
-                      },
-                      child: Boxes(name: "Schedules", count: "12"))),
+                    Expanded(child: Boxes(name: "Schedules", count: "12")),
                     kSmallHorizontalSpacing,
                     Expanded(child: Boxes(name: "Messages", count: "4")),
                     kSmallHorizontalSpacing,
-                    Expanded(child: InkWell(
-                      onTap: (){
-                        Navigator.pushNamed(context, ServiceProviderRoutes.spKeywordRoute);
-                      },
-                      child: Boxes(name: "Keywword Hits", count: "8"))),
+                    Expanded(
+                        child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(context,
+                                  ServiceProviderRoutes.spKeywordRoute);
+                            },
+                            child: Boxes(name: "Keywword Hits", count: "8"))),
                   ],
                 ),
               ),
@@ -60,7 +58,8 @@ class SpDashboard extends StatelessWidget {
                     )),
                     TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, ServiceProviderRoutes.spRatingRoute);
+                          Navigator.pushNamed(
+                              context, ServiceProviderRoutes.spRatingRoute);
                         },
                         child: Text(
                           "See all",
@@ -72,13 +71,17 @@ class SpDashboard extends StatelessWidget {
               ),
               // kSmallVerticalSpacing,
               ListView.builder(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: 3,
-                itemBuilder: (_, index){
-                return BuildRating(image: ratingData[index].image, name: ratingData[index].text, comment: ratingData[index].comment,
-                shadowColor: kPrimaryColor.withOpacity(0.1),);
-              })
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: 3,
+                  itemBuilder: (_, index) {
+                    return BuildRating(
+                      image: ratingData[index].image,
+                      name: ratingData[index].text,
+                      comment: ratingData[index].comment,
+                      shadowColor: kPrimaryColor.withOpacity(0.1),
+                    );
+                  })
             ])
           ]),
         ));
@@ -136,10 +139,15 @@ class SpDashboard extends StatelessWidget {
           children: [
             Text(
               "Hi, Tailor Swift services",
-              style: bodyNormalText(context).copyWith(fontWeight: FontWeight.w400),
+              style:
+                  bodyNormalText(context).copyWith(fontWeight: FontWeight.w400),
             ),
             kTinyHorizontalSpacing,
-            Icon(Icons.verified, color: kPrimaryColor, size: 18,)
+            Icon(
+              Icons.verified,
+              color: kPrimaryColor,
+              size: 18,
+            )
           ],
         ),
         kTinyVerticalSpacing,
@@ -151,8 +159,6 @@ class SpDashboard extends StatelessWidget {
     );
   }
 }
-
-
 
 class Boxes extends StatelessWidget {
   final String name;
@@ -169,10 +175,10 @@ class Boxes extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.3,
         padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         decoration: BoxDecoration(
-            color: darkPrimaryColor,
+            color: kWhiteColor,
             boxShadow: [
               BoxShadow(
-                  color: kWhiteColor,
+                  color: Colors.black12,
                   blurRadius: 20.0,
                   offset: Offset(1.0, 1.0))
             ],
@@ -188,8 +194,7 @@ class Boxes extends StatelessWidget {
                     // margin: EdgeInsets.only(right: kPad),
                     padding: EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      // color: kPrimaryColor.withOpacity(0.1),
-                      color: kWhiteColor,
+                      color: kPrimaryColor.withOpacity(0.1),
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
@@ -207,12 +212,12 @@ class Boxes extends StatelessWidget {
                 Text(
                   count,
                   style: heading2(context)
-                      .copyWith(color: kWhiteColor, fontSize: 30, fontWeight: FontWeight.bold),
+                      .copyWith(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
                 kTinyVerticalSpacing,
                 Text(
                   name,
-                  style: bodySmallText(context).copyWith(color: kWhiteColor),
+                  style: bodySmallText(context),
                 )
               ],
             )

@@ -19,7 +19,7 @@ class CustomerSignUp extends StatelessWidget {
             child: SingleChildScrollView(
               physics: BouncingScrollPhysics(),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -28,7 +28,7 @@ class CustomerSignUp extends StatelessWidget {
                       "Welcome",
                       style: heading1(context).copyWith(fontFamily: "Roboto"),
                     ),
-                    kMediumVerticalSpacing,
+                    kSmallVerticalSpacing,
                     Text(
                       "Sign up",
                       style: heading2(context),
@@ -81,16 +81,16 @@ class CustomerSignUp extends StatelessWidget {
                       hintText: "Confirm password",
                       suffixIcon: Icon(Icons.visibility),
                     ),
-                    kSmallVerticalSpacing,
+                    kLargeVerticalSpacing,
                     Row(
                       children: [
                         Expanded(
                           child: AppButton(
                             color: kPrimaryColor,
-                            label: "SIGN IN",
+                            label: "SIGN UP",
                             onPressed: () {
                               Navigator.pushNamed(
-                                  context, CustomerRoutes.customerHomeRoute);
+                                  context, CustomerRoutes.verifyEmail);
                             },
                           ),
                         ),

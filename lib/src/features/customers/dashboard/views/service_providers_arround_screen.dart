@@ -8,14 +8,13 @@ import 'package:flutter/material.dart';
 
 class ServiceProvidersAroundScreen extends StatelessWidget {
   const ServiceProvidersAroundScreen({Key? key}) : super(key: key);
-  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+        // elevation: 0,
+        backgroundColor: kWhiteColor,
         centerTitle: true,
         title: Text(
           "Service Providers Around Me",
@@ -29,20 +28,20 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
             size: 16,
           ),
         ),
-      ),
-      body: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0xFFEEEEEE),
-                  spreadRadius: 10,
-                  blurRadius: 10,
-                ),
-              ],
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        bottom: PreferredSize(
+          preferredSize: Size(double.infinity, 80),
+          child: Container(
+            // decoration: BoxDecoration(
+            //   boxShadow: [
+            //     BoxShadow(
+            //       color: Color(0xFFEEEEEE),
+            //       spreadRadius: 10,
+            //       blurRadius: 10,
+            //     ),
+            //   ],
+            // ),
+            padding:
+                const EdgeInsets.only(left: 24.0, right: 24.0, bottom: 24.0),
             child: AppTextField(
               prefixIcon: Icon(Icons.search),
               suffixIcon: GestureDetector(
@@ -67,21 +66,21 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
                                 kMediumVerticalSpacing,
                                 Text(
                                   "Sorted By",
-                                  style: bodyNormalText(context),
+                                  style: heading2(context),
                                 ),
                                 kSmallVerticalSpacing,
                                 Text(
                                   "location",
                                   style: bodyNormalText(context),
                                 ),
-                                kSmallVerticalSpacing,
+                                kExtraSmallVerticalSpacing,
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Icon(
                                       Icons.location_on_outlined,
                                       color: kPrimaryColor,
-                                      size: 13,
+                                      size: bodyNormalText(context).height,
                                     ),
                                     Text(
                                       "Ikeja, Lagos",
@@ -180,6 +179,10 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
               hintText: "Search for a service",
             ),
           ),
+        ),
+      ),
+      body: Column(
+        children: [
           kSmallVerticalSpacing,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8),

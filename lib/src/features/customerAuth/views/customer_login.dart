@@ -55,7 +55,7 @@ class CustomerLogin extends StatelessWidget {
                       hintText: "Password",
                       suffixIcon: Icon(Icons.visibility),
                     ),
-                    kSmallVerticalSpacing,
+                    kLargeVerticalSpacing,
                     Row(
                       children: [
                         Expanded(

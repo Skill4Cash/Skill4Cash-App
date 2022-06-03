@@ -6,8 +6,6 @@ import 'package:Skill4Cash/src/features/widgets/app_dialog.dart';
 import 'package:Skill4Cash/src/features/widgets/app_textfield.dart';
 import 'package:Skill4Cash/src/features/widgets/service_pill.dart';
 import 'package:flutter/material.dart';
-import 'all_services_screen.dart';
-import 'service_providers_arround_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -16,54 +14,24 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // bool select = false;
     List<UserLocation> _userLocation = [
-      UserLocation(location: "Abia", subLocation: ["Umuahia"]),
-      UserLocation(location: "Adamawa", subLocation: ["Yola"]),
-      UserLocation(location: "Akwa ibom", subLocation: ["Uyo"]),
-      UserLocation(location: "Anambra", subLocation: ["Awka"]),
-      UserLocation(location: "Bauchi", subLocation: ["Bauchi"]),
-      UserLocation(location: "Bayelsa", subLocation: ["Yenegoa"]),
-      UserLocation(location: "Benue", subLocation: ["Makurdi"]),
-      UserLocation(location: "Cross River", subLocation: ["Calabar"]),
-      UserLocation(location: "Delta", subLocation: ["Asaba"]),
-      UserLocation(location: "Ebonyi", subLocation: ["Abakaliki"]),
-      UserLocation(location: "Edo", subLocation: ["Benin City"]),
-      UserLocation(location: "Ekiti", subLocation: ["Ado Ekiti"]),
-      UserLocation(location: "Enugu", subLocation: ["Enugu"]),
-      UserLocation(location: "Gombe", subLocation: ["Gombe"]),
-      UserLocation(location: "Imo", subLocation: ["Owerri"]),
-      UserLocation(location: "Jigawa", subLocation: ["Dutse"]),
-      UserLocation(location: "Kaduna", subLocation: ["Kaduna"]),
-      UserLocation(location: "Kano", subLocation: ["Kano"]),
-      UserLocation(location: "Katsina", subLocation: ["Katsina"]),
-      UserLocation(location: "Kebbi", subLocation: ["Birnin Kebbi"]),
-      UserLocation(location: "Kogi", subLocation: ["Lokoja"]),
-      UserLocation(location: "Kwara", subLocation: ["Ilorin"]),
-      UserLocation(location: "Lagos", subLocation: ["Ikeja", "Epe", "Victoria Island", "Yaba"]),
-      UserLocation(location: "Nasarawa", subLocation: ["Lafia"]),
-      UserLocation(location: "Niger", subLocation: ["Minna"]),
-      UserLocation(location: "Ogun", subLocation: ["Abeokuta"]),
-      UserLocation(location: "Ondo", subLocation: ["Akure"]),
-      UserLocation(location: "Osun", subLocation: ["Oshogbo"]),
-      UserLocation(location: "Oyo", subLocation: ["Ibadan"]),
-      UserLocation(location: "Plateau", subLocation: ["Jos"]),
-      UserLocation(location: "Rivers", subLocation: ["Port Hatcourt"]),
-      UserLocation(location: "Sokoto", subLocation: ["Sokoto"]),
-      UserLocation(location: "Taraba", subLocation: ["Jalingo"]),
-      UserLocation(location: "Yobe", subLocation: ["Damaturu"]),
-      UserLocation(location: "Zamfara", subLocation: ["Gusau"]),
+      UserLocation(location: "Lagos", subLocation: ["Ikeja", "Epe"]),
+      UserLocation(location: "Abia", subLocation: ["Ikeja", "Epe"]),
+      UserLocation(location: "Adamawa", subLocation: ["Ikeja", "Epe"]),
+      UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
     ];
     List<ServicePill> servicePill = [
-      ServicePill(title: "Electrical", icon: Icons.bolt_outlined),
+      ServicePill(title: "Electrical", icon: Icons.flash_on_outlined),
       ServicePill(title: "Vehicle", icon: Icons.directions_car),
       ServicePill(title: "Fashion", icon: Icons.female_outlined),
-      ServicePill(title: "Catering", icon: Icons.lunch_dining_outlined),
-      ServicePill(title: "Plumbing", icon: Icons.handyman_outlined),
+      ServicePill(title: "Catering", icon: Icons.female_outlined),
+      ServicePill(title: "Plumbing", icon: Icons.female_outlined),
       ServicePill(title: "Graphics Design", icon: Icons.female_outlined),
-      ServicePill(title: "Website Development", icon: Icons.code_off_outlined),
+      ServicePill(title: "Website Development", icon: Icons.female_outlined),
       ServicePill(title: "Product Design", icon: Icons.female_outlined),
-      ServicePill(title: "Painting ", icon: Icons.format_paint_outlined),
+      ServicePill(title: "Painting ", icon: Icons.female_outlined),
       ServicePill(title: "Printing", icon: Icons.female_outlined),
-      ServicePill(title: "Construction", icon: Icons.line_style_outlined),
+      ServicePill(title: "Construction", icon: Icons.female_outlined),
+      ServicePill(title: "Wellness", icon: Icons.female_outlined),
     ];
 
     List<AroundMe> aroundMe = [
@@ -98,8 +66,9 @@ class DashboardScreen extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: kWhiteColor,
         // elevation: 0,
+
         centerTitle: true,
         title: TextButton(
           onPressed: () {
@@ -207,7 +176,7 @@ class DashboardScreen extends StatelessWidget {
               Icon(
                 Icons.location_on_outlined,
                 color: kPrimaryColor,
-                size: 13,
+                size: heading2(context).height,
               ),
               Text(
                 "Ikeja, Lagos",
@@ -216,15 +185,16 @@ class DashboardScreen extends StatelessWidget {
               Icon(
                 Icons.keyboard_arrow_down_outlined,
                 color: kPrimaryColor,
-                size: 13,
+                size: heading2(context).height,
               ),
             ],
           ),
         ),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 24.0),
+        leading: Container(
+          margin: EdgeInsets.only(left: kPad),
+          padding: EdgeInsets.only(top: 8),
           child: CircleAvatar(
-            radius: 20,
+            backgroundImage: AssetImage(profileImg),
           ),
         ),
         bottom: PreferredSize(
