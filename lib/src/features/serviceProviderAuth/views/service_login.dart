@@ -17,7 +17,9 @@ class ServiceLogin extends StatelessWidget {
         child: Expanded(
           child: Form(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+              padding: EdgeInsets.symmetric(
+                horizontal: 24,
+              ),
               child: SingleChildScrollView(
                 physics: BouncingScrollPhysics(),
                 child: Column(
@@ -73,14 +75,17 @@ class ServiceLogin extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Don't have an account?"),
-                        TextButton(
-                          onPressed: () => Navigator.of(context).pushNamed(
-                              ServiceProviderRoutes.serviceSignUpRoute),
-                          child: Text(
-                            "Sign Up",
-                            style: bodyNormalText(context)
-                                .copyWith(color: kPrimaryColor),
+                        Expanded(child: Text("Don't have an account?")),
+                        Spacer(),
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => Navigator.of(context).pushNamed(
+                                ServiceProviderRoutes.serviceSignUpRoute),
+                            child: Text(
+                              "Sign Up",
+                              style: bodyNormalText(context)
+                                  .copyWith(color: kPrimaryColor),
+                            ),
                           ),
                         )
                       ],
@@ -90,8 +95,7 @@ class ServiceLogin extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 24, vertical: 18),
+                            padding: EdgeInsets.symmetric(vertical: 18),
                             decoration:
                                 BoxDecoration(color: kWhiteColor, boxShadow: [
                               BoxShadow(
@@ -109,14 +113,17 @@ class ServiceLogin extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Tap here to switch to "),
-                        TextButton(
-                          onPressed: () => Navigator.of(context)
-                              .pushNamed(CustomerRoutes.customerLoginRoute),
-                          child: Text(
-                            "Customer Sign In",
-                            style: bodyNormalText(context)
-                                .copyWith(color: kPrimaryColor),
+                        Expanded(child: Text("Tap here to switch to ")),
+                        Spacer(),
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => Navigator.of(context)
+                                .pushNamed(CustomerRoutes.customerLoginRoute),
+                            child: Text(
+                              "Customer Sign In",
+                              style: bodyNormalText(context)
+                                  .copyWith(color: kPrimaryColor),
+                            ),
                           ),
                         )
                       ],

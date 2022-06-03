@@ -10,9 +10,9 @@ class ChangePhoneNumber extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kWhiteColor,
-        leading: GestureDetector(
-          onTap: () => Navigator.of(context).pop(),
-          child: Icon(
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: Icon(
             Icons.arrow_back_ios,
             size: 16,
             color: kBlackColor,

@@ -12,24 +12,24 @@ class AllServicesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<ServicePill> servicePill = [
-      ServicePill(title: "Electrical", icon: Icons.flash_on_outlined),
+      ServicePill(title: "Electrical", icon: Icons.bolt_outlined),
       ServicePill(title: "Vehicle", icon: Icons.directions_car),
       ServicePill(title: "Fashion", icon: Icons.female_outlined),
-      ServicePill(title: "Catering", icon: Icons.female_outlined),
-      ServicePill(title: "Plumbing", icon: Icons.female_outlined),
+      ServicePill(title: "Catering", icon: Icons.lunch_dining_outlined),
+      ServicePill(title: "Plumbing", icon: Icons.handyman_outlined),
       ServicePill(title: "Graphics Design", icon: Icons.female_outlined),
-      ServicePill(title: "Website Development", icon: Icons.female_outlined),
+      ServicePill(title: "Website Development", icon: Icons.code_off_outlined),
       ServicePill(title: "Product Design", icon: Icons.female_outlined),
-      ServicePill(title: "Painting ", icon: Icons.female_outlined),
+      ServicePill(title: "Painting ", icon: Icons.format_paint_outlined),
       ServicePill(title: "Printing", icon: Icons.female_outlined),
-      ServicePill(title: "Construction", icon: Icons.female_outlined),
-      ServicePill(title: "Wellness", icon: Icons.female_outlined),
-      ServicePill(title: "Plumbing", icon: Icons.female_outlined),
-      ServicePill(title: "Graphics Design", icon: Icons.female_outlined),
-      ServicePill(title: "Website Development", icon: Icons.female_outlined),
-      ServicePill(title: "Product Design", icon: Icons.female_outlined),
-      ServicePill(title: "Painting ", icon: Icons.female_outlined),
-      ServicePill(title: "Printing", icon: Icons.female_outlined),
+      ServicePill(title: "Construction", icon: Icons.line_style_outlined),
+      ServicePill(title: "Wellness", icon: Icons.medical_services_outlined),
+      ServicePill(title: "Carpentry", icon: Icons.female_outlined),
+      ServicePill(title: "Mobile Development", icon: Icons.female_outlined),
+      ServicePill(title: "Glazier", icon: Icons.female_outlined),
+      ServicePill(title: "Welder", icon: Icons.female_outlined),
+      ServicePill(title: "Dry Cleaning ", icon: Icons.dry_cleaning_outlined),
+      ServicePill(title: "Laptop Repair", icon: Icons.laptop_windows_outlined),
       ServicePill(title: "Construction", icon: Icons.female_outlined),
       ServicePill(title: "Wellness", icon: Icons.female_outlined),
       ServicePill(title: "Plumbing", icon: Icons.female_outlined),
@@ -63,12 +63,15 @@ class AllServicesScreen extends StatelessWidget {
           child: Icon(
             Icons.arrow_back_ios,
             color: kTextColor,
-            size: 16,
+            size: heading2(context).height,
           ),
         ),
         bottom: PreferredSize(
           child: Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
+            padding: const EdgeInsets.only(
+              left: 24,
+              right: 24,
+            ),
             child: AppTextField(
               prefixIcon: Icon(Icons.search),
               suffixIcon: GestureDetector(
@@ -206,7 +209,8 @@ class AllServicesScreen extends StatelessWidget {
               hintText: "Search for a service",
             ),
           ),
-          preferredSize: Size(double.infinity, 80),
+          preferredSize: Size(
+              double.infinity, MediaQuery.of(context).textScaleFactor * 60),
         ),
       ),
       body: Column(
@@ -370,7 +374,9 @@ class AllServicesScreen extends StatelessWidget {
                   right: 24, top: 24, bottom: 24, left: 16),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
-                childAspectRatio: 2 / 3,
+                childAspectRatio: MediaQuery.of(context).textScaleFactor < 1.6
+                    ? 2 / 3
+                    : 4 / 8,
                 mainAxisSpacing: 4,
                 crossAxisSpacing: 5,
               ),

@@ -37,28 +37,36 @@ class _ChatInputFieldState extends State<ChatInputField> {
                   horizontal: kPad - 5,
                 ),
                 decoration: BoxDecoration(
-                  // borderRadius: BorderRadius.circular(40),
-                ),
+                    // borderRadius: BorderRadius.circular(40),
+                    ),
                 child: Row(
                   children: [
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: "Message",
-                          suffixIcon: IconButton(icon: Icon(Icons.more_vert, color: Colors.black,), onPressed: (){
-
-                          },),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40),
-                            borderSide: BorderSide(
-                              color: Colors.black12.withOpacity(0.4),
-                              width: 0.3
-                            )
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              Icons.more_vert,
+                              color: Colors.black,
+                            ),
+                            onPressed: () {},
                           ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40),
+                              borderSide: BorderSide(
+                                  color: Colors.black12.withOpacity(0.4),
+                                  width: 0.3)),
                         ),
                       ),
                     ),
-                    IconButton(onPressed: (){}, icon: Icon(Icons.send, color: darkPrimaryColor, size: 30,)),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.send,
+                          color: darkPrimaryColor,
+                          size: 30,
+                        )),
                   ],
                 ),
               ),

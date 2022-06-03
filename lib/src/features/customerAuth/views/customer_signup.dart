@@ -100,14 +100,17 @@ class CustomerSignUp extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Already have an account?"),
-                        TextButton(
-                          onPressed: () => Navigator.of(context)
-                              .pushNamed(CustomerRoutes.customerLoginRoute),
-                          child: Text(
-                            " Sign in",
-                            style: bodyNormalText(context)
-                                .copyWith(color: kPrimaryColor),
+                        Expanded(child: Text("Already have an account?")),
+                        Spacer(),
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => Navigator.of(context)
+                                .pushNamed(CustomerRoutes.customerLoginRoute),
+                            child: Text(
+                              "Sign in",
+                              style: bodyNormalText(context)
+                                  .copyWith(color: kPrimaryColor),
+                            ),
                           ),
                         )
                       ],
@@ -136,14 +139,17 @@ class CustomerSignUp extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Tap here to switch to "),
-                        TextButton(
-                          onPressed: () => Navigator.of(context).pushNamed(
-                              ServiceProviderRoutes.serviceSignUpRoute),
-                          child: Text(
-                            " Service provider Sign Up",
-                            style: bodyNormalText(context)
-                                .copyWith(color: kPrimaryColor),
+                        Expanded(child: Text("Tap here to switch to")),
+                        Spacer(),
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => Navigator.of(context).pushNamed(
+                                ServiceProviderRoutes.serviceSignUpRoute),
+                            child: Text(
+                              "Service provider Sign Up",
+                              style: bodyNormalText(context)
+                                  .copyWith(color: kPrimaryColor),
+                            ),
                           ),
                         )
                       ],
