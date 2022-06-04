@@ -14,24 +14,48 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // bool select = false;
     List<UserLocation> _userLocation = [
-      UserLocation(location: "Lagos", subLocation: ["Ikeja", "Epe"]),
-      UserLocation(location: "Abia", subLocation: ["Ikeja", "Epe"]),
-      UserLocation(location: "Adamawa", subLocation: ["Ikeja", "Epe"]),
+      UserLocation(location: "Abia", subLocation: ["Aba North", "Aba South", "Arochukwu", "Bende", "Isiala Ngwa South", "Ikwuano", "Isiala", "Ngwa North", "Isukwuato", "Ukwa West", "Ukwa East", "Umuahia", "Umuahia South"]),
+      UserLocation(location: "Adamawa", subLocation: ["Demsa", "Fufore", "Ganye", "Girei", "Gombi", "Jada", "Yola North", "Lamurde", "Madagali", "Maiha", "Mayo-Belwa", "Michika", "Mubi South", "Numna", "Shelleng", "Song", "Toungo", "Jimeta", "Yola South", "Hung"]),
+      UserLocation(location: "Anambra", subLocation: ["Aguata", "Anambra", "Anambra West", "Anaocha", "Awka South", "Awka North", "Ogbaru", "Onitsha South", "Onitsha North", "Orumba North", "Orumba South", "Oyi"]),
+      UserLocation(location: "Akwa ibom", subLocation: ["Abak", "Eastern Obolo", "Eket", "Essien Udim", "Etimekpo", "Etinan", "Ibeno", "Ibesikpo Asutan", "Ibiono Ibom", "Ika", "Ikono", "Ikot Abasi", "Ikot Ekpene", "Ini", "Itu", "Mbo", "Mkpat Enin", "Nsit Ibom",
+        "Nsit Ubium", "Obot Akara", "Okobo", "Onna", "Orukanam", "Oron", "Udung Uko", "Ukanafun", "Esit Eket", "Uruan", "Urue Offoung", "Oruko Ete", "Uyo"]),
+      UserLocation(location: "Bauchi", subLocation: ["Alkaleri" , "Bauchi", "Bogoro", "Darazo","Dass", "Gamawa", "Ganjuwa", "Giade", "Jama`are", "Katagum", "Kirfi", "Misau", "Ningi", "Hira", "Tafawa Balewa", "Itas gadau", "Toro", "Warji", "Zaki", "Dambam"]),
+      UserLocation(location: "Bayelsa", subLocation: ["Brass", "Ekeremor", "Kolok/Opokuma", "Nembe", "Ogbia", "Sagbama", "Southern Ijaw", "Yenagoa", "Membe"]),
+      UserLocation(location: "Benue", subLocation: ["Ador", "Agatu", "Apa", "Buruku", "Gboko", "Guma", "Gwer East", "Gwer West", "Kastina-ala", "Konshisha", "Kwande", "Logo", "Makurdi", "Obi", "Ogbadibo", "Ohimini", "Oju", "Okpokwu", "Oturkpo", "Tarka", "Ukum", "Vandekya"]),
+      UserLocation(location: "Borno", subLocation: ["Abadan", "Askira/Uba", "Bama", "Bayo", "Biu", "Chibok", "Damboa", "Dikwagubio", "Guzamala", "Gwoza", "Hawul", "Jere", "Kaga", "Kalka/Balge", "Konduga", "Kukawa", "Kwaya-ku", "Mafa", "Magumeri", "Maiduguri", "Marte",
+        "Mobbar", "Monguno", "Ngala", "Nganzai", "Shani"]),
+      UserLocation(location: "Cross River", subLocation: ["Abia", "Akampa", "Akpabuyo", "Bakassi", "Bekwara", "Biase", "Boki", "Calabar South", "Etung", "Ikom", "Obanliku", "Obubra", "Obudu", "Odukpani", "Ogoja", "Ugep North", "Yala", "Yarkur"]),
+      UserLocation(location: "Delta", subLocation: ["Aniocha South", "Anioha", "Bomadi", "Burutu", "Ethiope west", "Ethiope east", "Ika south", "Ika north east", "Isoko south", "Isoko north", "Ndokwa east", "Ndokwa west", "Okpe", "Oshimili north", "Oshimili south", "Patani",
+        "Sapele", "Udu", "Ughelli south", "Ughelli north", "Ukwuani", "Uviwie", "Warri central", "Warri north", "Warri south"]),
+      UserLocation(location: "Ebonyi", subLocation: ["Abakaliki", "Afikpo south", "Afikpo north", "Ebonyi", "Ezza", "Ezza south", "Ikwo", "Ishielu", "Ivo", "Ohaozara", "Ohaukwu", "Onicha", "Izzi"]),
+      UserLocation(location: "Edo", subLocation: ["Akoko-Edo", "Egor", "Essann east", "Esan south east", "Esan central", "Esan west", "Etsako central", "Etsako east", "Etsako", "Orhionwon", "Ivia north", "Ovia south west", "Owan west", "Owan south", "Uhunwonde"]),
+      UserLocation(location: "Ekiti", subLocation: ["Ado Ekiti", "Effon Alaiye", "Ekiti south west", "Ekiti west", "Ekiti east", "Emure/ise", "Orun", "Ido", "Osi", "Ijero", "Ikere", "Ikole", "Ilejemeje", "Irepodun", "Ise/Orun", "Moba", "Oye", "Aiyekire"]),
+      UserLocation(location: "Enugu", subLocation: ["Awgu", "Aninri", "Enugu east", "Enugu south", "Enugu north", "Ezeagu", "Igbo Eze north", "Igbi etiti", "Nsukka", "Oji river", "Undenu", "Uzo Uwani", "Udi"]),
+      UserLocation(location: "Gombe", subLocation: ["Akko", "Balanga", "Billiri", "Dukku", "Dunakaye", "Gombe", "Kaltungo", "Kwami", "Nafada/Bajoga", "Shomgom", "Yamaltu/Deba"]),
+      UserLocation(location: "Imo", subLocation: ["Aboh-mbaise", "Ahiazu-Mbaise", "Ehime-Mbaino", "Ezinhite", "Ideato North", "Ideato south", "Ihitte/Uboma", "Ikeduru", "Isiala",
+        "Isu", "Mbaitoli", "Ngor Okpala", "Njaba", "Nwangele", "Nkwere", "Obowo", "Aguta", "Ohaji Egbema", "Okigwe", "Onuimo", "Orlu", "Orsu", "Oru west", "Oru", "Owerri", "Owerri North", "Owerri south"]),
+      UserLocation(location: "Jigawa", subLocation: ["Auyo", "Babura"]),
       UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
+      UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
+      UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
+      UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
+      UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
+
+
     ];
     List<ServicePill> servicePill = [
-      ServicePill(title: "Electrical", icon: Icons.flash_on_outlined),
+      ServicePill(title: "Electrical", icon: Icons.bolt_outlined),
       ServicePill(title: "Vehicle", icon: Icons.directions_car),
       ServicePill(title: "Fashion", icon: Icons.female_outlined),
-      ServicePill(title: "Catering", icon: Icons.female_outlined),
-      ServicePill(title: "Plumbing", icon: Icons.female_outlined),
+      ServicePill(title: "Catering", icon: Icons.lunch_dining_outlined),
+      ServicePill(title: "Plumbing", icon: Icons.handyman_outlined),
       ServicePill(title: "Graphics Design", icon: Icons.female_outlined),
-      ServicePill(title: "Website Development", icon: Icons.female_outlined),
+      ServicePill(title: "Website Development", icon: Icons.code_off_outlined),
       ServicePill(title: "Product Design", icon: Icons.female_outlined),
-      ServicePill(title: "Painting ", icon: Icons.female_outlined),
+      ServicePill(title: "Painting ", icon: Icons.format_paint_outlined),
       ServicePill(title: "Printing", icon: Icons.female_outlined),
-      ServicePill(title: "Construction", icon: Icons.female_outlined),
-      ServicePill(title: "Wellness", icon: Icons.female_outlined),
+      ServicePill(title: "Construction", icon: Icons.line_style_outlined),
+      ServicePill(title: "Wellness", icon: Icons.medical_services_outlined),
     ];
 
     List<AroundMe> aroundMe = [
