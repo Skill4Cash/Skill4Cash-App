@@ -22,10 +22,11 @@ class SettingScreenSp extends StatelessWidget {
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: true,
-      leading: Icon(
-        Icons.arrow_back_ios,
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back_ios),
         color: kTextColor,
-        size: 16,
+        iconSize: 16,
+        onPressed: () => Navigator.pop(context),
       ),
       backgroundColor: Colors.white,
       title: Text("Settings",
@@ -134,10 +135,12 @@ class ProfileContent extends StatelessWidget {
           ),
           kLargeVerticalSpacing,
           InkWell(
-            onTap: (){
-              Navigator.of(context).pushNamed(CustomerRoutes.customerLoginRoute);
-            },
+            onTap: () {},
             child: SingleTile(
+              onTap: () {
+                Navigator.of(context)
+                    .pushNamed(ServiceProviderRoutes.serviceLoginRoute);
+              },
               leftIcon: Icons.history,
               textDesc: "Logout",
               rightIcon: Icons.arrow_forward_ios,

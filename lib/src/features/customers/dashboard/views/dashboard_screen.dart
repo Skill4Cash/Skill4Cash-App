@@ -1,6 +1,7 @@
 import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
+import 'package:Skill4Cash/src/features/customers/settings_customer/settings_screen.dart';
 import 'package:Skill4Cash/src/features/widgets/app_button.dart';
 import 'package:Skill4Cash/src/features/widgets/app_dialog.dart';
 import 'package:Skill4Cash/src/features/widgets/app_textfield.dart';
@@ -23,15 +24,15 @@ class DashboardScreen extends StatelessWidget {
       ServicePill(title: "Electrical", icon: Icons.flash_on_outlined),
       ServicePill(title: "Vehicle", icon: Icons.directions_car),
       ServicePill(title: "Fashion", icon: Icons.female_outlined),
-      ServicePill(title: "Catering", icon: Icons.female_outlined),
-      ServicePill(title: "Plumbing", icon: Icons.female_outlined),
+      ServicePill(title: "Catering", icon: Icons.lunch_dining_outlined),
+      ServicePill(title: "Plumbing", icon: Icons.handyman_outlined),
       ServicePill(title: "Graphics Design", icon: Icons.female_outlined),
-      ServicePill(title: "Website Development", icon: Icons.female_outlined),
+      ServicePill(title: "Website Development", icon: Icons.code),
       ServicePill(title: "Product Design", icon: Icons.female_outlined),
-      ServicePill(title: "Painting ", icon: Icons.female_outlined),
-      ServicePill(title: "Printing", icon: Icons.female_outlined),
-      ServicePill(title: "Construction", icon: Icons.female_outlined),
-      ServicePill(title: "Wellness", icon: Icons.female_outlined),
+      ServicePill(title: "Painting ", icon: Icons.format_paint_outlined),
+      ServicePill(title: "Printing", icon: Icons.computer),
+      ServicePill(title: "Construction", icon: Icons.line_style_outlined),
+      ServicePill(title: "Wellness", icon: Icons.medical_services_outlined),
     ];
 
     List<AroundMe> aroundMe = [
@@ -190,11 +191,16 @@ class DashboardScreen extends StatelessWidget {
             ],
           ),
         ),
-        leading: Container(
-          margin: EdgeInsets.only(left: kPad),
-          padding: EdgeInsets.only(top: 8),
-          child: CircleAvatar(
-            backgroundImage: AssetImage(profileImg),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, CustomerRoutes.customerSettingScreen);
+          },
+          child: Container(
+            margin: EdgeInsets.only(left: kPad),
+            padding: EdgeInsets.only(top: 8),
+            child: CircleAvatar(
+              backgroundImage: AssetImage(profileImg),
+            ),
           ),
         ),
         bottom: PreferredSize(
@@ -462,7 +468,7 @@ class DashboardScreen extends StatelessWidget {
                       ? 2 / 3
                       : 4 / 8,
                   mainAxisSpacing: 4,
-                  crossAxisSpacing: 5,
+                  crossAxisSpacing: 15,
                 ),
                 itemCount: servicePill.length,
                 itemBuilder: (context, index) => ServicePill(

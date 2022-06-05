@@ -19,10 +19,15 @@ class ChatScreen extends StatelessWidget {
     return AppBar(
       toolbarHeight: 100,
       automaticallyImplyLeading: true,
-      leading: Icon(
-        Icons.arrow_back_ios,
-        color: kTextColor,
-        size: 18,
+      leading: IconButton(
+        icon: Icon(
+          Icons.arrow_back_ios,
+          color: kTextColor,
+          size: 18,
+        ),
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
       backgroundColor: Colors.white,
       title: Column(
@@ -45,7 +50,7 @@ class ChatScreen extends StatelessWidget {
                           border: Border.all(color: kWhiteColor, width: 1.0)),
                     )),
               ]),
-              kTinyVerticalSpacing,
+          kTinyVerticalSpacing,
           Text("Wonderous Creations Clothiers",
               style: bodyNormalText(context)
                   .copyWith(fontWeight: FontWeight.bold, fontSize: 15)),

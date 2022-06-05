@@ -13,111 +13,113 @@ class CustomerLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AppBackground(
-        child: Expanded(
-          child: Form(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 24,
-              ),
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height / 4,
-                    ),
-                    Text(
-                      "Welcome",
-                      style: heading1(context).copyWith(fontFamily: "Roboto"),
-                    ),
-                    kMediumVerticalSpacing,
-                    Text(
-                      "Sign in",
-                      style: heading2(context),
-                    ),
-                    Text(
-                      "Sign into your Skill4Cash Account",
-                      style: bodyNormalText(context),
-                    ),
-                    kMediumVerticalSpacing,
-                    AppTextField(
-                      keyboardType: TextInputType.emailAddress,
-                      textInputAction: TextInputAction.next,
-                      label: "Email",
-                      hintText: "Email",
-                    ),
-                    kSmallVerticalSpacing,
-                    AppTextField(
-                      keyboardType: TextInputType.emailAddress,
-                      textInputAction: TextInputAction.done,
-                      label: "Password",
-                      hintText: "Password",
-                      suffixIcon: Icon(Icons.visibility),
-                    ),
-                    kLargeVerticalSpacing,
-                    Row(
-                      children: [
-                        Expanded(
-                          child: AppButton(
-                            color: kPrimaryColor,
-                            label: "SIGN IN",
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                  context, CustomerRoutes.customerHomeRoute);
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(child: Text("Don't have an account?")),
-                        Spacer(),
-                        Expanded(
-                          child: TextButton(
-                            onPressed: () => Navigator.of(context)
-                                .pushNamed(CustomerRoutes.customerSignUpRoute),
-                            child: Text(
-                              "Sign Up",
-                              style: bodyNormalText(context)
-                                  .copyWith(color: kPrimaryColor),
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: AppBackground(
+          child: Expanded(
+            child: Form(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 24,
+                ),
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 4.5,
+                      ),
+                      Text(
+                        "Welcome",
+                        style: heading1(context).copyWith(fontFamily: "Roboto"),
+                      ),
+                      kTinyVerticalSpacing,
+                      Text(
+                        "Sign in",
+                        style: heading2(context).copyWith(fontSize: 20),
+                      ),
+                      Text(
+                        "Sign into your Skill4Cash Account",
+                        style: bodyNormalText(context),
+                      ),
+                      kSmallVerticalSpacing,
+                      AppTextField(
+                        keyboardType: TextInputType.emailAddress,
+                        textInputAction: TextInputAction.next,
+                        label: "Email",
+                        hintText: "Email",
+                      ),
+                      kSmallVerticalSpacing,
+                      AppTextField(
+                        keyboardType: TextInputType.emailAddress,
+                        textInputAction: TextInputAction.done,
+                        label: "Password",
+                        hintText: "Password",
+                        suffixIcon: Icon(Icons.visibility),
+                      ),
+                      kMediumVerticalSpacing,
+                      Row(
+                        children: [
+                          Expanded(
+                            child: AppButton(
+                              color: kPrimaryColor,
+                              label: "SIGN IN",
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                    context, CustomerRoutes.customerHomeRoute);
+                              },
                             ),
                           ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(vertical: 18),
-                            decoration:
-                                BoxDecoration(color: kWhiteColor, boxShadow: [
-                              BoxShadow(
-                                color: Color(0xFFEEEEEE),
-                                spreadRadius: 10,
-                                blurRadius: 10,
+                        ],
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Don't have an account? "),
+                            GestureDetector(
+                              onTap: () => Navigator.of(context).pushNamed(
+                                  CustomerRoutes.customerSignUpRoute),
+                              child: Text(
+                                "Sign Up",
+                                style: bodyNormalText(context)
+                                    .copyWith(color: kPrimaryColor),
                               ),
-                            ]),
-                            child: Center(child: Text("Sign in with google")),
-                          ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    kSmallVerticalSpacing,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(child: Text("Tap here to switch to")),
-                        Spacer(),
-                        Expanded(
-                          child: TextButton(
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              padding: EdgeInsets.symmetric(vertical: 18),
+                              decoration:
+                                  BoxDecoration(color: kWhiteColor, boxShadow: [
+                                BoxShadow(
+                                  color: Color(0xFFEEEEEE),
+                                  spreadRadius: 10,
+                                  blurRadius: 10,
+                                ),
+                              ]),
+                              child: Center(child: Text("Sign in with google")),
+                            ),
+                          ),
+                        ],
+                      ),
+                      kTinyVerticalSpacing,
+                      Row(
+                        children: [
+                          Text("Tap here to switch to"),
+                          // Spacer(),
+                          TextButton(
                             onPressed: () => Navigator.of(context).pushNamed(
                                 ServiceProviderRoutes.serviceLoginRoute),
                             child: Text(
@@ -126,10 +128,10 @@ class CustomerLogin extends StatelessWidget {
                                   .copyWith(color: kPrimaryColor),
                             ),
                           ),
-                        )
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -93,11 +93,17 @@ class SpDashboard extends StatelessWidget {
       automaticallyImplyLeading: false,
       centerTitle: true,
       elevation: 0.0,
-      leading: Container(
-        margin: EdgeInsets.only(left: kPad),
-        // padding: const EdgeInsets.all(8),
-        child: CircleAvatar(
-          backgroundImage: AssetImage(profileImg),
+      leading: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(
+              context, ServiceProviderRoutes.settingScreenRoute);
+        },
+        child: Container(
+          margin: EdgeInsets.only(left: kPad),
+          // padding: const EdgeInsets.all(8),
+          child: CircleAvatar(
+            backgroundImage: AssetImage(profileImg),
+          ),
         ),
       ),
       title: Row(

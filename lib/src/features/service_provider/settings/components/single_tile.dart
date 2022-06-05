@@ -6,11 +6,13 @@ class SingleTile extends StatelessWidget {
   final IconData? leftIcon;
   final String? textDesc;
   final IconData? rightIcon;
+  final VoidCallback? onTap;
   const SingleTile({
     Key? key,
     this.leftIcon,
     this.textDesc,
     this.rightIcon,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -18,7 +20,7 @@ class SingleTile extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: kPad),
         child: GestureDetector(
-          onTap: () {},
+          onTap: onTap,
           child: Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
