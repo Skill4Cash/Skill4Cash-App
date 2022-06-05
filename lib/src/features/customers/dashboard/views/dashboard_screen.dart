@@ -34,15 +34,44 @@ class DashboardScreen extends StatelessWidget {
       UserLocation(location: "Gombe", subLocation: ["Akko", "Balanga", "Billiri", "Dukku", "Dunakaye", "Gombe", "Kaltungo", "Kwami", "Nafada/Bajoga", "Shomgom", "Yamaltu/Deba"]),
       UserLocation(location: "Imo", subLocation: ["Aboh-mbaise", "Ahiazu-Mbaise", "Ehime-Mbaino", "Ezinhite", "Ideato North", "Ideato south", "Ihitte/Uboma", "Ikeduru", "Isiala",
         "Isu", "Mbaitoli", "Ngor Okpala", "Njaba", "Nwangele", "Nkwere", "Obowo", "Aguta", "Ohaji Egbema", "Okigwe", "Onuimo", "Orlu", "Orsu", "Oru west", "Oru", "Owerri", "Owerri North", "Owerri south"]),
-      UserLocation(location: "Jigawa", subLocation: ["Auyo", "Babura"]),
-      UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
-      UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
-      UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
-      UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
-      UserLocation(location: "Akwa ibom", subLocation: ["Ikeja", "Epe"]),
-
-
+      UserLocation(location: "Jigawa", subLocation: ["Auyo", "Babura", "Birnin- Kudu", "Birniwa", "Buji", "Dutse", "Garki", "Gagarawa", "Gumel", "Guri", "Gwaram", "Gwiwa", "Hadeji",
+        "Jahun", "Kafin-Hausa", "kaugama", "Kazaure", "Kirikisamma", "Birnin-magaji", "Maigatari", "Malamaduri", "Miga", "Ringim", "Roni", "Sule Tankarka", "Taura", "Yankwasi"]),
+      UserLocation(location: "Kaduna", subLocation: ["Brnin Gwari", "Chukun", "Giwa", "Kajuru", "Igabi", "Ikara", "Jaba", "Jema`a", "Kachia", "Kaduna North", "Kaduna south", "Kagarok", "Kauru", "Kabau",
+        "Kudan", "Kere", "Makarfi", "Sabongari", "Sanga", "Soba", "Zangon-Kataf", "Zaria"]),
+      UserLocation(location: "Abuja FCT", subLocation: ["Abaji", "Abuja Municipal", "Bwari", "Gwagwalada", "Kuje", "Kwali"]),
+      UserLocation(location: "Kano", subLocation: ["Ajigi", "Albasu", "Bagwai", "Bebeji", "Bichi", "Bunkure", "Dala", "Dambatta", "Dawakin kudu", "Dawakin tofa", "Doguwa", "Fagge", "Gabasawa",
+        "Garko", "Garun mallam", "Gaya", "Gezawa", "Gwale", "Gwarzo", "Kano", "Karay", "Kibiya", "Kiru", "Kumbtso", "Kunch", "Kura", "Maidobi", "Makoda", "MInjibir Nassarawa", "Rano", "Rimin gado", "Rogo", "Shanono", "Sumaila", "Takai", "Tarauni",
+        "Tofa", "Tsanyawa", "Tudunwada", "Ungogo", "Warawa", "Wudil"]),
+      UserLocation(location: "Katsina", subLocation: ["Bakori", "Batagarawa", "Batsari", "Baure", "Bindawa", "Charanchi", "Dan- Musa", "Dandume", "Danja", "Daura", "Dutsi", "Dutsin `ma", "Faskar", "Funtua", "Ingawa", "Jibiya", "Kafur", "Kaita",
+        "Kankara", "Kankiya", "Katsina", "Furfi", "Kusada.Mai aduwa", "Malumfashi", "Mani", "Mash", "Matazu", "Musawa", "Rimi", "Sabuwa", "Safana", "Sandamu", "Zango"]),
+      UserLocation(location: "Kebbi", subLocation: ["Aliero", "Arewa Dandi", "Argungu", "Augie", "Bagudo", "Birnin Kebbi", "Bunza", "Dandi", "Danko"," Fakai", "Gwandu", "Jeda", "Kalgo", "Koko-besse", "Maiyaama", "Ngaski", "Sakaba", "Shanga",
+        "Suru", "Wasugu", "Yauri", "Zuru"]),
+      UserLocation(location: "Kogi", subLocation: ["Adavi", "Ajaokuta", "Ankpa", "Bassa", "Dekina", "Yagba east", "Ibaji", "Idah", "Igalamela", "Ijumu", "Kabba bunu", "Kogi", "Mopa muro", "Ofu", "Ogori magongo", "Okehi", "Okene", "Olamaboro", "Omala", "Yagba west"]),
+      UserLocation(location: "Kwara", subLocation: ["Asa", "Baruten", "Ede", "Ekiti", "Ifelodun", "Ilorin south", "Ilorin west", "Ilorin east", "Irepodun", "Isin", "Kaiama", "Moro", "Offa", "Oke ero", "Oyun", "Pategi"]),
+      UserLocation(location: "Lagos", subLocation: ["Agege", "Alimosho Ifelodun", "Alimosho", "Amuwo-Odofin", "Apapa", "Badagry", "Epe", "Eti-Osa", "Ibeju- Lekki", "Ifako/Ijaye", "Ikeja", "Ikorodu", "Kosofe", "Lagos Island", "Lagos Mainland",
+        "Mushin", "Ojo", "Oshodi-Isolo", "Shomolu", "Surulere"]),
+      UserLocation(location: "Nassarawa", subLocation: ["Akwanga", "Awe", "Doma", "Karu", "Keana", "Keffi", "Kokona", "Lafia", "Nassarawa", "Nassarawa/Eggon", "Obi", "Toto", "Wamba"]),
+      UserLocation(location: "Niger", subLocation: ["Agaie", "Agwara", "Bida", "Borgu", "Bosso", "Chanchanga", "Edati", "Gbako", "Gurara", "Kitcha", "Kontagora", "Lapai", "Lavun", "Magama", "Mariga", "Mokwa", "Moshegu", "Muya",
+        "Paiko", "Rafi", "Shiroro", "Suleija", "Tawa-Wushishi"]),
+      UserLocation(location: "Ogun", subLocation: ["Abeokuta south", "Abeokuta north", "Ado-odo/otta", "Agbado south" "Agbado north", "Ewekoro", "Idarapo", "Ifo", "Ijebu east", "Ijebu north", "Ikenne", "Ilugun Alaro", "Imeko afon",
+        "Ipokia", "Obafemi/owode", "Odeda", "Odogbolu", "Ogun waterside", "Sagamu"]),
+      UserLocation(location: "Ondo", subLocation: [""]),
+      UserLocation(location: "location", subLocation: ["Akoko north", "Akoko north east", "Akoko south east", "Akoko south", "Akure north", "Akure", "Idanre", "Ifedore", "Ese odo", "Ilaje", "Ilaje oke-igbo", "Irele", "Odigbo",
+        "Okitipupa", "Ondo", "Ondo east", "Ose", "Owo"]),
+      UserLocation(location: "Osun", subLocation: ["Atakumosa west", "Atakumosa east", "Ayeda-ade", "Ayedire", "Bolawaduro", "Boripe", "Ede", "Ede north", "Egbedore", "Ejigbo", "Ife north", "Ife central", "Ife south", "Ife east",
+        "Ifedayo", "Ifelodun", "Ilesha west", "Ila-orangun", "Ilesah east", "Irepodun", "Irewole", "Isokan", "Iwo", "Obokun", "Odo-otin", "ola oluwa", "olorunda", "Oriade", "Orolu", "Osogbo"]),
+      UserLocation(location: "Oyo", subLocation: ["Afijio", "Akinyele", "Attba", "Atigbo", "Egbeda", "Ibadan", "Ibadan north east", "Ibadan central", "Ibadan south east", "Ibadan west south", "Ibarapa east", "Ibarapa north", "Ido", "Ifedapo", "Ifeloju", "Irepo", "Iseyin",
+        "Itesiwaju", "Iwajowa", "Iwajowa olorunshogo", "Kajola", "Lagelu", "Ogbomosho north", "Ogo oluwa", "Oluyole", "Ona ara", "Ore lope", "Orire", "Oyo east", "Oyo west", "Saki east", "Saki west", "Surulere"]),
+      UserLocation(location: "Plateau", subLocation: ["Barkin/ladi", "Bassa", "Bokkos", "Jos north", "Jos east", "Jos south", "Kanam", "Kiyom", "Langtang north", "Langtang south", "Mangu", "Mikang", "Pankshin", "Qua`an pan", "Shendam", "Wase"]),
+      UserLocation(location: "Rivers", subLocation: ["Abua/Odial", "Ahoada west", "Akuku toru", "Andoni", "Asari toru", "Bonny", "Degema", "Eleme", "Emohua", "Etche", "Gokana", "Ikwerre", "Oyigbo", "Khana", "Obio/Akpor",
+        "Ogba east /Edoni", "Ogu/bolo", "Okrika", "Omumma", "Opobo/Nkoro", "Portharcourt", "Tai"]),
+      UserLocation(location: "Sokoto", subLocation: ["Binji", "Bodinga", "Dange/shuni", "Gada", "Goronyo", "Gudu", "Gwadabawa", "Illela", "Kebbe", "Kware", "Rabah", "Sabon-Birni", "Shagari", "Silame", "Sokoto south",
+        "Sokoto north", "Tambuwal", "Tangaza", "Tureta", "Wamakko", "Wurno", "Yabo"]),
+      UserLocation(location: "Taraba", subLocation: ["Akdo-kola", "Bali", "Donga", "Gashaka", "Gassol", "Ibi", "Jalingo", "K/Lamido", "Kurmi", "lan", "Sardauna", "Tarum", "Ussa", "Wukari", "Yorro", "Zing"]),
+      UserLocation(location: "Yobe", subLocation: ["Borsari", "Damaturu", "Fika", "Fune", "Geidam", "Gogaram", "Gujba", "Gulani", "Jakusko", "Karasuwa", "Machina", "Nagere", "Nguru", "Potiskum", "Tarmua", "Yunusari", "Yusufari", "Gashua"]),
+      UserLocation(location: "Zamfara", subLocation: ["Anka", "Bukkuyum", "Dungudu", "Chafe", "Gummi", "Gusau", "Isa", "Kaura Namoda", "Mradun", "Maru", "Shinkafi", "Talata Mafara", "Zumi"])
     ];
+
     List<ServicePill> servicePill = [
       ServicePill(title: "Electrical", icon: Icons.bolt_outlined),
       ServicePill(title: "Vehicle", icon: Icons.directions_car),
@@ -60,32 +89,32 @@ class DashboardScreen extends StatelessWidget {
 
     List<AroundMe> aroundMe = [
       AroundMe(
-          image: image,
+          image: spImage_1 ,
           title: "Wire, no frames electrical services",
           subtitle: "Electrical"),
       AroundMe(
-          image: image,
+          image: spImage_2,
           title: "Wonderous creations fashion house",
+          subtitle: "Fashion"),
+      AroundMe(
+          image: spImage_3,
+          title: "Fix your Auto Center",
+          subtitle: "Automobile"),
+      AroundMe(
+          image: spImage_1 ,
+          title: "Wire, no frames electrical services",
           subtitle: "Electrical"),
       AroundMe(
-          image: image,
+          image: spImage_2,
           title: "Wonderous creations fashion house",
-          subtitle: "Electrical"),
+          subtitle: "Fashion"),
       AroundMe(
-          image: image,
-          title: "Wonderous creations fashion house",
-          subtitle: "Electrical"),
+          image: spImage_3,
+          title: "Fix your Auto Center",
+          subtitle: "Automobile"),
       AroundMe(
-          image: image,
-          title: "Wonderous creations fashion house",
-          subtitle: "Electrical"),
-      AroundMe(
-          image: image,
-          title: "Wonderous creations fashion house",
-          subtitle: "Electrical"),
-      AroundMe(
-          image: image,
-          title: "Wonderous creations fashion house",
+          image: spImage_1 ,
+          title: "Wire, no frames electrical services",
           subtitle: "Electrical"),
     ];
     return Scaffold(
