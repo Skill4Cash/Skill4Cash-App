@@ -151,7 +151,8 @@ class SettingScreen extends StatelessWidget {
                       color: Colors.red,
                     ),
                     desc: "",
-                    onTap: () {},
+                    onTap: () => Navigator.of(context)
+                        .pushNamed(CustomerRoutes.customerLoginRoute),
                   ),
                   kExtraLargeVerticalSpacing,
                 ],

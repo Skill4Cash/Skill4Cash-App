@@ -4,6 +4,7 @@ import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'components/build_tile.dart';
 import 'components/single_tile.dart';
 import 'components/tile_header.dart';
@@ -21,12 +22,12 @@ class SettingScreenSp extends StatelessWidget {
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
-      automaticallyImplyLeading: true,
-      leading: Icon(
-        Icons.arrow_back_ios,
-        color: kTextColor,
-        size: 16,
-      ),
+      automaticallyImplyLeading: false,
+      // leading: Icon(
+      //   Icons.arrow_back_ios,
+      //   color: kTextColor,
+      //   size: 16,
+      // ),
       backgroundColor: Colors.white,
       title: Text("Settings",
           style: bodyNormalText(context)
@@ -133,15 +134,12 @@ class ProfileContent extends StatelessWidget {
             secondrightIcon: Icons.arrow_forward_ios,
           ),
           kLargeVerticalSpacing,
-          InkWell(
-            onTap: (){
-              Navigator.of(context).pushNamed(CustomerRoutes.customerLoginRoute);
-            },
-            child: SingleTile(
-              leftIcon: Icons.history,
-              textDesc: "Logout",
-              rightIcon: Icons.arrow_forward_ios,
-            ),
+          SingleTile(
+            leftIcon: Icons.history,
+            textDesc: "Logout",
+            onPressed: () => Navigator.of(context)
+                .pushNamed(ServiceProviderRoutes.serviceLoginRoute),
+            rightIcon: Icons.arrow_forward_ios,
           ),
           kLargeVerticalSpacing,
         ],
