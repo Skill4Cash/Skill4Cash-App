@@ -135,7 +135,7 @@ class RouteGenerator {
       case ServiceProviderRoutes.spRatingRoute:
         return MaterialPageRoute(builder: (_) => const RatingScreen());
       case ServiceProviderRoutes.spScheduleRoute:
-        return MaterialPageRoute(builder: (_) => const ScheduleScreen());
+        return MaterialPageRoute(builder: (_) => ScheduleScreen());
 
       case CustomerRoutes.customerLoginRoute:
         return MaterialPageRoute(builder: (_) => CustomerLogin());
