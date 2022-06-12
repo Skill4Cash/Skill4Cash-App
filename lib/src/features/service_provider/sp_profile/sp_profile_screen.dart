@@ -156,7 +156,7 @@ class ServiceProviderProfileScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: MediaQuery.of(context).textScaleFactor < 1.6 ? 300 : 350,
+                    height: MediaQuery.of(context).textScaleFactor < 1.5 ? 300 : 350,
                     child: ListView.builder(
                         itemCount: serviceImages.length,
                         scrollDirection: Axis.horizontal,
