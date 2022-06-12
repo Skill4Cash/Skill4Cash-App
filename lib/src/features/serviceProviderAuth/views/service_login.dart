@@ -80,7 +80,7 @@ class ServiceLogin extends StatelessWidget {
                         Expanded(
                           child: TextButton(
                             onPressed: () => Navigator.of(context).pushNamed(
-                                ServiceProviderRoutes.serviceSignUpRoute),
+                                ServiceProviderRoutes.spSignUpRoute),
                             child: Text(
                               "Sign Up",
                               style: bodyNormalText(context)

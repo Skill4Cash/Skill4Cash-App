@@ -119,7 +119,7 @@ class CustomerLogin extends StatelessWidget {
                         Expanded(
                           child: TextButton(
                             onPressed: () => Navigator.of(context).pushNamed(
-                                ServiceProviderRoutes.serviceLoginRoute),
+                                ServiceProviderRoutes.spLoginRoute),
                             child: Text(
                               "Service provider Sign In",
                               style: bodyNormalText(context)

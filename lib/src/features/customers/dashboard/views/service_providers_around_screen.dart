@@ -13,7 +13,6 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // elevation: 0,
         backgroundColor: kWhiteColor,
         centerTitle: true,
         title: Text(
@@ -210,7 +209,7 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: 10,
-                itemBuilder: (conext, index) => Container(
+                itemBuilder: (context, index) => Container(
                       margin:
                           EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                       padding:
