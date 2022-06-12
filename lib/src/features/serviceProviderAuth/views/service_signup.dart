@@ -94,7 +94,7 @@ class ServiceSignUp extends StatelessWidget {
                               label: "SIGN IN",
                               onPressed: () {
                                 Navigator.pushNamed(context,
-                                    ServiceProviderRoutes.spPageViewRoute);
+                                    ServiceProviderRoutes.spDashboardRoute);
                               },
                             ),
                           ),

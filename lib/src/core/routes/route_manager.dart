@@ -13,7 +13,9 @@ import 'package:Skill4Cash/src/features/customers/settings_customer/settings_scr
 import 'package:Skill4Cash/src/features/service_provider/dashboard/index.dart';
 import 'package:Skill4Cash/src/features/service_provider/dashboard/keyword.dart';
 import 'package:Skill4Cash/src/features/service_provider/dashboard/ratings.dart';
-import 'package:Skill4Cash/src/features/service_provider/dashboard/schedules.dart';
+import 'package:Skill4Cash/src/features/service_provider/schedule/create_schedule.dart';
+import 'package:Skill4Cash/src/features/service_provider/schedule/pick_date.dart';
+import 'package:Skill4Cash/src/features/service_provider/schedule/schedules.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_email.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_phone.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/index.dart';
@@ -69,6 +71,7 @@ class ServiceProviderRoutes {
   static const spKeywordRoute = "/spKeywordScreen";
   static const spRatingRoute = "/spRatingScreen";
   static const spScheduleRoute = "/spScheduleScreen";
+  static const spSchedulePickDate = "/spSchedulePickDate";
 }
 
 class RouteGenerator {
@@ -136,6 +139,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const RatingScreen());
       case ServiceProviderRoutes.spScheduleRoute:
         return MaterialPageRoute(builder: (_) => ScheduleScreen());
+      case ServiceProviderRoutes.spSchedulePickDate:
+        return MaterialPageRoute(builder: (_) => PickDate());
+      case ServiceProviderRoutes.spDashboardRoute:
+        return MaterialPageRoute(builder: (_) => SpDashboard());
 
       case CustomerRoutes.customerLoginRoute:
         return MaterialPageRoute(builder: (_) => CustomerLogin());

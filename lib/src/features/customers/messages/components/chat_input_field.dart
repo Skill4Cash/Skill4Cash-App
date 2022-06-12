@@ -1,3 +1,4 @@
+import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,19 @@ class ChatInputField extends StatefulWidget {
 class _ChatInputFieldState extends State<ChatInputField> {
   @override
   Widget build(BuildContext context) {
+    void onSelected(int value) {
+      switch (value) {
+        case 1:
+          Navigator.pushNamed(
+              context, ServiceProviderRoutes.spSchedulePickDate);
+          break;
+        case 2:
+          break;
+        case 3:
+          break;
+      }
+    }
+
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: kPad,
@@ -45,12 +59,27 @@ class _ChatInputFieldState extends State<ChatInputField> {
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: "Message",
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              Icons.more_vert,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {},
+                          suffixIcon: PopupMenuButton(
+                            offset: Offset(0, 60),
+                            onSelected: (int value) {
+                              onSelected(value);
+                            },
+                            itemBuilder: (context) {
+                              return [
+                                PopupMenuItem(
+                                  child: Text('Schedule a meet'),
+                                  value: 1,
+                                ),
+                                PopupMenuItem(
+                                  child: Text('Attach Pictures'),
+                                  value: 2,
+                                ),
+                                PopupMenuItem(
+                                  child: Text('Attach Documents'),
+                                  value: 2,
+                                ),
+                              ];
+                            },
                           ),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(40),
