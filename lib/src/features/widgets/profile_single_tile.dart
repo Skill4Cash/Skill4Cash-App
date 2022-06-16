@@ -32,7 +32,7 @@ class ProfileSingleTile extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Color(0xFFEEEEEE),
+              color: Colors.black12,
               spreadRadius: 6,
               blurRadius: 10,
             ),

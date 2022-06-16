@@ -6,6 +6,7 @@ import 'package:Skill4Cash/src/features/widgets/app_dialog.dart';
 import 'package:Skill4Cash/src/features/widgets/app_textfield.dart';
 import 'package:Skill4Cash/src/features/widgets/service_pill.dart';
 import 'package:flutter/material.dart';
+import 'package:Skill4Cash/src/features/widgets/widgets.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -233,7 +234,8 @@ class DashboardScreen extends StatelessWidget {
               ),
               Text(
                 "Ikeja, Lagos",
-                style: heading2(context),
+                style:
+                bodyNormalText(context).copyWith(fontWeight: FontWeight.w400),
               ),
               Icon(
                 Icons.keyboard_arrow_down_outlined,
@@ -284,7 +286,7 @@ class DashboardScreen extends StatelessWidget {
                                 ),
                                 kSmallVerticalSpacing,
                                 Text(
-                                  "location",
+                                  "Location",
                                   style: bodyNormalText(context),
                                 ),
                                 kSmallVerticalSpacing,
@@ -413,7 +415,7 @@ class DashboardScreen extends StatelessWidget {
                             ),
                           ),
                           padding: EdgeInsets.symmetric(
-                              vertical: 24, horizontal: 24),
+                              vertical: 24, horizontal: 27),
                           constraints: BoxConstraints(maxHeight: 250),
                           child: Column(
                             children: [
@@ -553,15 +555,31 @@ class DashboardScreen extends StatelessWidget {
             ),
             Container(
               height: MediaQuery.of(context).textScaleFactor < 1.6 ? 300 : 350,
+
               child: ListView.builder(
+                // GestureDetector(
+                //   onTap: () => Navigator.of(context).pushNamed(
+                //       CustomerRoutes.serviceProvidersAroundScreenRoute),
+                // ),
                   itemCount: aroundMe.length,
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
                   itemBuilder: (context, index) => AroundMe(
                       image: aroundMe[index].image,
                       title: aroundMe[index].title,
-                      subtitle: aroundMe[index].subtitle)),
-            )
+                      subtitle: aroundMe[index].subtitle),
+              ),
+            ),
+
+              // child: ListView.builder(
+              //     itemCount: aroundMe.length,
+              //     scrollDirection: Axis.horizontal,
+              //     shrinkWrap: true,
+              //     itemBuilder: (context, index) => AroundMe(
+              //         image: aroundMe[index].image,
+              //         title: aroundMe[index].title,
+              //         subtitle: aroundMe[index].subtitle)),
+              // )
           ],
         ),
       ),
