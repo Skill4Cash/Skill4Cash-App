@@ -4,14 +4,13 @@ import 'package:Skill4Cash/src/features/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class EditEmailSp extends StatelessWidget {
-  
-  const EditEmailSp({ Key? key }) : super(key: key);
+  const EditEmailSp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(context),
-      body: Padding(
+        appBar: _buildAppBar(context),
+        body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: kPad),
           child: Column(
             children: [
@@ -26,26 +25,21 @@ class EditEmailSp extends StatelessWidget {
                 child: AppButton(
                   label: "apply".toUpperCase(),
                   color: kPrimaryColor,
-                  size: 12,
+                  // size: 12,
                   onPressed: () {},
                 ),
               ),
               kLargeVerticalSpacing,
             ],
           ),
-        )
-    );
+        ));
   }
 
-
-
-
-
-    AppBar _buildAppBar(BuildContext context) {
+  AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: true,
       leading: InkWell(
-        onTap: (){
+        onTap: () {
           Navigator.of(context).pop();
         },
         child: Icon(

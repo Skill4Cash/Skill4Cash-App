@@ -97,7 +97,7 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (_) => const TermsAndConditionScreen());
       case CustomerRoutes.verifyEmail:
-        return MaterialPageRoute(builder: (_) => const VerifyAccount());
+        return MaterialPageRoute(builder: (_) => VerifyAccount());
       case CustomerRoutes.openEmail:
         return MaterialPageRoute(builder: (_) => const VerifyEmail());
       case CustomerRoutes.spView:
