@@ -150,7 +150,7 @@ class CustomerLogin extends StatelessWidget {
                                 Text("Tap here to switch to "),
                                 InkWell(
                                   onTap: () => Navigator.of(context).pushNamed(
-                                      ServiceProviderRoutes.spSignUpRoute),
+                                      ServiceProviderRoutes.spLoginRoute),
                                   child: Text(
                                     "Service provider Sign In",
                                     style: bodyNormalText(context)

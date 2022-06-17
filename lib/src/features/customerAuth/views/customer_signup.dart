@@ -209,7 +209,7 @@ class CustomerSignUp extends StatelessWidget {
                                 Text("Tap here to switch to "),
                                 InkWell(
                                   onTap: () => Navigator.of(context).pushNamed(
-                                      ServiceProviderRoutes.spLoginRoute),
+                                      ServiceProviderRoutes.spSignUpRoute),
                                   child: Text(
                                     "Service provider Sign Up",
                                     style: bodyNormalText(context)
