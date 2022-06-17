@@ -1,12 +1,7 @@
 import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
-<<<<<<< HEAD
-import 'package:Skill4Cash/src/features/service_provider/dashboard/index.dart';
-import 'package:Skill4Cash/src/features/service_provider/dashboard/keyword.dart';
-=======
 import 'package:Skill4Cash/src/service/service_locator.dart';
->>>>>>> 15e787b8ed304ccc59c06a12655159f211ac0ad6
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
