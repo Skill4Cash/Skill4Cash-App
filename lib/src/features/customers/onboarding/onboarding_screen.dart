@@ -163,7 +163,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: AppButton(
               label: "sign up".toUpperCase(),
               color: kPrimaryColor,
-              size: 12,
+              // size: 12,
               onPressed: () =>
                   Navigator.of(context).pushNamed("/customerSignUp"),
             ),
