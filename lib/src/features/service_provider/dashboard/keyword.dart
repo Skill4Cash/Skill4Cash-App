@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../core/utilities/app_textstyle.dart';
 
 class KeywordScreen extends StatelessWidget {
-  const KeywordScreen({ Key? key }) : super(key: key);
+  const KeywordScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,86 +21,139 @@ class KeywordScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 15),
               width: size.width,
               decoration: BoxDecoration(
-                border: Border.all(
-                  color: kPrimaryColor,
-                  width: 1.5
+                  border: Border.all(color: kPrimaryColor, width: 1.5),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Column(children: [
+                Text(
+                  "8",
+                  style:
+                      heading1(context).copyWith(fontWeight: FontWeight.bold),
                 ),
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: Column(
-                children:[
-                  Text("8", style: heading1(context).copyWith(fontWeight: FontWeight.bold),),
-                  kSmallVerticalSpacing,
-                  Text("Keyword Hits", style: bodyNormalText(context),),
-                ]
-              ),
+                kTinyVerticalSpacing,
+                Text(
+                  "Keyword Hits",
+                  style: bodyNormalText(context),
+                ),
+                kTinyVerticalSpacing
+              ]),
             ),
             kSmallVerticalSpacing,
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("My Keywords", style: bodyNormalText(context),),
-                   GridView.builder(
-                                      // controller: booksScrollController,
-                                      shrinkWrap: true,
-                                      keyboardDismissBehavior:
-                                          ScrollViewKeyboardDismissBehavior
-                                              .onDrag,
-                                      physics:
-                                          const NeverScrollableScrollPhysics(),
-                                      padding: const EdgeInsets.all(8),
-                                      gridDelegate:
-                                          SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 4,
-                                        childAspectRatio: 7 / 3,
-                                        // mainAxisSpacing: 4,
-                                        // crossAxisSpacing: 5,
-                                      ),
-                                      itemCount: 8,
-                                      itemBuilder: (context, index) =>
-                                         Tag()),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      "My Keywords",
+                      style: bodyNormalText(context)
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  GridView.builder(
+                      // controller: booksScrollController,
+                      shrinkWrap: true,
+                      keyboardDismissBehavior:
+                          ScrollViewKeyboardDismissBehavior.onDrag,
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: const EdgeInsets.all(8),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        childAspectRatio: 7 / 3,
+                        // mainAxisSpacing: 4,
+                        // crossAxisSpacing: 5,
+                      ),
+                      itemCount: 8,
+                      itemBuilder: (context, index) => Tag()),
                 ],
               ),
             ),
             kSmallVerticalSpacing,
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Top Keywords", style: bodyNormalText(context),),
+                  Text(
+                    "Top Keywords",
+                    style: bodyNormalText(context)
+                        .copyWith(fontWeight: FontWeight.bold),
+                  ),
                   kSmallVerticalSpacing,
                   Row(
                     children: [
-                      Expanded(child: Text("Wiring", style: bodySmallText(context),)),
-                      Text("3", style: bodySmallText(context),),
-                      Icon(Icons.arrow_upward, size: 14, color: kPrimaryColor,)
+                      Expanded(
+                          child: Text(
+                        "Wiring",
+                        style: bodyNormalText(context),
+                      )),
+                      Text(
+                        "3",
+                        style: bodyNormalText(context),
+                      ),
+                      Icon(
+                        Icons.arrow_upward,
+                        size: 14,
+                        color: kPrimaryColor,
+                      )
                     ],
                   ),
                   kSmallVerticalSpacing,
                   Row(
                     children: [
-                      Expanded(child: Text("Wiring", style: bodySmallText(context),)),
-                      Text("3", style: bodySmallText(context),),
-                      Icon(Icons.arrow_downward,size: 14, color: kErrorColor,)
+                      Expanded(
+                          child: Text(
+                        "Electronics",
+                        style: bodyNormalText(context),
+                      )),
+                      Text(
+                        "5",
+                        style: bodySmallText(context),
+                      ),
+                      Icon(
+                        Icons.arrow_downward,
+                        size: 14,
+                        color: kErrorColor,
+                      )
                     ],
                   ),
                   kSmallVerticalSpacing,
                   Row(
                     children: [
-                      Expanded(child: Text("Wiring", style: bodySmallText(context),)),
-                      Text("3", style: bodySmallText(context),),
-                      Icon(Icons.arrow_upward, size: 14, color: kPrimaryColor,)
+                      Expanded(
+                          child: Text(
+                        "Wiring",
+                        style: bodySmallText(context),
+                      )),
+                      Text(
+                        "3",
+                        style: bodySmallText(context),
+                      ),
+                      Icon(
+                        Icons.arrow_upward,
+                        size: 14,
+                        color: kPrimaryColor,
+                      )
                     ],
                   ),
                   kSmallVerticalSpacing,
                   Row(
                     children: [
-                      Expanded(child: Text("Wiring", style: bodySmallText(context),)),
-                      Text("3", style: bodySmallText(context),),
-                      Icon(Icons.arrow_upward, size: 14, color: kPrimaryColor,)
+                      Expanded(
+                          child: Text(
+                        "Wiring",
+                        style: bodySmallText(context),
+                      )),
+                      Text(
+                        "3",
+                        style: bodySmallText(context),
+                      ),
+                      Icon(
+                        Icons.arrow_upward,
+                        size: 14,
+                        color: kPrimaryColor,
+                      )
                     ],
                   ),
                 ],
@@ -115,8 +168,8 @@ class KeywordScreen extends StatelessWidget {
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: true,
-      leading:InkWell(
-        onTap: (){
+      leading: InkWell(
+        onTap: () {
           Navigator.of(context).pop();
         },
         child: Icon(
@@ -144,13 +197,11 @@ class Tag extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(6),
       margin: EdgeInsets.only(right: 4, bottom: 7),
-      decoration: BoxDecoration(border: Border.all(
-        color: kBlackColor,
-        width: 1.0
-      ),
-      borderRadius: BorderRadius.circular(5)
-      ),
-      child: Text("Wiring", style: bodyTinyText(context).copyWith(color: Colors.black38)),
+      decoration: BoxDecoration(
+          border: Border.all(color: kBlackColor, width: 1.0),
+          borderRadius: BorderRadius.circular(5)),
+      child: Text("Wiring",
+          style: bodySmallText(context).copyWith(color: Colors.black45)),
     );
   }
 }

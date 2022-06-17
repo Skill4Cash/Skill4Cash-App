@@ -123,11 +123,7 @@ class ProfileContent extends StatelessWidget {
             leftIcon: Icons.list_outlined,
             textDesc: "S4C Guidelines and Legal Agreement",
             rightIcon: Icons.arrow_forward_ios,
-            onPressed: () => Navigator.of(context).pushNamed(
-              (ServiceProviderRoutes.spGuidelinesRoute),
-            ),
           ),
-
           kLargeVerticalSpacing,
           BuildTile(
             leftIcon: Icons.privacy_tip,

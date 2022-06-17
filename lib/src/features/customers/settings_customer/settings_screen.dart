@@ -11,9 +11,20 @@ import 'change_email_address_screen.dart';
 import 'change_phone_number_screen.dart';
 import 'history_screen.dart';
 
-class SettingScreen extends StatelessWidget {
+class SettingScreen extends StatefulWidget {
   @override
+  State<SettingScreen> createState() => _SettingScreenState();
+}
+
+class _SettingScreenState extends State<SettingScreen> {
+  @override
+  bool editName = false;
+
+  TextEditingController customerNameController =
+      TextEditingController(text: 'Tailor Swift Services');
+
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         leading: Icon(
@@ -64,14 +75,34 @@ class SettingScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "Sammy David",
-                      style: heading2(context),
-                    ),
+                    editName
+                        ? Container(
+                            width: size.width * 0.5,
+                            child: TextField(
+                              controller: customerNameController,
+                            ),
+                          )
+                        : Text(
+                            customerNameController.text,
+                            style: heading2(context),
+                          ),
                     kExtraSmallHorizontalSpacing,
-                    Icon(
-                      Icons.edit_rounded,
-                      color: kPrimaryColor,
+                    GestureDetector(
+                      onTap: () {
+                        editName = !editName;
+                        setState(() {
+                          editName;
+                        });
+                      },
+                      child: editName
+                          ? Icon(
+                              Icons.check,
+                              color: kPrimaryColor,
+                            )
+                          : Icon(
+                              Icons.edit_rounded,
+                              color: kPrimaryColor,
+                            ),
                     ),
                   ],
                 ),
@@ -141,7 +172,8 @@ class SettingScreen extends StatelessWidget {
                     ),
                     desc: "",
                     onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => GuidelinesScreenCustomer()),
+                      MaterialPageRoute(
+                          builder: (context) => GuidelinesScreenCustomer()),
                     ),
                   ),
                   kExtraSmallVerticalSpacing,

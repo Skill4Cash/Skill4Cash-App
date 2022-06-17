@@ -54,7 +54,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     _pageAnimationTimer = Timer.periodic(const Duration(seconds: 10), (timer) {
       _animateSlides();
     });
-    // TODO: implement initState
     super.initState();
     _controller = PageController(initialPage: 0);
   }
