@@ -17,8 +17,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
     void onSelected(int value) {
       switch (value) {
         case 1:
-          Navigator.pushNamed(
-              context, ServiceProviderRoutes.spSchedulePickDate);
+          Navigator.pushNamed(context, ServiceProviderRoutes.spPickDate);
           break;
         case 2:
           break;

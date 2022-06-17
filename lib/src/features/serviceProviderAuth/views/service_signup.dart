@@ -107,7 +107,7 @@ class ServiceSignUp extends StatelessWidget {
                           Text("Already have an account?"),
                           TextButton(
                             onPressed: () => Navigator.of(context).pushNamed(
-                                ServiceProviderRoutes.serviceLoginRoute),
+                                ServiceProviderRoutes.spLoginRoute),
                             child: Text(
                               "Sign in",
                               style: bodyNormalText(context)

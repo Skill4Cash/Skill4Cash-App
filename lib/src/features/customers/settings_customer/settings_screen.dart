@@ -1,8 +1,11 @@
 import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
+import 'package:Skill4Cash/src/features/customers/settings_customer/customer_guidelines_screen.dart';
+import 'package:Skill4Cash/src/features/service_provider/settings/sp_guidelines_screen.dart';
 import 'package:Skill4Cash/src/features/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'change_email_address_screen.dart';
 import 'change_phone_number_screen.dart';
@@ -24,6 +27,11 @@ class _SettingScreenState extends State<SettingScreen> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        leading: Icon(
+          Icons.arrow_back_ios,
+          color: kTextColor,
+          size: 16,
+        ),
         backgroundColor: kWhiteColor,
         automaticallyImplyLeading: false,
         title: Text(
@@ -75,9 +83,6 @@ class _SettingScreenState extends State<SettingScreen> {
                             ),
                           )
                         : Text(
-                            // customerNameController.text.isEmpty
-                            //     ? 'Tailor Swift Services'
-                            //     :
                             customerNameController.text,
                             style: heading2(context),
                           ),
@@ -154,6 +159,24 @@ class _SettingScreenState extends State<SettingScreen> {
                     ),
                   ),
                   kExtraSmallVerticalSpacing,
+                  ProfileSingleTile(
+                    text: "S4C Guidelines and Legal Agreement",
+                    icon: Icon(
+                      Icons.health_and_safety_outlined,
+                      // size: 16,
+                      color: kPrimaryColor,
+                    ),
+                    suffixicon: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 16,
+                    ),
+                    desc: "",
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) => GuidelinesScreenCustomer()),
+                    ),
+                  ),
+                  kExtraSmallVerticalSpacing,
                   ProfileDoubleTile(
                     desc1: "",
                     desc2: "",
@@ -185,10 +208,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       color: Colors.red,
                     ),
                     desc: "",
-                    onTap: () {
-                      Navigator.pushNamed(
-                          context, CustomerRoutes.customerLoginRoute);
-                    },
+                    onTap: () => Navigator.of(context)
+                        .pushNamed(CustomerRoutes.customerLoginRoute),
                   ),
                   kExtraLargeVerticalSpacing,
                 ],
