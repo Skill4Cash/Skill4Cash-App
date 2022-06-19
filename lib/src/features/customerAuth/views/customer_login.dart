@@ -126,19 +126,22 @@ class CustomerLogin extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(vertical: 18),
-                                    decoration: BoxDecoration(
-                                        color: kWhiteColor,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color(0xFFEEEEEE),
-                                            spreadRadius: 10,
-                                            blurRadius: 10,
-                                          ),
-                                        ]),
-                                    child: Center(
-                                        child: Text("Sign in with google")),
+                                  child: InkWell(
+                                    onTap: () => Get.offAllNamed(CustomerRoutes.customerHomeRoute),
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(vertical: 18),
+                                      decoration: BoxDecoration(
+                                          color: kWhiteColor,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Color(0xFFEEEEEE),
+                                              spreadRadius: 10,
+                                              blurRadius: 10,
+                                            ),
+                                          ]),
+                                      child: Center(
+                                          child: Text("Sign in with google")),
+                                    ),
                                   ),
                                 ),
                               ],

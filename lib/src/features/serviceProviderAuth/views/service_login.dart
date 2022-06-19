@@ -2,6 +2,7 @@ import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:Skill4Cash/src/features/widgets/app_backgrond.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/routes/route_manager.dart';
 import '../../widgets/app_button.dart';
@@ -95,17 +96,20 @@ class ServiceLogin extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Expanded(
-                            child: Container(
-                              padding: EdgeInsets.symmetric(vertical: 18),
-                              decoration:
-                                  BoxDecoration(color: kWhiteColor, boxShadow: [
-                                BoxShadow(
-                                  color: Color(0xFFEEEEEE),
-                                  spreadRadius: 5,
-                                  blurRadius: 5,
-                                ),
-                              ]),
-                              child: Center(child: Text("Sign in with google")),
+                            child: InkWell(
+                              onTap: () => Get.offAllNamed(ServiceProviderRoutes.spDashboardRoute),
+                              child: Container(
+                                padding: EdgeInsets.symmetric(vertical: 18),
+                                decoration:
+                                    BoxDecoration(color: kWhiteColor, boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0xFFEEEEEE),
+                                    spreadRadius: 5,
+                                    blurRadius: 5,
+                                  ),
+                                ]),
+                                child: Center(child: Text("Sign in with google")),
+                              ),
                             ),
                           ),
                         ],
