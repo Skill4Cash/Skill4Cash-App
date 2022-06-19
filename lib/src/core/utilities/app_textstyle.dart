@@ -46,3 +46,9 @@ TextStyle planlistText(BuildContext context) => TextStyle(
       fontWeight: FontWeight.w600,
       color: kTextColor,
     );
+
+TextStyle serviceCategoryText(BuildContext context) => TextStyle(
+  color: kHintColor,
+  fontSize: 12,
+  fontWeight: FontWeight.w500,
+);

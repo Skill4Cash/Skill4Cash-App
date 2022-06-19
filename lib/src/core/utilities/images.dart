@@ -1,5 +1,8 @@
 //dashboard
 const String image = "assets/images/pic.png";
+const String spImage_3 = "assets/images/sp_0.png";
+const String spImage_2 = "assets/images/sp_2.png";
+const String spImage_1 = "assets/images/sp_3.png";
 
 //splash
 const String splashImage = "assets/images/logo.png";

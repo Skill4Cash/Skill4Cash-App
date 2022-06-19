@@ -33,7 +33,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
               kSmallVerticalSpacing,
               Text(
                 """Our Privacy Policy, as it may change from time to time, is a part of this Agreement.
-Payments
+                 Payments
 You represent and warrant that if you are purchasing something from us (and the only thing to purchase from us now is subscription of membership, but there will additional very soon)
 Make sure: 
 (i) any credit information you supply is true and complete, 
@@ -62,7 +62,7 @@ The Site and the information contained herein does not constitute an offer or a 
           
           
           
-          Links to Other Web Sites.
+                  Links to Other Web Sites.
 The App contains links to other web sites. We are not responsible for the content, accuracy or opinions express in such web sites, and such web sites are not investigated, monitored or checked for accuracy or completeness by us. 
 Inclusion of any linked web site on our App does not imply approval or endorsement of the linked web site by us. If you decide to leave our App and access these third-party app or sites, you do so at your own risk.
 
@@ -70,7 +70,7 @@ Inclusion of any linked web site on our App does not imply approval or endorseme
 
 
 
-        Copyrights and Copyright Agents
+                  Copyrights and Copyright Agents
 We respect the intellectual property of others, and we ask you to do the same. If you believe that your work, content or creativity has been copied in a way that constitutes copyright infringement, please provide our Copyright Agent the following information: 
 (a) An electronic or physical signature of the person authorized to act on behalf of the owner of the copyright interest;
 (b) A description of the copyrighted work that you claim has been infringed; 
@@ -83,7 +83,7 @@ We respect the intellectual property of others, and we ask you to do the same. I
 
 
 
-Proposed Service Offerings
+                Proposed Service Offerings
 All descriptions of proposed products and services are based on assumptions subject to change and you should not rely on the availability or functionality of products or services until they are actually offered through the App. 
 We reserve the right in its sole discretion to determine how registration and other promotions will be awarded. 
 This determination includes, without limitation, the scope, nature and timing of all such awards.
@@ -92,7 +92,7 @@ This determination includes, without limitation, the scope, nature and timing of
 
 
 
-Information and Press Releases
+               Information and Press Releases
 The App contains information and press releases about us. While this information was believed to be accurate as of the date prepared, we disclaim any duty or obligation to update this information or any press releases. 
 Information about companies other than ours contained in the press release or otherwise, should not be relied upon as being provided or endorsed by us.
 

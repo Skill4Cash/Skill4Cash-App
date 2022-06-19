@@ -12,7 +12,7 @@ class ServiceInformationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _options = ["Feedback", "Complaint"];
+    var _options = ["Fashion", "Catering", "Wellness", "Software Development"];
     String? _currentSelectedValue;
 
     return Scaffold(

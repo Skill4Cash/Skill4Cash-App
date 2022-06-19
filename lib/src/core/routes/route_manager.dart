@@ -2,23 +2,30 @@ import 'package:Skill4Cash/src/features/customerAuth/views/verify_account.dart';
 import 'package:Skill4Cash/src/features/customerAuth/views/verify_email.dart';
 import 'package:Skill4Cash/src/features/customers/dashboard/views/all_services_screen.dart';
 import 'package:Skill4Cash/src/features/customers/dashboard/views/dashboard_screen.dart';
-import 'package:Skill4Cash/src/features/customers/dashboard/views/service_providers_arround_screen.dart';
+import 'package:Skill4Cash/src/features/customers/dashboard/views/service_providers_around_screen.dart';
 import 'package:Skill4Cash/src/features/customers/home/views/home_screen.dart';
 import 'package:Skill4Cash/src/features/customers/messages/chat_screen.dart';
 import 'package:Skill4Cash/src/features/customers/messages/index.dart';
+
 import 'package:Skill4Cash/src/features/customers/onboarding/onboarding_screen.dart';
+import 'package:Skill4Cash/src/features/customers/settings_customer/customer_guidelines_screen.dart';
 import 'package:Skill4Cash/src/features/customers/settings_customer/privacy_policy_screen.dart';
+// import 'package:Skill4Cash/src/features/customers/settings_customer/settings_screen.dart';
 import 'package:Skill4Cash/src/features/service_provider/dashboard/index.dart';
 import 'package:Skill4Cash/src/features/service_provider/dashboard/keyword.dart';
 import 'package:Skill4Cash/src/features/service_provider/dashboard/ratings.dart';
-import 'package:Skill4Cash/src/features/service_provider/dashboard/schedules.dart';
+// import 'package:Skill4Cash/src/features/service_provider/schedule/create_schedule.dart';
+import 'package:Skill4Cash/src/features/service_provider/schedule/pick_date.dart';
+import 'package:Skill4Cash/src/features/service_provider/schedule/schedules.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_email.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/edit_phone.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/index.dart';
-import 'package:Skill4Cash/src/features/service_provider/settings/s4c_pay_scren.dart';
+import 'package:Skill4Cash/src/features/service_provider/settings/s4c_pay_screen.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/s4c_subscription.dart';
+import 'package:Skill4Cash/src/features/service_provider/settings/sp_guidelines_screen.dart';
 import 'package:Skill4Cash/src/features/service_provider/settings/verify_account.dart';
 import 'package:Skill4Cash/src/features/service_provider/sp_page_view.dart';
+import 'package:Skill4Cash/src/features/service_provider/sp_profile/all_services_images.dart';
 import 'package:Skill4Cash/src/features/service_provider/verify_account/index.dart';
 import 'package:Skill4Cash/src/features/service_provider/verify_account/service_information.dart';
 import 'package:Skill4Cash/src/features/service_provider/verify_account/verify_account.dart';
@@ -27,6 +34,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/customerAuth/views/customer_login.dart';
 import '../../features/customerAuth/views/customer_signup.dart';
+import '../../features/customers/messages/sp_view_screen.dart';
 import '../../features/customers/settings_customer/terms_and_condition_screen.dart';
 import '../../features/serviceProviderAuth/views/service_login.dart';
 import '../../features/serviceProviderAuth/views/service_signup.dart';
@@ -47,25 +55,31 @@ class CustomerRoutes {
   static const termsAndConditionRoute = "/termsAndCondition";
   static const verifyEmail = "/verifyEmail";
   static const openEmail = "/openEmail";
+  static const customerSettingScreen = "/customerSettingScreen";
+  static const customerGuidelines = "/customerGuidelines";
+  static const allServicesImagesRoute = "/allServiceImages";
+  static const spViewRoute = "/spView";
 }
 
 class ServiceProviderRoutes {
   static const String settingScreenRoute = "/settingScreen";
   static const String spPageViewRoute = "/spPageViewScreen";
   static const String editEmailRoute = "/editEmailScreen";
+  static const String spPickDate = '/spPickDate';
   static const String editPhoneRoute = "/editPhoneScreen";
   static const String verifyAccountRoute = "/verifyAccountScreen";
   static const String verifyDashboardRoute = "/verifyDashboardScreen";
   static const String verifyAccountSPRoute = "/verifyAccountSP";
   static const String serviceInfoRoute = "/serviceInfoScreen";
-  static const serviceLoginRoute = "/serviceLogin";
-  static const serviceSignUpRoute = "/serviceSignUp";
+  static const spLoginRoute = "/serviceLogin";
+  static const spSignUpRoute = "/serviceSignUp";
   static const s4cSubRoute = "/s4cSubPlan";
   static const s4cSubPayRoute = "/s4cSubPay";
   static const spDashboardRoute = "/spDashboardScreen";
   static const spKeywordRoute = "/spKeywordScreen";
   static const spRatingRoute = "/spRatingScreen";
   static const spScheduleRoute = "/spScheduleScreen";
+  static const spGuidelinesRoute = "/spGuidelines";
 }
 
 class RouteGenerator {
@@ -95,9 +109,17 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (_) => const TermsAndConditionScreen());
       case CustomerRoutes.verifyEmail:
-        return MaterialPageRoute(builder: (_) => const VerifyAccount());
+        return MaterialPageRoute(builder: (_) => VerifyAccount());
       case CustomerRoutes.openEmail:
         return MaterialPageRoute(builder: (_) => const VerifyEmail());
+      case CustomerRoutes.customerGuidelines:
+        return MaterialPageRoute(
+            builder: (_) => const GuidelinesScreenCustomer());
+      case CustomerRoutes.allServicesImagesRoute:
+        return MaterialPageRoute(
+            builder: (_) => const AllServiceImagesScreen());
+      case CustomerRoutes.spViewRoute:
+        return MaterialPageRoute(builder: (_) => const SpViewScreen());
 
       //SERVICE PROVIDER ROUTER
       case ServiceProviderRoutes.spPageViewRoute:
@@ -117,6 +139,8 @@ class RouteGenerator {
       case ServiceProviderRoutes.serviceInfoRoute:
         return MaterialPageRoute(
             builder: (_) => const ServiceInformationScreen());
+      case ServiceProviderRoutes.spPickDate:
+        return MaterialPageRoute(builder: (_) => PickDate());
       case ServiceProviderRoutes.s4cSubRoute:
         return MaterialPageRoute(builder: (_) => const S4CSubPlanScreen());
       case ServiceProviderRoutes.s4cSubPayRoute:
@@ -128,13 +152,15 @@ class RouteGenerator {
       case ServiceProviderRoutes.spRatingRoute:
         return MaterialPageRoute(builder: (_) => const RatingScreen());
       case ServiceProviderRoutes.spScheduleRoute:
-        return MaterialPageRoute(builder: (_) => const ScheduleScreen());
+        return MaterialPageRoute(builder: (_) => ScheduleScreen());
+      case ServiceProviderRoutes.spGuidelinesRoute:
+        return MaterialPageRoute(builder: (_) => const GuidelinesScreenSp());
 
       case CustomerRoutes.customerLoginRoute:
         return MaterialPageRoute(builder: (_) => CustomerLogin());
-      case ServiceProviderRoutes.serviceSignUpRoute:
+      case ServiceProviderRoutes.spSignUpRoute:
         return MaterialPageRoute(builder: (_) => ServiceSignUp());
-      case ServiceProviderRoutes.serviceLoginRoute:
+      case ServiceProviderRoutes.spLoginRoute:
         return MaterialPageRoute(builder: (_) => ServiceLogin());
       case CustomerRoutes.customerSignUpRoute:
         return MaterialPageRoute(builder: (_) => CustomerSignUp());

@@ -4,7 +4,6 @@ import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/images.dart';
 import 'package:Skill4Cash/src/features/widgets/app_button.dart';
 import 'package:Skill4Cash/src/features/widgets/app_textfield.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ServiceProvidersAroundScreen extends StatelessWidget {
@@ -14,16 +13,15 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // elevation: 0,
         backgroundColor: kWhiteColor,
         centerTitle: true,
         title: Text(
           "Service Providers Around Me",
           style: heading2(context),
         ),
-        leading: GestureDetector(
-          onTap: () => Navigator.of(context).pop(),
-          child: Icon(
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: Icon(
             Icons.arrow_back_ios,
             color: kTextColor,
             size: heading2(context).height,
@@ -31,7 +29,7 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
         ),
         bottom: PreferredSize(
           preferredSize: Size(
-              double.infinity, MediaQuery.of(context).textScaleFactor * 50),
+              double.infinity, MediaQuery.of(context).textScaleFactor * 70),
           child: Container(
             // decoration: BoxDecoration(
             //   boxShadow: [
@@ -211,7 +209,7 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: 10,
-                itemBuilder: (conext, index) => Container(
+                itemBuilder: (context, index) => Container(
                       margin:
                           EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                       padding:
