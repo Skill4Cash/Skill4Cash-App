@@ -35,8 +35,8 @@ class ChatScreen extends StatelessWidget {
               // ignore: prefer_const_literals_to_create_immutables
               children: [
                 GestureDetector(
-                  onTap: () =>
-                      Navigator.of(context).pushNamed(CustomerRoutes.spViewRoute),
+                  onTap: () => Navigator.of(context)
+                      .pushNamed(CustomerRoutes.spViewRoute),
                   child: CircleAvatar(
                     backgroundImage: AssetImage("assets/images/sp_1.jpg"),
                     radius: 25,

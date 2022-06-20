@@ -29,10 +29,11 @@ class ServicePill extends StatelessWidget {
               icon,
               color: kPrimaryColor,
             )),
-        kSmallVerticalSpacing,
+        kTinyVerticalSpacing,
         Center(
             child: Text(
           title,
+          textAlign: TextAlign.center,
           overflow: TextOverflow.ellipsis,
           maxLines: 2,
         )),

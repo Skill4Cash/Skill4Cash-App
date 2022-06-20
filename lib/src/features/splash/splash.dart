@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Timer? _timer;
 
   _startDelay() {
-    _timer = Timer(Duration(seconds: 2), _goNext);
+    _timer = Timer(Duration(seconds: 5), _goNext);
   }
 
   _goNext() {
@@ -36,19 +36,16 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: kWhiteColor,
       body: Center(
           child: Container(
               height: 30,
-              // width: double.infinity,
+              width: size.width * 0.6,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(splashImage), fit: BoxFit.contain)))
-          // child: Image(
-          //   image: AssetImage(splashImage),
-          // ),
-          ),
+                      image: AssetImage(splashImage), fit: BoxFit.fill)))),
     );
   }
 }

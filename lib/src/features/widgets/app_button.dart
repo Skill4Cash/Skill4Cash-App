@@ -18,18 +18,22 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: isLoading ? null : onPressed,
-      child: isLoading
-          ? const AppLoading()
-          : Center(
-              child: Text(
-                label,
-                style: TextStyle(
-                  color: kWhiteColor,
+    return Container(
+      height: 50,
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: isLoading ? null : onPressed,
+        child: isLoading
+            ? const AppLoading()
+            : Center(
+                child: Text(
+                  label,
+                  style: TextStyle(
+                    color: kWhiteColor,
+                  ),
                 ),
               ),
-            ),
+      ),
     );
   }
 }

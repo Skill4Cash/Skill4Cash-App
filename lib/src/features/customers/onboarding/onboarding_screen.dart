@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
+import 'package:Skill4Cash/src/features/customers/onboarding/components/slide_signIn.dart';
 import 'package:Skill4Cash/src/features/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       desc: "All accessible from the comfort of your phone.",
     ),
     BuildSlideWithForm(),
-    // BuildSlideWithSignIn(),
+    BuildSlideWithSignIn(),
   ];
   int currentIndex = 0;
   late PageController _controller;
@@ -54,7 +55,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     _pageAnimationTimer = Timer.periodic(const Duration(seconds: 10), (timer) {
       _animateSlides();
     });
-    // TODO: implement initState
     super.initState();
     _controller = PageController(initialPage: 0);
   }
@@ -116,8 +116,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   buildReadyButton() {
     return GestureDetector(
-      onTap: () => Navigator.pushReplacementNamed(
-          context, CustomerRoutes.customerLoginRoute),
+      onTap: () {
+        _controller.nextPage(
+            duration: Duration(milliseconds: 100), curve: Curves.bounceIn);
+      },
       child: Container(
           alignment: Alignment.center,
           height: kPad * 4,
@@ -138,6 +140,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   Container buildAuthButtons() {
     return Container(
+      margin: EdgeInsets.only(bottom: 20),
       child: Column(
         children: [
           Container(
@@ -147,11 +150,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 border: Border.all(color: kPrimaryColor),
                 borderRadius: BorderRadius.circular(8)),
             child: FlatButton(
-              onPressed: () =>
-                  Navigator.of(context).pushNamed("/customerLogin"),
+              onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
+                  CustomerRoutes.customerLoginRoute, (route) => false),
               child: Text("sign in".toUpperCase(),
                   style: labelText(context).copyWith(
-                    fontSize: 12,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                   )),
             ),
           ),
@@ -165,8 +169,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               label: "sign up".toUpperCase(),
               color: kPrimaryColor,
               // size: 12,
-              onPressed: () =>
-                  Navigator.of(context).pushNamed("/customerSignUp"),
+              onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
+                  CustomerRoutes.customerSignUpRoute, (route) => false),
             ),
           ),
         ],

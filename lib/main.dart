@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Skill4Cash',
+      // home: SpDashboard(),
       initialRoute: CustomerRoutes
           .splashRoute, //splash screen has been added, this line can replaced later
 
