@@ -86,7 +86,7 @@ class CustomerSignUp extends StatelessWidget {
                           ),
                           kSmallVerticalSpacing,
                           AppTextField(
-                            keyboardType: TextInputType.number,
+                            keyboardType: TextInputType.text,
                             textInputAction: TextInputAction.next,
                             validator: (value) =>
                                 context.validatePhoneNumber(value),
@@ -211,8 +211,8 @@ class CustomerSignUp extends StatelessWidget {
                               Expanded(
                                 child: TextButton(
                                   onPressed: () => Navigator.of(context)
-                                      .pushNamed(ServiceProviderRoutes
-                                          .spLoginRoute),
+                                      .pushNamed(
+                                          ServiceProviderRoutes.spLoginRoute),
                                   child: Text(
                                     "Service provider Sign Up",
                                     style: bodyNormalText(context)

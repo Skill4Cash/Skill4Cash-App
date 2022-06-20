@@ -24,11 +24,17 @@ class CustomerSignupController extends BaseChangeNotifier {
     setState(state: AppState.loading);
 
     try {
+      String phone;
+      phoneNumber.substring(1);
+
+      phone = phoneNumber;
+      phone = phoneNumber.replaceFirst("0", "+234");
+
       await _service.signupCustomer(
           firstName: firstName,
           lastName: lastName,
           email: email,
-          phoneNumber: phoneNumber,
+          phoneNumber: phone,
           password: password,
           confirmPassword: confirmPassword);
 

@@ -68,7 +68,7 @@ class ApiService {
         throw Failure('Connection Timeout: Check your internet connection');
       } else {
         print(e.response!.data.toString());
-        throw Failure('${e.response!.data[0]}');
+        throw Failure('${e.response!.data[0][0]}');
       }
     }
   }
