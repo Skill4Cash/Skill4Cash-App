@@ -76,7 +76,7 @@ class AuthenticationService {
       required String phoneNumber,
       required String password,
       required String confirmPassword,
-      required String businessName}) async {
+      required String businessName,}) async {
     var createSPResponse = await _helper.post(
       "/sp/register/",
       body: {
@@ -84,7 +84,7 @@ class AuthenticationService {
           "first_name": firstName,
           "last_name": lastName,
           "email": email,
-          "phone_number": "phoneNumber",
+          "phone_number": phoneNumber,
           "password": password,
           "confirm_password": confirmPassword,
           "location": "location",
