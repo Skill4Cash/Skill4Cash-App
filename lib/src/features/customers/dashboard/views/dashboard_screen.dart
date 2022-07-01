@@ -1,13 +1,18 @@
 import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
+import 'package:Skill4Cash/src/core/utilities/base_change_notifier.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 // import 'package:Skill4Cash/src/features/customers/settings_customer/settings_screen.dart';
 // import 'package:Skill4Cash/src/features/widgets/app_button.dart';
 import 'package:Skill4Cash/src/features/widgets/app_dialog.dart';
+import 'package:Skill4Cash/src/features/widgets/widgets.dart';
 // import 'package:Skill4Cash/src/features/widgets/app_textfield.dart';
 // import 'package:Skill4Cash/src/features/widgets/service_pill.dart';
 import 'package:flutter/material.dart';
-import 'package:Skill4Cash/src/features/widgets/widgets.dart';
+import 'package:get/get.dart';
+
+import '../../../widgets/app_loading.dart';
+import '../controller/service_provider_arround_controller.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -1321,32 +1326,33 @@ class DashboardScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              height: MediaQuery.of(context).textScaleFactor < 1.6 ? 300 : 350,
-              child: ListView.builder(
-                // GestureDetector(
-                //   onTap: () => Navigator.of(context).pushNamed(
-                //       CustomerRoutes.serviceProvidersAroundScreenRoute),
-                // ),
-                itemCount: aroundMe.length,
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemBuilder: (context, index) => AroundMe(
-                    image: aroundMe[index].image,
-                    title: aroundMe[index].title,
-                    subtitle: aroundMe[index].subtitle),
-              ),
-            ),
-
-            // child: ListView.builder(
-            //     itemCount: aroundMe.length,
-            //     scrollDirection: Axis.horizontal,
-            //     shrinkWrap: true,
-            //     itemBuilder: (context, index) => AroundMe(
-            //         image: aroundMe[index].image,
-            //         title: aroundMe[index].title,
-            //         subtitle: aroundMe[index].subtitle)),
-            // )
+            GetBuilder<ServiceProviderAroundController>(
+                init: ServiceProviderAroundController()..getServiceProviders(),
+                builder: (controller) {
+                  if (controller.state.isLoading) {
+                    return AppLoading();
+                  } else if (controller.spListResponse?.data == null) {
+                    return Text("No service Provider Available");
+                  } else {
+                    return Container(
+                      height: MediaQuery.of(context).textScaleFactor < 1.6
+                          ? 300
+                          : 350,
+                      child: ListView.builder(
+                        itemCount: controller.spListResponse!.data.length,
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) => AroundMe(
+                            image: aroundMe[index].image,
+                            title:
+                                "${controller.spListResponse!.data[index].user.firstName} ${controller.spListResponse!.data[index].user.lastName}"
+                                    .capitalize!,
+                            subtitle: controller
+                                .spListResponse!.data[index].businessName),
+                      ),
+                    );
+                  }
+                }),
           ],
         ),
       ),

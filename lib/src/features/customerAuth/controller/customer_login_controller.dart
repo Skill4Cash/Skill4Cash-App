@@ -7,7 +7,7 @@ import '../../../service/network/failure.dart';
 
 class CustomerLoginController extends BaseChangeNotifier {
   final _service = AuthenticationService();
-  bool visibility = false;
+  bool visibility = true;
   onVisibilityChange() {
     visibility = !visibility;
     setState();

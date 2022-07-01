@@ -1,10 +1,15 @@
 import 'package:Skill4Cash/src/core/utilities/app_colors.dart';
 import 'package:Skill4Cash/src/core/utilities/app_spacing.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
+import 'package:Skill4Cash/src/core/utilities/base_change_notifier.dart';
 import 'package:Skill4Cash/src/core/utilities/images.dart';
+import 'package:Skill4Cash/src/features/customers/dashboard/controller/service_provider_arround_controller.dart';
 import 'package:Skill4Cash/src/features/widgets/app_button.dart';
 import 'package:Skill4Cash/src/features/widgets/app_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../widgets/app_loading.dart';
 
 class ServiceProvidersAroundScreen extends StatelessWidget {
   const ServiceProvidersAroundScreen({Key? key}) : super(key: key);
@@ -205,87 +210,102 @@ class ServiceProvidersAroundScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: 10,
-                itemBuilder: (context, index) => Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                      decoration: BoxDecoration(
-                          color: kWhiteColor,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0xFFEEEEEE),
-                              spreadRadius: 6,
-                              blurRadius: 10,
-                            ),
-                          ],
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      child: ListTile(
-                        leading: Container(
-                          width: 80,
-                          height: 80,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(image: AssetImage(image)),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
-                        ),
-                        title: Text(
-                          "Wonderous Creations Clothiers",
-                          maxLines: 2,
-                          softWrap: true,
-                          overflow: TextOverflow.ellipsis,
-                          style: bodyNormalText(context),
-                        ),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Fashion",
-                              style: bodySmallText(context),
-                            ),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.star,
-                                  size: 13,
-                                  color: kPrimaryColor,
+            child: GetBuilder<ServiceProviderAroundController>(
+                init: ServiceProviderAroundController(),
+                builder: (controller) {
+                  if (controller.state.isLoading) {
+                    return AppLoading();
+                  } else if (controller.spListResponse?.data == null ||
+                      controller.spListResponse!.data.isEmpty) {
+                    return Text("No service Provider Available");
+                  } else {
+                    return ListView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: controller.spListResponse!.data.length,
+                        itemBuilder: (context, index) => Container(
+                              margin: EdgeInsets.symmetric(
+                                  vertical: 16, horizontal: 16),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 16, horizontal: 16),
+                              decoration: BoxDecoration(
+                                  color: kWhiteColor,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0xFFEEEEEE),
+                                      spreadRadius: 6,
+                                      blurRadius: 10,
+                                    ),
+                                  ],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
+                              child: ListTile(
+                                leading: Container(
+                                  width: 80,
+                                  height: 80,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(image)),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(10))),
                                 ),
-                                Icon(
-                                  Icons.star,
-                                  size: 13,
-                                  color: kPrimaryColor,
+                                title: Text(
+                                  "${controller.spListResponse!.data[index].user.firstName} ${controller.spListResponse!.data[index].user.lastName}"
+                                      .capitalize!,
+                                  maxLines: 2,
+                                  softWrap: true,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: bodyNormalText(context),
                                 ),
-                                Icon(
-                                  Icons.star,
-                                  size: 13,
-                                  color: kPrimaryColor,
+                                subtitle: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      controller.spListResponse!.data[index]
+                                          .businessName,
+                                      style: bodySmallText(context),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.star,
+                                          size: 13,
+                                          color: kPrimaryColor,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 13,
+                                          color: kPrimaryColor,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 13,
+                                          color: kPrimaryColor,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 13,
+                                          color: kPrimaryColor,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 13,
+                                          color: kPrimaryColor,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          size: 13,
+                                          color: kPrimaryColor,
+                                        )
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                                Icon(
-                                  Icons.star,
-                                  size: 13,
-                                  color: kPrimaryColor,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  size: 13,
-                                  color: kPrimaryColor,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  size: 13,
-                                  color: kPrimaryColor,
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    )),
+                              ),
+                            ));
+                  }
+                }),
           )
         ],
       ),
