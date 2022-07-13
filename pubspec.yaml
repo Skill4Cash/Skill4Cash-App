@@ -18,6 +18,10 @@ dependencies:
   statusbarz: ^1.0.2
   flutter_svg: ^1.0.3
   intl: ^0.17.0
+  nigerian_states_and_lga: ^1.0.0
+  flutter_secure_storage: ^5.0.2
+
+
 
 dev_dependencies:
   flutter_test:

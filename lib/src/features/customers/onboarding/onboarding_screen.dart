@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
-import 'package:Skill4Cash/src/features/customers/onboarding/components/slide_signIn.dart';
 import 'package:Skill4Cash/src/features/widgets/app_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'components/slide_location.dart';
 import 'components/slide_one.dart';
@@ -33,8 +33,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       image: "slide_4.png",
       desc: "All accessible from the comfort of your phone.",
     ),
-    BuildSlideWithForm(),
-    BuildSlideWithSignIn(),
+    // BuildSlideWithForm(),
+    // BuildSlideWithSignIn(),
   ];
   int currentIndex = 0;
   late PageController _controller;
@@ -88,25 +88,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     return slides[index];
                   }),
             ),
-            currentIndex == 4
+            // currentIndex == 4
+            //     ? buildReadyButton()
+            //     :
+            currentIndex == 3
                 ? buildReadyButton()
-                : currentIndex == 5
-                    ? buildAuthButtons()
-                    : Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(
-                            1,
-                            (index) => GestureDetector(
-                                onTap: () {
-                                  _controller.nextPage(
-                                      duration: Duration(milliseconds: 100),
-                                      curve: Curves.bounceIn);
-                                },
-                                child: buildIndicator(index, context)),
-                          ),
-                        ),
+                : Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        1,
+                        (index) => GestureDetector(
+                            onTap: () {
+                              _controller.nextPage(
+                                  duration: Duration(milliseconds: 100),
+                                  curve: Curves.bounceIn);
+                            },
+                            child: buildIndicator(index, context)),
                       ),
+                    ),
+                  ),
             kExtraLargeVerticalSpacing
           ],
         ),
@@ -117,8 +118,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   buildReadyButton() {
     return GestureDetector(
       onTap: () {
-        _controller.nextPage(
-            duration: Duration(milliseconds: 100), curve: Curves.bounceIn);
+        Get.offAll(() => BuildSlideWithForm());
       },
       child: Container(
           alignment: Alignment.center,
