@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +9,7 @@ class AllServiceImagesScreen extends StatelessWidget {
   const AllServiceImagesScreen();
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kWhiteColor,
@@ -27,18 +27,37 @@ class AllServiceImagesScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 24),
+        height: size.height * 0.9,
+        margin: EdgeInsets.symmetric(horizontal: 8),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               kSmallVerticalSpacing,
-              Text(
-                """
-
-                  """,
-                style: bodyNormalText(context),
+              Container(
+                height: size.height * 0.9,
+                child: GridView.builder(
+                    itemCount: 20,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 10,
+                        childAspectRatio: 1 / 1,
+                        mainAxisSpacing: 20),
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () => print(index),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/sp_1.jpg"),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
               ),
             ],
           ),

@@ -125,7 +125,7 @@ class ServiceLogin extends StatelessWidget {
                               Expanded(
                                 child: InkWell(
                                   onTap: () => Get.offAllNamed(
-                                      CustomerRoutes.customerHomeRoute),
+                                      ServiceProviderRoutes.spDashboardRoute),
                                   child: Container(
                                     padding: EdgeInsets.symmetric(vertical: 18),
                                     decoration: BoxDecoration(
@@ -153,7 +153,7 @@ class ServiceLogin extends StatelessWidget {
                                 onTap: () => Navigator.of(context).pushNamed(
                                     CustomerRoutes.customerLoginRoute),
                                 child: Text(
-                                  "Service provider Sign In",
+                                  "Customer Sign In",
                                   style: bodyNormalText(context)
                                       .copyWith(color: kPrimaryColor),
                                 ),

@@ -251,7 +251,7 @@ class ServiceSignUp extends StatelessWidget {
                                             .pushNamed(ServiceProviderRoutes
                                                 .spLoginRoute),
                                         child: Text(
-                                          "Service provider Sign Up",
+                                          "Customer Sign Up",
                                           style: bodyNormalText(context)
                                               .copyWith(color: kPrimaryColor),
                                         ),
