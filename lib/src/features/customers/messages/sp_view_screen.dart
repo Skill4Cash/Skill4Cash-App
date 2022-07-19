@@ -1,3 +1,4 @@
+import 'package:Skill4Cash/src/core/routes/route_manager.dart';
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 // import 'package:flutter/cupertino.dart';
@@ -92,10 +93,14 @@ class SpViewScreen extends StatelessWidget {
                     "Photos",
                     style: bodyNormalText(context),
                   ),
-                  Text(
-                    "See all",
-                    style:
-                        bodyNormalText(context).copyWith(color: kPrimaryColor),
+                  InkWell(
+                    onTap: () => Navigator.pushNamed(
+                        context, CustomerRoutes.allServicesImagesRoute),
+                    child: Text(
+                      "See all",
+                      style: bodyNormalText(context)
+                          .copyWith(color: kPrimaryColor),
+                    ),
                   ),
                 ],
               ),

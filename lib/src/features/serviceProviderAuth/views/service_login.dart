@@ -125,7 +125,7 @@ class ServiceLogin extends StatelessWidget {
                               Expanded(
                                 child: InkWell(
                                   onTap: () => Get.offAllNamed(
-                                      CustomerRoutes.customerLoginRoute),
+                                      ServiceProviderRoutes.spDashboardRoute),
                                   child: Container(
                                     padding: EdgeInsets.symmetric(vertical: 18),
                                     decoration: BoxDecoration(
