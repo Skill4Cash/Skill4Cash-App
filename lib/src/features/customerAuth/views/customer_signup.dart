@@ -203,28 +203,6 @@ class CustomerSignUp extends StatelessWidget {
                                 ]),
                             kSmallVerticalSpacing,
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 24, vertical: 18),
-                                    decoration: BoxDecoration(
-                                        color: kWhiteColor,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Color(0xFFEEEEEE),
-                                            spreadRadius: 10,
-                                            blurRadius: 10,
-                                          ),
-                                        ]),
-                                    child: Center(
-                                        child: Text("Sign in with google")),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Expanded(
@@ -234,7 +212,7 @@ class CustomerSignUp extends StatelessWidget {
                                     child: TextButton(
                                       onPressed: () => Navigator.of(context)
                                           .pushNamed(ServiceProviderRoutes
-                                              .spLoginRoute),
+                                              .spSignUpRoute),
                                       child: Text(
                                         "Service provider Sign Up",
                                         style: bodyNormalText(context)

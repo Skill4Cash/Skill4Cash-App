@@ -1,14 +1,9 @@
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
-import 'package:Skill4Cash/src/features/customers/onboarding/components/slide_signIn.dart';
-import 'package:Skill4Cash/src/features/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:get/get.dart';
-import 'package:nigerian_states_and_lga/nigerian_states_and_lga.dart';
 
 class BuildSlideWithForm extends StatefulWidget {
-  BuildSlideWithForm({
+  const BuildSlideWithForm({
     Key? key,
   }) : super(key: key);
 
@@ -17,10 +12,7 @@ class BuildSlideWithForm extends StatefulWidget {
 }
 
 class _BuildSlideWithFormState extends State<BuildSlideWithForm> {
-  // @override
-  String stateValue = NigerianStatesAndLGA.allStates[0];
-  final _storage = FlutterSecureStorage();
-
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: true,
@@ -41,23 +33,18 @@ class _BuildSlideWithFormState extends State<BuildSlideWithForm> {
                     ),
                   ),
                   kMediumVerticalSpacing,
-                  DropdownButton<String>(
-                    key: const ValueKey('States'),
-                    value: stateValue,
-                    onChanged: (val) {
-                      setState(() {
-                        stateValue = val!;
-                      });
-                    },
-                    isExpanded: true,
-                    hint: const Text('Select a Nigerian state'),
-                    items: NigerianStatesAndLGA.allStates
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        child: Text(value),
-                        value: value,
-                      );
-                    }).toList(),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        hintText: "Enter your location",
+                        hintStyle: labelText(context),
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                          color: kTextColor,
+                        )),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                          color: kTextColor,
+                        ))),
                   ),
                   kMediumVerticalSpacing,
                   Container(
@@ -70,17 +57,6 @@ class _BuildSlideWithFormState extends State<BuildSlideWithForm> {
                         ),
                         textAlign: TextAlign.center,
                       )),
-                  kMediumVerticalSpacing,
-                  AppButton(
-                    label: "Next",
-                    onPressed: () async{
-                      print(stateValue);
-                      if (stateValue.isNotEmpty) {
-                       await _storage.write(key: "location", value: stateValue);
-                        Get.offAll(() => BuildSlideWithSignIn());
-                      }
-                    },
-                  )
                 ],
               ),
             ),

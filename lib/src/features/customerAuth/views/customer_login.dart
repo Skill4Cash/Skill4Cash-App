@@ -125,7 +125,7 @@ class CustomerLogin extends StatelessWidget {
                               Expanded(
                                 child: InkWell(
                                   onTap: () => Get.offAllNamed(
-                                      CustomerRoutes.customerHomeRoute),
+                                      CustomerRoutes.customerLoginRoute),
                                   child: Container(
                                     padding: EdgeInsets.symmetric(vertical: 18),
                                     decoration: BoxDecoration(

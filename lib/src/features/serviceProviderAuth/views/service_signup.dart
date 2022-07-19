@@ -8,6 +8,8 @@ import 'package:Skill4Cash/src/features/widgets/app_backgrond.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:nigerian_states_and_lga/nigerian_states_and_lga.dart';
+
 import '../../widgets/app_button.dart';
 import '../../widgets/app_textfield.dart';
 
@@ -79,6 +81,32 @@ class ServiceSignUp extends StatelessWidget {
                                     context.validateFieldNotEmpty(value),
                                 hintText: "Last name",
                               ),
+                              kSmallVerticalSpacing,
+                              // DropdownButton<String>(
+                              //     key: const ValueKey('States'),
+                              //     value: stateValue,
+                              //     isExpanded: true,
+                              //     hint: const Text('Select a Nigerian state'),
+                              //     items: NigerianStatesAndLGA.allStates
+                              //         .map<DropdownMenuItem<String>>((String value) {
+                              //           return DropdownMenuItem<String>(
+                              //             child: Text(value),
+                              //             value: value,
+                              //           );
+                              //         }).toList(),
+                              // kSmallVerticalSpacing,
+                              // DropdownButton<String>(
+                              //   key: const ValueKey('Local governments'),
+                              //   value: lgaValue,
+                              //   isExpanded: true,
+                              //   hint: const Text('Select a Lga'),
+                              //   items:
+                              //     statesLga.map<DropdownMenuItem<String>>((String value) {
+                              //    return DropdownMenuItem<String>(
+                              //        child: Text(value),
+                              //        value: value,
+                              //    );
+                              // }).toList()
                               kSmallVerticalSpacing,
                               AppTextField(
                                 keyboardType: TextInputType.text,
@@ -185,7 +213,7 @@ class ServiceSignUp extends StatelessWidget {
                                   InkWell(
                                     onTap: () => Navigator.of(context)
                                         .pushNamed(
-                                            CustomerRoutes.customerLoginRoute),
+                                            ServiceProviderRoutes.spLoginRoute),
                                     child: Text(
                                       "Sign in",
                                       style: bodyNormalText(context)
@@ -218,28 +246,6 @@ class ServiceSignUp extends StatelessWidget {
                                   ]),
                               kSmallVerticalSpacing,
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 24, vertical: 18),
-                                      decoration: BoxDecoration(
-                                          color: kWhiteColor,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Color(0xFFEEEEEE),
-                                              spreadRadius: 10,
-                                              blurRadius: 10,
-                                            ),
-                                          ]),
-                                      child: Center(
-                                          child: Text("Sign in with google")),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Expanded(
@@ -248,8 +254,7 @@ class ServiceSignUp extends StatelessWidget {
                                     Expanded(
                                       child: TextButton(
                                         onPressed: () => Navigator.of(context)
-                                            .pushNamed(ServiceProviderRoutes
-                                                .spLoginRoute),
+                                            .pushNamed(CustomerRoutes.customerSignUpRoute),
                                         child: Text(
                                           "Customer Sign Up",
                                           style: bodyNormalText(context)
