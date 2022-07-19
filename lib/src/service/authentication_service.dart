@@ -1,8 +1,9 @@
 import 'package:Skill4Cash/src/service/network/api_service.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthenticationService {
   ApiService _helper = ApiService();
-
+  FlutterSecureStorage _storage = FlutterSecureStorage();
   Future loginCustomer(String email, String password) async {
     var loginCustomerResponse = await _helper.post(
       "/login/",
@@ -34,7 +35,7 @@ class AuthenticationService {
         "phone_number": phoneNumber,
         "password": password,
         "confirm_password": confirmPassword,
-        "location": "location",
+        "location": await _storage.read(key: "location"),
       },
     );
 
@@ -69,14 +70,15 @@ class AuthenticationService {
     return loginSPResponse;
   }
 
-  Future signupServiceProvider(
-      {required String firstName,
-      required String lastName,
-      required String email,
-      required String phoneNumber,
-      required String password,
-      required String confirmPassword,
-      required String businessName,}) async {
+  Future signupServiceProvider({
+    required String firstName,
+    required String lastName,
+    required String email,
+    required String phoneNumber,
+    required String password,
+    required String confirmPassword,
+    required String businessName,
+  }) async {
     var createSPResponse = await _helper.post(
       "/sp/register/",
       body: {
@@ -87,7 +89,7 @@ class AuthenticationService {
           "phone_number": phoneNumber,
           "password": password,
           "confirm_password": confirmPassword,
-          "location": "location",
+          "location": await _storage.read(key: "location"),
         },
         'business_name': businessName,
       },
