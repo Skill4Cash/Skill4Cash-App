@@ -52,7 +52,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   void initState() {
-    _pageAnimationTimer = Timer.periodic(const Duration(seconds: 10), (timer) {
+    _pageAnimationTimer = Timer.periodic(const Duration(seconds: 3), (timer) {
       _animateSlides();
     });
     super.initState();

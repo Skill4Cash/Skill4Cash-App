@@ -156,22 +156,23 @@ class ServiceSignUp extends StatelessWidget {
                                       isLoading: controller.state.isLoading,
                                       onPressed: () async {
                                         Get.focusScope!.unfocus();
-                                        // if (_formKey.currentState!.validate()) {
-                                        await controller.signupServiceProvider(
-                                          firstName:
-                                              firstNameController.text.trim(),
-                                          lastName:
-                                              lastNameController.text.trim(),
-                                          email: emailController.text.trim(),
-                                          phoneNumber:
-                                              phoneController.text.trim(),
-                                          password: passwordController.text,
-                                          confirmPassword:
-                                              confirmPasswordController.text,
-                                          businessName:
-                                              businessNameController.text,
-                                        );
-                                        // }
+                                        if (_formKey.currentState!.validate()) {
+                                          await controller
+                                              .signupServiceProvider(
+                                            firstName:
+                                                firstNameController.text.trim(),
+                                            lastName:
+                                                lastNameController.text.trim(),
+                                            email: emailController.text.trim(),
+                                            phoneNumber:
+                                                phoneController.text.trim(),
+                                            password: passwordController.text,
+                                            confirmPassword:
+                                                confirmPasswordController.text,
+                                            businessName:
+                                                businessNameController.text,
+                                          );
+                                        }
                                       },
                                     ),
                                   ),

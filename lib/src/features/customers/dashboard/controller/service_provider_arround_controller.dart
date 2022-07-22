@@ -10,17 +10,22 @@ class ServiceProviderAroundController extends BaseChangeNotifier {
 
   void onOnit() {
     getServiceProviders();
+
     super.onInit();
   }
 
   SpListResponse? _spListResponse;
   SpListResponse? get spListResponse => _spListResponse;
 
+  List<SpListResponse> _searchResult = [];
+  List<SpListResponse> get searchResult => _searchResult;
+
   Future getServiceProviders() async {
     setState(state: AppState.loading);
 
     try {
       _spListResponse = await _service.serviceProviderList();
+      // setState();
     } on Failure catch (f) {
       setState(state: AppState.idle);
       Get.snackbar(
@@ -33,6 +38,24 @@ class ServiceProviderAroundController extends BaseChangeNotifier {
       );
     } finally {
       setState(state: AppState.idle);
+    }
+  }
+
+  // bool _isSearching = false;
+
+  void searchProviders(String searchText) {
+    _searchResult.clear();
+
+    // if (_isSearching != null) {
+    for (int i = 0; i < _spListResponse!.data.length; i++) {
+      SpListResponse data = _spListResponse!;
+      if (data.data[i].businessName
+          .toLowerCase()
+          .contains(searchText.toLowerCase())) {
+        searchResult.add(data);
+        setState();
+      }
+      // }
     }
   }
 }

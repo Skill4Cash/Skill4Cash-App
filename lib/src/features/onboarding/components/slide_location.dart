@@ -1,6 +1,6 @@
 import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
-import 'package:Skill4Cash/src/features/customers/onboarding/components/slide_signIn.dart';
+import 'package:Skill4Cash/src/features/onboarding/components/slide_signIn.dart';
 import 'package:Skill4Cash/src/features/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -18,7 +18,7 @@ class BuildSlideWithForm extends StatefulWidget {
 
 class _BuildSlideWithFormState extends State<BuildSlideWithForm> {
   // @override
-  String stateValue = NigerianStatesAndLGA.allStates[0];
+  String stateValue = "Abia";
   final _storage = FlutterSecureStorage();
 
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class _BuildSlideWithFormState extends State<BuildSlideWithForm> {
                       });
                     },
                     isExpanded: true,
-                    hint: const Text('Select a Nigerian state'),
+                    // hint: const Text('Select a Nigerian state'),
                     items: NigerianStatesAndLGA.allStates
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
@@ -73,10 +73,11 @@ class _BuildSlideWithFormState extends State<BuildSlideWithForm> {
                   kMediumVerticalSpacing,
                   AppButton(
                     label: "Next",
-                    onPressed: () async{
+                    onPressed: () async {
                       print(stateValue);
                       if (stateValue.isNotEmpty) {
-                       await _storage.write(key: "location", value: stateValue);
+                        await _storage.write(
+                            key: "location", value: stateValue);
                         Get.offAll(() => BuildSlideWithSignIn());
                       }
                     },

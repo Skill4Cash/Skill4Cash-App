@@ -2,8 +2,8 @@ import 'package:Skill4Cash/src/core/utilities/app_textstyle.dart';
 import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/routes/route_manager.dart';
-import '../../../widgets/app_button.dart';
+import '../../../core/routes/route_manager.dart';
+import '../../widgets/app_button.dart';
 
 class BuildSlideWithSignIn extends StatefulWidget {
   const BuildSlideWithSignIn({

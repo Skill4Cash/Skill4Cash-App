@@ -6,10 +6,9 @@ import 'package:Skill4Cash/src/features/customers/dashboard/views/service_provid
 import 'package:Skill4Cash/src/features/customers/home/views/home_screen.dart';
 import 'package:Skill4Cash/src/features/customers/messages/chat_screen.dart';
 import 'package:Skill4Cash/src/features/customers/messages/index.dart';
-
-import 'package:Skill4Cash/src/features/customers/onboarding/onboarding_screen.dart';
 import 'package:Skill4Cash/src/features/customers/settings_customer/customer_guidelines_screen.dart';
 import 'package:Skill4Cash/src/features/customers/settings_customer/privacy_policy_screen.dart';
+import 'package:Skill4Cash/src/features/onboarding/onboarding_screen.dart';
 // import 'package:Skill4Cash/src/features/customers/settings_customer/settings_screen.dart';
 import 'package:Skill4Cash/src/features/service_provider/dashboard/index.dart';
 import 'package:Skill4Cash/src/features/service_provider/dashboard/keyword.dart';
@@ -96,7 +95,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const DashboardScreen());
       case CustomerRoutes.serviceProvidersAroundScreenRoute:
         return MaterialPageRoute(
-            builder: (_) => const ServiceProvidersAroundScreen());
+            builder: (_) => ServiceProvidersAroundScreen());
       case CustomerRoutes.customerHomeRoute:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case CustomerRoutes.messagesRoute:
