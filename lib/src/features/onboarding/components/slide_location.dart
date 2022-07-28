@@ -3,6 +3,7 @@ import 'package:Skill4Cash/src/core/utilities/constants.dart';
 import 'package:Skill4Cash/src/features/onboarding/components/slide_signIn.dart';
 import 'package:Skill4Cash/src/features/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:nigerian_states_and_lga/nigerian_states_and_lga.dart';
 
